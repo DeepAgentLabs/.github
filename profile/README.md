@@ -1,8 +1,44 @@
 # DeepAgentLabs
 
-Open-source observability, evaluation, and resilience tooling for agentic AI
-applications — from profiling and quality scoring to fault injection and chaos
-testing.
+DeepAgentLabs builds **open operational infrastructure for production AI
+systems**.
+
+The ecosystem is organized around a simple architecture:
+
+```text
+Operational Model
+        |
+        v
+AI Operations Workflow Specification
+        |
+        v
+Reference Implementations
+        |
+        +-- AgenticLens
+        +-- Agentic Chaos
+        +-- deep-agentic-core-mcp
+```
+
+The core idea is simple:
+
+- define an open operational model for production AI systems
+- express it through a versioned workflow specification
+- build practical PyPI packages that implement the model
+
+All three projects are centered on the **AI Operations Workflow Specification**
+as the canonical operational model for production AI systems.
+
+## Workflow Specification
+
+At the center of the ecosystem is the **AI Operations Workflow Specification**,
+a versioned workflow contract for representing production AI runs,
+observability data, evaluation evidence, resilience events, and future
+operational metadata.
+
+This turns `workflow.json` into a first-class artifact rather than an internal
+implementation detail.
+
+- Spec: [AI Operations Workflow Specification](https://github.com/DeepAgentLabs/agenticlens/blob/main/docs/workflow-schema-spec.md)
 
 ## Projects
 
@@ -11,17 +47,17 @@ testing.
 [![PyPI](https://img.shields.io/pypi/v/agenticlens.svg)](https://pypi.org/project/agenticlens/)
 [![Python](https://img.shields.io/pypi/pyversions/agenticlens.svg)](https://pypi.org/project/agenticlens/)
 
-Full-stack observability, evaluation, and regression toolkit for agentic AI
-applications. Workflow profiling, cost/latency/token analysis, RAG
-chunk-utility scoring, and multi-format export — all local-first, no hosted
-backend required.
+The flagship reference implementation for observability, evaluation, and
+operational intelligence for production AI systems.
 
-**Current:** workflow profiling, cost analysis, RAG chunk-utility scoring,
-multi-format export, and agentic-chaos interop.
+AgenticLens observes, evaluates, explains, and recommends:
 
-**Roadmap:** graph-aware tracing, evaluator API with LLM-as-judge scoring,
-datasets and trace-to-dataset curation, experiment runner for prompt/model
-variant comparison, prompt registry, and CI policy guardrails.
+- workflow profiling
+- latency, token, and cost analysis
+- RAG and agent workflow inspection
+- incident and change-impact analysis
+- SLI/SLO-oriented operational reporting
+- audit and standards-readiness evidence
 
 ```bash
 pip install agenticlens
@@ -32,19 +68,17 @@ pip install agenticlens
 [![PyPI](https://img.shields.io/pypi/v/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
 [![Python](https://img.shields.io/pypi/pyversions/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
 
-A comprehensive fault-injection and resilience testing toolkit for LLM calls
-and agentic workflows. Deliberately breaks your app — token timeouts,
-rate-limit storms, silent degradation, tool-call failures, memory corruption,
-infinite loops — so you find out what actually happens before your users do.
-Includes a LangGraph adapter and agent topology tracking out of the box.
+The resilience testing and failure-validation reference implementation for
+production AI systems.
 
-**Current (v0.2):** LLM-level faults (token timeout, rate-limit storm, silent
-degradation) + agent-level faults (tool-call failure, memory corruption,
-infinite loop) + LangGraph adapter + topology tracking + CLI.
+Agentic Chaos injects, validates, tests, and proves resilience:
 
-**Roadmap:** fidelity judges, prompt/model drift detection, streaming faults,
-pytest plugin, fault cascades, resilience scoring, and a shared ChaosHub
-experiment registry.
+- LLM fault injection
+- agent failure injection
+- recovery validation
+- deployment and release validation
+- conformance-style resilience testing
+- drift and degradation evidence
 
 ```bash
 pip install agentic-chaos
@@ -55,13 +89,11 @@ pip install agentic-chaos
 [![PyPI](https://img.shields.io/pypi/v/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
 [![Python](https://img.shields.io/pypi/pyversions/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
 
-A unified MCP (Model Context Protocol) server that exposes the full
-DeepAgentLabs ecosystem — workflow observability from AgenticLens and
-resilience testing from agentic-chaos — through a single MCP interface. One
-server, one registry identity, one connection for MCP-compatible hosts.
+The unified MCP-native control surface for the ecosystem.
 
-**Status:** Foundation phase — project structure, registry metadata, and
-initial tool surface design.
+DeepAgentLabs MCP exposes the shared operational model through one MCP server,
+bridging hosts and tooling over the same workflow specification used by the
+reference implementations.
 
 ```bash
 pip install deep-agentic-core-mcp
@@ -69,30 +101,32 @@ pip install deep-agentic-core-mcp
 
 ## How They Fit Together
 
-```
-┌─────────────────────────────────────────────────┐
-│            deep-agentic-core-mcp                │
-│         (unified MCP server layer)              │
-└────────────────┬────────────────┬───────────────┘
-                 │                │
-     ┌───────────▼───┐    ┌───────▼─────────┐
-     │  agenticlens  │    │  agentic-chaos  │
-     │ observability │    │   resilience    │
-     │  & evaluation │    │   & testing     │
-     └───────────────┘    └─────────────────┘
+```text
+┌──────────────────────────────────────────────────────────────┐
+│                  AI Operations Workflow Specification        │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+         ┌─────────────────────┼─────────────────────┐
+         │                     │                     │
+┌────────▼────────┐   ┌────────▼─────────┐   ┌───────▼────────────────┐
+│   AgenticLens   │   │  Agentic Chaos   │   │ deep-agentic-core-mcp  │
+│ Observe         │   │ Break            │   │ Unified MCP interface  │
+│ Evaluate        │   │ Validate         │   │ over the same model    │
+│ Explain         │   │ Test             │   └────────────────────────┘
+│ Recommend       │   │ Prove resilience │
+└─────────────────┘   └──────────────────┘
 ```
 
-Each package is fully standalone — `pip install` any one of them and it works
-independently. They compose through a shared, documented `workflow.json` format
-rather than hard code dependencies. The MCP server is a thin orchestration layer
-that delegates to both.
+Each package is independently installable and useful on its own. They compose
+through the shared workflow specification rather than hard code dependencies.
 
 ## Philosophy
 
-- **Local-first:** runs on your machine or in CI — no hosted backend, no
-  account, no data egress.
-- **Package-first:** every feature is usable through Python and the CLI.
-- **Explicitly instrumented:** no SDK monkey-patching or hidden side-effects.
-- **Framework-agnostic:** integrations matter, but the core data model stays
-  independent.
-- **Composable by default:** independent packages, shared JSON contracts.
+- **Architecture-first:** the ecosystem is organized around one shared
+  operational model and workflow specification.
+- **Package-first:** core capabilities ship as installable Python packages.
+- **Local-first:** artifacts work in local development and CI without a hosted
+  backend.
+- **Framework-agnostic:** the operational model stays broader than any one SDK.
+- **Composable by default:** one shared workflow specification, multiple
+  reference implementations.
