@@ -1,63 +1,20 @@
 # DeepAgentLabs
 
+## An Open AI Operations Ecosystem
+
 DeepAgentLabs builds **open operational infrastructure for production AI
 systems**.
 
-The ecosystem is organized around a simple architecture:
-
-```text
-Operational Model
-        |
-        v
-AI Operations Workflow Specification
-        |
-        v
-Reference Implementations
-        |
-        +-- AgenticLens
-        +-- Agentic Chaos
-        +-- deep-agentic-core-mcp
-```
-
-The core idea is simple:
-
-- define an open operational model for production AI systems
-- express it through a versioned workflow specification
-- build practical PyPI packages that implement the model
-
-All three projects are centered on the **AI Operations Workflow Specification**
-as the canonical operational model for production AI systems.
-
-## Workflow Specification
-
-At the center of the ecosystem is the **AI Operations Workflow Specification**,
-a versioned workflow contract for representing production AI runs,
-observability data, evaluation evidence, resilience events, and future
-operational metadata.
-
-This turns `workflow.json` into a first-class artifact rather than an internal
-implementation detail.
-
-- Spec: [AI Operations Workflow Specification](https://github.com/DeepAgentLabs/agenticlens/blob/main/docs/workflow-schema-spec.md)
-
-## Projects
+## The Three Core Projects
 
 ### [agenticlens](https://github.com/DeepAgentLabs/agenticlens)
 
 [![PyPI](https://img.shields.io/pypi/v/agenticlens.svg)](https://pypi.org/project/agenticlens/)
 [![Python](https://img.shields.io/pypi/pyversions/agenticlens.svg)](https://pypi.org/project/agenticlens/)
 
-The flagship reference implementation for observability, evaluation, and
-operational intelligence for production AI systems.
-
-AgenticLens observes, evaluates, explains, and recommends:
-
-- workflow profiling
-- latency, token, and cost analysis
-- RAG and agent workflow inspection
-- incident and change-impact analysis
-- SLI/SLO-oriented operational reporting
-- audit and standards-readiness evidence
+The observability, evaluation, and operational intelligence layer. It tells you
+what happened, how well the system performed, where cost, latency, and risk
+came from, and whether things are getting better or worse.
 
 ```bash
 pip install agenticlens
@@ -68,17 +25,9 @@ pip install agenticlens
 [![PyPI](https://img.shields.io/pypi/v/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
 [![Python](https://img.shields.io/pypi/pyversions/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
 
-The resilience testing and failure-validation reference implementation for
-production AI systems.
-
-Agentic Chaos injects, validates, tests, and proves resilience:
-
-- LLM fault injection
-- agent failure injection
-- recovery validation
-- deployment and release validation
-- conformance-style resilience testing
-- drift and degradation evidence
+The resilience and failure-validation layer. It deliberately breaks AI
+workflows so teams can test reliability, recovery, fault tolerance, and
+degraded behavior before production incidents do it for them.
 
 ```bash
 pip install agentic-chaos
@@ -89,15 +38,35 @@ pip install agentic-chaos
 [![PyPI](https://img.shields.io/pypi/v/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
 [![Python](https://img.shields.io/pypi/pyversions/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
 
-The unified MCP-native control surface for the ecosystem.
-
-DeepAgentLabs MCP exposes the shared operational model through one MCP server,
-bridging hosts and tooling over the same workflow specification used by the
-reference implementations.
+The unified MCP control surface. It exposes the shared operational model and
+the capabilities of both tools through one interface for hosts, agents, and
+external systems.
 
 ```bash
 pip install deep-agentic-core-mcp
 ```
+
+## The Center of Gravity
+
+At the center of the ecosystem is the **AI Operations Workflow Specification**,
+a versioned workflow contract for representing production AI runs,
+observability data, evaluation evidence, resilience events, and future
+operational metadata.
+
+This turns `workflow.json` into a first-class artifact rather than an internal
+implementation detail.
+
+All three projects are centered on the **AI Operations Workflow Specification**
+as the canonical operational model for production AI systems.
+
+- Spec: [AI Operations Workflow Specification](https://github.com/DeepAgentLabs/agenticlens/blob/main/docs/workflow-schema-spec.md)
+
+## Summary
+
+The ecosystem serves as an open operational framework for production AI
+systems, similar in spirit to OpenTelemetry but purpose-built for AI systems
+and agentic workflows. It makes applications observable, testable, and
+manageable through a structured, shared data model.
 
 ## How They Fit Together
 
