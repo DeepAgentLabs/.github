@@ -96,7 +96,7 @@ manageable through a structured, shared data model.
 
 ## How They Fit Together
 
-![AI Operations Ecosystem Diagram](profile/assets/ai-operations-ecosystem.png)
+![AI Operations Ecosystem Diagram](assets/ai-operations-ecosystem.png)
 
 Each package is independently installable and useful on its own. They compose
 through the shared specification rather than hard-coded dependencies.
