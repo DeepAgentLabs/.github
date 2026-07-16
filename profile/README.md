@@ -5,6 +5,8 @@
 DeepAgentLabs builds **open operational infrastructure for production AI
 systems**.
 
+- Ecosystem roadmap: [ROADMAP.md](ROADMAP.md)
+
 ## The Shared Foundation
 
 ### [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)
@@ -15,6 +17,10 @@ systems.
 
 It defines the shared contract for:
 
+- AI runtime objects such as `Workflow`, `Request`, `Agent`, `LLM`, `Prompt`,
+  `Context`, `RAG`, `Memory`, `Tool`, `Evaluation`, and `Incident`
+- AI-native semantic events such as `workflow.started`, `agent.step`, and
+  `llm.call`
 - workflow artifacts such as `workflow.json`
 - schema validation
 - evaluation and incident interoperability
@@ -31,9 +37,14 @@ guidance, schemas, examples, and extension conventions.
 [![PyPI](https://img.shields.io/pypi/v/agenticlens.svg)](https://pypi.org/project/agenticlens/)
 [![Python](https://img.shields.io/pypi/pyversions/agenticlens.svg)](https://pypi.org/project/agenticlens/)
 
-The observability, evaluation, and operational intelligence layer. It tells you
-what happened, how well the system performed, where cost, latency, and risk
-came from, and whether things are getting better or worse.
+The observability, evaluation, and operational intelligence layer. It helps
+developers understand what ran, what the model and agent did, what context and
+tools were involved, what it cost, and whether the output was reliable, safe,
+and improving over time.
+
+AgenticLens is built around a simple idea:
+
+`instrument the AI runtime once, export everywhere`
 
 AgenticLens is the flagship Python reference implementation of the AI
 Operations Specification.
@@ -48,8 +59,8 @@ pip install agenticlens
 [![Python](https://img.shields.io/pypi/pyversions/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
 
 The resilience and failure-validation layer. It deliberately breaks AI
-workflows so teams can test reliability, recovery, fault tolerance, and
-degraded behavior before production incidents do it for them.
+workflows so teams can test reliability, recovery, fault tolerance, degraded
+behavior, and failure impact before production incidents do it for them.
 
 Agentic Chaos produces resilience and degradation artifacts that remain
 compatible with the shared specification.
@@ -82,6 +93,12 @@ This turns `workflow.json` into a first-class artifact rather than an internal
 implementation detail, with `workflow.schema.json` and written specification
 documents defining the contract around it.
 
+The specification is best understood as a shared model of AI runtime objects
+and semantic events, not as a giant flat list of metrics.
+
+Telemetry is not itself a runtime object. It is a downstream export layer built
+on top of the shared runtime model.
+
 All ecosystem tools are aligned around the **AI Operations Specification** as
 the canonical operational model for production AI systems.
 
@@ -94,6 +111,16 @@ systems, similar in spirit to OpenTelemetry but purpose-built for AI systems
 and agentic workflows. It makes applications observable, testable, and
 manageable through a structured, shared data model.
 
+At a high level, the ecosystem is organized around a simple split:
+
+- `agenticlens` answers: what happened, why it happened, what it cost, and
+  whether the system performed well
+- `agentic-chaos` answers: what breaks under stress, how badly it breaks, and
+  whether recovery actually works
+- `ai-operations-spec` defines the shared contract
+- `deep-agentic-core-mcp` exposes the ecosystem through one MCP-native
+  interface
+
 ## How They Fit Together
 
 ![AI Operations Ecosystem Diagram](assets/ai-operations-ecosystem.png)
@@ -105,6 +132,8 @@ through the shared specification rather than hard-coded dependencies.
 
 - **Architecture-first:** the ecosystem is organized around one shared
   operational model and specification.
+- **Specification-first:** the AI Operations Specification should evolve before
+  package-specific abstractions drift apart.
 - **Package-first:** core capabilities ship as installable Python packages.
 - **Local-first:** artifacts work in local development and CI without a hosted
   backend.
