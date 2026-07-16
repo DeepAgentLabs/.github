@@ -5,7 +5,26 @@
 DeepAgentLabs builds **open operational infrastructure for production AI
 systems**.
 
-## The Three Core Projects
+## The Shared Foundation
+
+### [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)
+
+The **AI Operations Specification** is the center of gravity for the ecosystem.
+It is a language-neutral, versioned operational model for production AI
+systems.
+
+It defines the shared contract for:
+
+- workflow artifacts such as `workflow.json`
+- schema validation
+- evaluation and incident interoperability
+- resilience and degradation evidence
+- future extensions across tools and frameworks
+
+This repository contains the specification itself: written rules, versioning
+guidance, schemas, examples, and extension conventions.
+
+## The Reference Implementations
 
 ### [agenticlens](https://github.com/DeepAgentLabs/agenticlens)
 
@@ -15,6 +34,9 @@ systems**.
 The observability, evaluation, and operational intelligence layer. It tells you
 what happened, how well the system performed, where cost, latency, and risk
 came from, and whether things are getting better or worse.
+
+AgenticLens is the flagship Python reference implementation of the AI
+Operations Specification.
 
 ```bash
 pip install agenticlens
@@ -28,6 +50,9 @@ pip install agenticlens
 The resilience and failure-validation layer. It deliberately breaks AI
 workflows so teams can test reliability, recovery, fault tolerance, and
 degraded behavior before production incidents do it for them.
+
+Agentic Chaos produces resilience and degradation artifacts that remain
+compatible with the shared specification.
 
 ```bash
 pip install agentic-chaos
@@ -48,18 +73,19 @@ pip install deep-agentic-core-mcp
 
 ## The Center of Gravity
 
-At the center of the ecosystem is the **AI Operations Workflow Specification**,
-a versioned workflow contract for representing production AI runs,
-observability data, evaluation evidence, resilience events, and future
-operational metadata.
+At the center of the ecosystem is the **AI Operations Specification**.
+
+It is not owned by a single package. DeepAgentLabs defines and stewards the
+specification so multiple tools can share one operational contract.
 
 This turns `workflow.json` into a first-class artifact rather than an internal
-implementation detail.
+implementation detail, with `workflow.schema.json` and written specification
+documents defining the contract around it.
 
-All three projects are centered on the **AI Operations Workflow Specification**
-as the canonical operational model for production AI systems.
+All ecosystem tools are aligned around the **AI Operations Specification** as
+the canonical operational model for production AI systems.
 
-- Spec: [AI Operations Workflow Specification](https://github.com/DeepAgentLabs/agenticlens/blob/main/docs/workflow-schema-spec.md)
+- Spec repo: [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)
 
 ## Summary
 
@@ -71,31 +97,32 @@ manageable through a structured, shared data model.
 ## How They Fit Together
 
 ```text
-┌──────────────────────────────────────────────────────────────┐
-│                  AI Operations Workflow Specification        │
-└──────────────────────────────┬───────────────────────────────┘
-                               │
-         ┌─────────────────────┼─────────────────────┐
-         │                     │                     │
-┌────────▼────────┐   ┌────────▼─────────┐   ┌───────▼────────────────┐
-│   AgenticLens   │   │  Agentic Chaos   │   │ deep-agentic-core-mcp  │
-│ Observe         │   │ Break            │   │ Unified MCP interface  │
-│ Evaluate        │   │ Validate         │   │ over the same model    │
-│ Explain         │   │ Test             │   └────────────────────────┘
-│ Recommend       │   │ Prove resilience │
-└─────────────────┘   └──────────────────┘
+AI Frameworks and Runtimes
+LangGraph, CrewAI, OpenAI Agents SDK, AutoGen, LlamaIndex, custom apps
+                |
+                v
+AI Operations Specification
+                |
+      ┌─────────┼─────────┐
+      │         │         │
+      v         v         v
+AgenticLens  Agentic   deep-agentic-
+Observe      Chaos     core-mcp
+Evaluate     Break     Unified MCP interface
+Explain      Validate  over the same model
+Recommend    Test
 ```
 
 Each package is independently installable and useful on its own. They compose
-through the shared workflow specification rather than hard code dependencies.
+through the shared specification rather than hard-coded dependencies.
 
 ## Philosophy
 
 - **Architecture-first:** the ecosystem is organized around one shared
-  operational model and workflow specification.
+  operational model and specification.
 - **Package-first:** core capabilities ship as installable Python packages.
 - **Local-first:** artifacts work in local development and CI without a hosted
   backend.
 - **Framework-agnostic:** the operational model stays broader than any one SDK.
-- **Composable by default:** one shared workflow specification, multiple
-  reference implementations.
+- **Composable by default:** one shared specification, multiple reference
+  implementations.
