@@ -96,22 +96,7 @@ manageable through a structured, shared data model.
 
 ## How They Fit Together
 
-```text
-AI Frameworks and Runtimes
-LangGraph, CrewAI, OpenAI Agents SDK, AutoGen, LlamaIndex, custom apps
-                |
-                v
-AI Operations Specification
-                |
-      ┌─────────┼─────────┐
-      │         │         │
-      v         v         v
-AgenticLens  Agentic   deep-agentic-
-Observe      Chaos     core-mcp
-Evaluate     Break     Unified MCP interface
-Explain      Validate  over the same model
-Recommend    Test
-```
+![AI Operations Ecosystem Diagram](profile/assets/ai-operations-ecosystem.png)
 
 Each package is independently installable and useful on its own. They compose
 through the shared specification rather than hard-coded dependencies.
