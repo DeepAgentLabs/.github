@@ -1,6 +1,6 @@
 # DeepAgentLabs
 
-## An Open AI Operations Ecosystem
+## An Open AI-Operations Ecosystem
 
 DeepAgentLabs builds **open operational infrastructure for production AI
 systems**.
