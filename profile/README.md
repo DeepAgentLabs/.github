@@ -121,6 +121,22 @@ At a high level, the ecosystem is organized around a simple split:
 - `deep-agentic-core-mcp` exposes the ecosystem through one MCP-native
   interface
 
+## What's Next
+
+The ecosystem is building toward **sessions, provenance, structured reports,
+and verification** as the next foundation layer:
+
+| Project | Next Milestone |
+|---------|---------------|
+| **deep-agentic-core-mcp** | Session state, rich diagnostics, tool annotations, prompt registry, integration verification |
+| **agenticlens** | Evidence provenance on findings, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement |
+| **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
+| **ai-operations-spec** | Provenance/evidence concepts, conformance test suite, naming conventions |
+
+The build order is intentional: MCP server foundations → agenticlens evidence
+model → agentic-chaos structured reports → spec formalization of proven
+patterns.
+
 ## How They Fit Together
 
 ![AI Operations Ecosystem Diagram](assets/ai-operations-ecosystem.png)

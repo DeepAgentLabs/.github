@@ -269,6 +269,80 @@ That keeps the specification above any one package and makes ecosystem adoption
 easier for third parties who want to implement the contract without depending
 on the Python packages directly.
 
+## Consolidated Next Steps
+
+The following items represent the current implementation priorities across the
+ecosystem, grouped by urgency.
+
+### Implement Now
+
+**deep-agentic-core-mcp:**
+- Lightweight session/state management (let sequential tool calls share context)
+- Expand `core.health` into real diagnostics (adapter availability, versions,
+  loaded tools, config validation)
+- Tool metadata/annotations (category, prerequisites, duration, mutation flag)
+- Prompt registry support (reusable templates as MCP resources)
+- Integration verification flow (`core.verify`)
+
+**agenticlens:**
+- First-class evidence/provenance objects on findings and reports
+- "Next best analysis" recommendations based on workflow shape
+- OpenTelemetry trace export
+- Import-layer enforcement in CI
+
+**agentic-chaos:**
+- Structured experiment traces/reports (hypothesis, injection point, fault,
+  observed behavior, recovery outcome, verdict, provenance)
+- Synthetic test scenarios (prebuilt known-bad agent behaviors)
+
+**ai-operations-spec:**
+- Provenance/evidence concepts in the spec
+- Conformance test suite for producers
+- Naming conventions document
+
+**Cross-cutting (done):**
+- `AGENTS.md` in each repo ✅
+- `CI.md` pre-push quality guide in each repo ✅
+
+### Implement Next
+
+**agenticlens:**
+- Investigation-style narratives on recommendations
+- Richer CLI subcommands (`inspect`, `compare`, `trace show`, `report explain`)
+- Analysis guardrails (budget limits, stagnation detection)
+
+**agentic-chaos:**
+- Resilience benchmark fixtures/datasets
+- Parallel/sharded test execution
+
+**ai-operations-spec:**
+- Migration guides between spec versions
+- Hosted docs site
+- Report/investigation artifact schemas
+
+**deep-agentic-core-mcp:**
+- Guided onboarding wizard
+- Saved artifact browsing through MCP resources
+- Explainable report recall and session history
+
+### Defer
+
+- agenticlens full interactive REPL/shell
+- agentic-chaos local chaos-lab stack (Docker Compose/kind)
+- deep-agentic-core-mcp fleet/process registry
+- deep-agentic-core-mcp full gateway/multi-surface architecture
+- conversational long-term memory in agenticlens or agentic-chaos
+
+### Recommended Build Order
+
+1. **deep-agentic-core-mcp** — sessions, diagnostics, tool metadata, prompts,
+   verification
+2. **agenticlens** — provenance/evidence, next-step recommendations, OTel,
+   layer enforcement
+3. **agentic-chaos** — structured reports/traces, synthetic scenarios
+4. **ai-operations-spec** — provenance/evidence/report semantics, conformance
+   tests, naming rules
+
 ## North Star
 
 The long-term goal is not just a Python toolkit.
