@@ -289,6 +289,8 @@ ecosystem, grouped by urgency.
 - "Next best analysis" recommendations based on workflow shape
 - OpenTelemetry trace export
 - Import-layer enforcement in CI
+- AIOS conformance tooling in the CLI, with normative rules defined by
+  `ai-operations-spec`
 
 **agentic-chaos:**
 - Structured experiment traces/reports (hypothesis, injection point, fault,
@@ -310,6 +312,7 @@ ecosystem, grouped by urgency.
 - Investigation-style narratives on recommendations
 - Richer CLI subcommands (`inspect`, `compare`, `trace show`, `report explain`)
 - Analysis guardrails (budget limits, stagnation detection)
+- `conformance` command family (`validate`, version selection, structured pass/fail reporting)
 
 **agentic-chaos:**
 - Resilience benchmark fixtures/datasets
@@ -338,10 +341,10 @@ ecosystem, grouped by urgency.
 1. **deep-agentic-core-mcp** — sessions, diagnostics, tool metadata, prompts,
    verification
 2. **agenticlens** — provenance/evidence, next-step recommendations, OTel,
-   layer enforcement
+   layer enforcement, conformance CLI
 3. **agentic-chaos** — structured reports/traces, synthetic scenarios
-4. **ai-operations-spec** — provenance/evidence/report semantics, conformance
-   tests, naming rules
+4. **ai-operations-spec** — provenance/evidence/report semantics, naming rules,
+   conformance requirements and fixtures
 
 ## North Star
 
