@@ -131,7 +131,7 @@ next foundation layer:
 | Project | Next Milestone |
 |---------|---------------|
 | **deep-agentic-core-mcp** | Provenance verification on `lens.analyze_workflow`, multi-version AIOS schema support, unified observability + chaos workflows (Phase 4) |
-| **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (v0.4) |
+| **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (next release) |
 | **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
 | **ai-operations-spec** | Provenance/evidence concepts, conformance test suite, naming conventions |
 

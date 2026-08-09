@@ -280,7 +280,8 @@ ecosystem, grouped by urgency.
 registry, and `core.verify` shipped in `0.2.0`)*
 - Provenance verification on `lens.analyze_workflow`'s response shape
 - Multi-version AIOS schema support + conformance-style reporting (blocked on
-  `ai-operations-spec` populating `v0.1`-`v0.3` schemas)
+  `ai-operations-spec` publishing `v0.4` schema artifacts and follow-on
+  compatibility/versioning rules)
 - Unified workflows: joined observability + chaos, incident/readiness
   reporting (Phase 4)
 
@@ -290,7 +291,7 @@ shipped in `0.4.0`)*
 - Judge calibration reports and statistical confidence intervals
 - Evaluation dataset management
 - Built-in provider clients for LLM-judge calls
-- v0.4 experiment/variant manifests and statistical comparison
+- Next release: experiment/variant manifests and statistical comparison
 
 **agentic-chaos:**
 - Structured experiment traces/reports (hypothesis, injection point, fault,
