@@ -123,13 +123,15 @@ At a high level, the ecosystem is organized around a simple split:
 
 ## What's Next
 
-The ecosystem is building toward **sessions, provenance, structured reports,
-and verification** as the next foundation layer:
+The MCP server and AgenticLens have already delivered **sessions, provenance,
+and verification**. The ecosystem is now building toward **structured
+resilience reports and specification-level provenance/conformance** as the
+next foundation layer:
 
 | Project | Next Milestone |
 |---------|---------------|
-| **deep-agentic-core-mcp** | Session state, rich diagnostics, tool annotations, prompt registry, integration verification |
-| **agenticlens** | Evidence provenance on findings, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement |
+| **deep-agentic-core-mcp** | Provenance verification on `lens.analyze_workflow`, multi-version AIOS schema support, unified observability + chaos workflows (Phase 4) |
+| **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (v0.4) |
 | **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
 | **ai-operations-spec** | Provenance/evidence concepts, conformance test suite, naming conventions |
 
