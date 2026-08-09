@@ -276,21 +276,21 @@ ecosystem, grouped by urgency.
 
 ### Implement Now
 
-**deep-agentic-core-mcp:**
-- Lightweight session/state management (let sequential tool calls share context)
-- Expand `core.health` into real diagnostics (adapter availability, versions,
-  loaded tools, config validation)
-- Tool metadata/annotations (category, prerequisites, duration, mutation flag)
-- Prompt registry support (reusable templates as MCP resources)
-- Integration verification flow (`core.verify`)
+**deep-agentic-core-mcp:** *(sessions, rich diagnostics, tool annotations, prompt
+registry, and `core.verify` shipped in `0.2.0`)*
+- Provenance verification on `lens.analyze_workflow`'s response shape
+- Multi-version AIOS schema support + conformance-style reporting (blocked on
+  `ai-operations-spec` populating `v0.1`-`v0.3` schemas)
+- Unified workflows: joined observability + chaos, incident/readiness
+  reporting (Phase 4)
 
-**agenticlens:**
-- First-class evidence/provenance objects on findings and reports
-- "Next best analysis" recommendations based on workflow shape
-- OpenTelemetry trace export
-- Import-layer enforcement in CI
-- AIOS conformance tooling in the CLI, with normative rules defined by
-  `ai-operations-spec`
+**agenticlens:** *(evidence/provenance objects, next-best-analysis guidance,
+OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI
+shipped in `0.4.0`)*
+- Judge calibration reports and statistical confidence intervals
+- Evaluation dataset management
+- Built-in provider clients for LLM-judge calls
+- v0.4 experiment/variant manifests and statistical comparison
 
 **agentic-chaos:**
 - Structured experiment traces/reports (hypothesis, injection point, fault,
@@ -310,9 +310,11 @@ ecosystem, grouped by urgency.
 
 **agenticlens:**
 - Investigation-style narratives on recommendations
-- Richer CLI subcommands (`inspect`, `compare`, `trace show`, `report explain`)
+- Remaining CLI subcommands (`trace show`, `report explain` — `inspect` and
+  `compare` already shipped)
 - Analysis guardrails (budget limits, stagnation detection)
-- `conformance` command family (`validate`, version selection, structured pass/fail reporting)
+- Structured judge verdict fields on `LLMJudgeEvaluator` (agree/
+  partially-agree/disagree, confidence score, factual-grounding breakdown)
 
 **agentic-chaos:**
 - Resilience benchmark fixtures/datasets
@@ -338,11 +340,12 @@ ecosystem, grouped by urgency.
 
 ### Recommended Build Order
 
-1. **deep-agentic-core-mcp** — sessions, diagnostics, tool metadata, prompts,
-   verification
-2. **agenticlens** — provenance/evidence, next-step recommendations, OTel,
-   layer enforcement, conformance CLI
+1. ~~**deep-agentic-core-mcp** — sessions, diagnostics, tool metadata, prompts,
+   verification~~ ✅ shipped in `0.2.0`
+2. ~~**agenticlens** — provenance/evidence, next-step recommendations, OTel,
+   layer enforcement, conformance CLI~~ ✅ shipped in `0.4.0`
 3. **agentic-chaos** — structured reports/traces, synthetic scenarios
+   *(current frontier)*
 4. **ai-operations-spec** — provenance/evidence/report semantics, naming rules,
    conformance requirements and fixtures
 
