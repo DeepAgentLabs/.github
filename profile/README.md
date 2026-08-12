@@ -75,8 +75,10 @@ pip install agentic-chaos
 [![Python](https://img.shields.io/pypi/pyversions/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
 
 The unified MCP control surface. It exposes the shared operational model and
-the capabilities of both tools through one interface for hosts, agents, and
-external systems.
+the capabilities of the ecosystem through one interface for hosts, agents, and
+external systems. Today that includes AgenticLens workflows, Agentic Chaos
+experiments, and Agentic Sidecar discovery/readiness surfaces, with deeper
+sidecar control flows landing as the sidecar runtime ships.
 
 ```bash
 pip install deep-agentic-core-mcp
@@ -134,7 +136,7 @@ At a high level, the ecosystem is organized around a simple split:
   user intent, and should it proceed, replan, or escalate
 - `ai-operations-spec` defines the shared contract
 - `deep-agentic-core-mcp` exposes the ecosystem through one MCP-native
-  interface
+  interface, starting with Lens, Chaos, and Sidecar-aligned surfaces
 
 ## What's Next
 
@@ -145,7 +147,7 @@ next foundation layer:
 
 | Project | Next Milestone |
 |---------|---------------|
-| **deep-agentic-core-mcp** | Provenance verification on `lens.analyze_workflow`, multi-version AIOS schema support, unified observability + chaos workflows (Phase 4) |
+| **deep-agentic-core-mcp** | Provenance verification on `lens.analyze_workflow`, multi-version AIOS schema support, Sidecar-aware MCP discovery surfaces, unified observability + chaos workflows (Phase 4) |
 | **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (next release) |
 | **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
 | **agentic-sidecar** | v0.1 sidecar runtime, LangGraph adapter, and rule-based decision gate |
