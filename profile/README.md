@@ -82,6 +82,19 @@ external systems.
 pip install deep-agentic-core-mcp
 ```
 
+### [agentic-sidecar](https://github.com/DeepAgentLabs/agentic-sidecar)
+
+[![PyPI](https://img.shields.io/pypi/v/agentic-sidecar.svg)](https://pypi.org/project/agentic-sidecar/)
+[![Python](https://img.shields.io/pypi/pyversions/agentic-sidecar.svg)](https://pypi.org/project/agentic-sidecar/)
+
+The decision-supervision layer for autonomous AI agents. It is designed to
+work alongside any agent framework to preserve user intent, evaluate risky or
+off-scope actions before they happen, and escalate to a human when needed.
+
+```bash
+pip install agentic-sidecar
+```
+
 ## The Center of Gravity
 
 At the center of the ecosystem is the **AI Operations Specification**.
@@ -117,6 +130,8 @@ At a high level, the ecosystem is organized around a simple split:
   whether the system performed well
 - `agentic-chaos` answers: what breaks under stress, how badly it breaks, and
   whether recovery actually works
+- `agentic-sidecar` answers: is the agent's next action still aligned with
+  user intent, and should it proceed, replan, or escalate
 - `ai-operations-spec` defines the shared contract
 - `deep-agentic-core-mcp` exposes the ecosystem through one MCP-native
   interface
@@ -133,6 +148,7 @@ next foundation layer:
 | **deep-agentic-core-mcp** | Provenance verification on `lens.analyze_workflow`, multi-version AIOS schema support, unified observability + chaos workflows (Phase 4) |
 | **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (next release) |
 | **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
+| **agentic-sidecar** | v0.1 sidecar runtime, LangGraph adapter, and rule-based decision gate |
 | **ai-operations-spec** | Provenance/evidence concepts, conformance test suite, naming conventions |
 
 The build order is intentional: MCP server foundations → agenticlens evidence
