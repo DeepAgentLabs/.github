@@ -28,7 +28,9 @@ AI Operations Specification
      Reference Implementations
         ├── AgenticLens
         ├── Agentic Chaos
-        └── DeepAgent MCP
+        ├── Agentic Sidecar
+        ├── DeepAgent MCP
+        └── AgenticOps Control Tower
 ```
 
 The specification is the foundation. The packages are reference
@@ -204,6 +206,38 @@ report()
 This keeps the MCP layer thin, portable, and aligned with the rest of the
 ecosystem.
 
+### Phase 9 — Agentic Sidecar
+
+Goal: add pre-action supervision and decision governance against the same
+operational model.
+
+Agentic Sidecar should answer:
+
+- is the next action aligned with user intent
+- is the action policy-compliant
+- does the action require escalation, replanning, or blocking
+
+### Phase 10 — AgenticOps Control Tower
+
+Goal: add the operator-facing control plane above the ecosystem capabilities.
+
+AgenticOps Control Tower should not replace Lens, Chaos, Sidecar, or MCP. It
+should centralize:
+
+- agent inventory
+- capability discovery
+- health and status rollups
+- centralized configuration
+- multi-agent operational workflows
+
+It should answer:
+
+- what is deployed
+- where it is running
+- which capabilities and versions are present
+- what is unhealthy
+- what operators should manage from one place
+
 ## Specification Milestones
 
 The AI Operations Specification itself should evolve in clear milestones.
@@ -257,6 +291,13 @@ Versioning and compatibility rules.
 Stable public specification.
 
 ## Package Roles
+
+- `ai-operations-spec` — defines the standard
+- `agenticlens` — observes and evaluates the standard
+- `agentic-chaos` — tests and stress-validates the standard
+- `agentic-sidecar` — governs decisions against the standard
+- `deep-agentic-core-mcp` — connects the standard through MCP
+- `agenticops-control-tower` — operates the ecosystem through a control plane
 
 The ecosystem should stay cleanly separated:
 
