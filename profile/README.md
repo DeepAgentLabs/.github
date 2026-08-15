@@ -7,6 +7,47 @@ systems**.
 
 - Ecosystem roadmap: [ROADMAP.md](ROADMAP.md)
 
+## DeepAgentLabs Product Model
+
+The ecosystem can be communicated in six words:
+
+### OBSERVE
+
+**AgenticLens**
+
+Understand what agents are doing.
+
+### SUPERVISE
+
+**Agentic-Sidecar**
+
+Supervise decisions, intent, risk, and policy.
+
+### TEST
+
+**Agentic-Chaos**
+
+Validate how agents behave under failure.
+
+### CONNECT
+
+**Agentic MCP**
+
+Provide AI-native access to every DeepAgentLabs capability, including Control
+Tower.
+
+### OPERATE
+
+**DeepAgent Control Tower**
+
+Discover, configure, manage, and control the ecosystem from one place.
+
+### STANDARDIZE
+
+**AI Operations Specification**
+
+Provide common operational concepts, contracts, and semantics.
+
 ## The Shared Foundation
 
 ### [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)
@@ -97,6 +138,24 @@ off-scope actions before they happen, and escalate to a human when needed.
 pip install agentic-sidecar
 ```
 
+### [agenticops-control-tower](https://github.com/DeepAgentLabs/agenticops-control-tower)
+
+[![PyPI](https://img.shields.io/pypi/v/agenticops-control-tower.svg)](https://pypi.org/project/agenticops-control-tower/)
+[![Python](https://img.shields.io/pypi/pyversions/agenticops-control-tower.svg)](https://pypi.org/project/agenticops-control-tower/)
+
+The unified control plane and operations console for the ecosystem. It is the
+operator-facing layer that centralizes agent inventory, capability discovery,
+health visibility, configuration, and eventually multi-agent operational
+actions across deployed DeepAgentLabs capabilities.
+
+Today it is still concept / pre-implementation work: the repo defines the
+control-plane boundary, package role, and phased build order before a real API,
+CLI, or console ships.
+
+```bash
+pip install agenticops-control-tower
+```
+
 ## The Center of Gravity
 
 At the center of the ecosystem is the **AI Operations Specification**.
@@ -137,6 +196,9 @@ At a high level, the ecosystem is organized around a simple split:
 - `ai-operations-spec` defines the shared contract
 - `deep-agentic-core-mcp` exposes the ecosystem through one MCP-native
   interface, starting with Lens, Chaos, and Sidecar-aligned surfaces
+- `agenticops-control-tower` answers: what is deployed, where it is running,
+  which capabilities are enabled, what is unhealthy, and how operators manage
+  it from one place
 
 ## What's Next
 
@@ -151,11 +213,12 @@ next foundation layer:
 | **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (next release) |
 | **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
 | **agentic-sidecar** | v0.1 sidecar runtime, LangGraph adapter, and rule-based decision gate |
+| **agenticops-control-tower** | v0.1 registry and discovery core: agent registration, heartbeats, capability inventory, and a read-only control API |
 | **ai-operations-spec** | Provenance/evidence concepts, conformance test suite, naming conventions |
 
 The build order is intentional: MCP server foundations → agenticlens evidence
-model → agentic-chaos structured reports → spec formalization of proven
-patterns.
+model → agentic-chaos structured reports → sidecar runtime → control-tower
+registry/discovery → spec formalization of proven patterns.
 
 ## How They Fit Together
 
