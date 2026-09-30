@@ -1,241 +1,202 @@
-# DeepAgentLabs
+<h1 align="center">DeepAgentLabs</h1>
 
-## An Open AI-Operations Ecosystem
+<p align="center"><strong>Open operational infrastructure for production AI systems.</strong></p>
 
-DeepAgentLabs builds **open operational infrastructure for production AI
-systems**.
+<p align="center">The AI Operations Specification comes before SDK ergonomics, package features, dashboards, or integrations.</p>
 
-- Ecosystem roadmap: [ROADMAP.md](ROADMAP.md)
+<p align="center"><a href="ROADMAP.md">Ecosystem roadmap</a></p>
 
-## DeepAgentLabs Product Model
+---
 
-The ecosystem can be communicated in six words:
+## 01 / The Core Idea
 
-### OBSERVE
+DeepAgentLabs is built **specification-first**: define the language of AI operations before implementing package-specific behavior. The **AI Operations Specification** is the foundation; the ecosystem packages are reference implementations of that foundation.
 
-**AgenticLens**
+It gives multiple tools a shared operational model so they can represent the same run consistently. The specification stays above any one package, allowing third parties to implement the contract without depending on the Python packages directly.
 
-Understand what agents are doing.
-
-### SUPERVISE
-
-**Agentic-Sidecar**
-
-Supervise decisions, intent, risk, and policy.
-
-### TEST
-
-**Agentic-Chaos**
-
-Validate how agents behave under failure.
-
-### CONNECT
-
-**Agentic MCP**
-
-Provide AI-native access to every DeepAgentLabs capability, including Control
-Tower.
-
-### OPERATE
-
-**DeepAgent Control Tower**
-
-Discover, configure, manage, and control the ecosystem from one place.
-
-### STANDARDIZE
-
-**AI Operations Specification**
-
-Provide common operational concepts, contracts, and semantics.
-
-## The Shared Foundation
-
-### [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)
-
-The **AI Operations Specification** is the center of gravity for the ecosystem.
-It is a language-neutral, versioned operational model for production AI
-systems.
-
-It defines the shared contract for:
-
-- AI runtime objects such as `Workflow`, `Request`, `Agent`, `LLM`, `Prompt`,
-  `Context`, `RAG`, `Memory`, `Tool`, `Evaluation`, and `Incident`
-- AI-native semantic events such as `workflow.started`, `agent.step`, and
-  `llm.call`
-- workflow artifacts such as `workflow.json`
-- schema validation
-- evaluation and incident interoperability
-- resilience and degradation evidence
-- future extensions across tools and frameworks
-
-This repository contains the specification itself: written rules, versioning
-guidance, schemas, examples, and extension conventions.
-
-## The Reference Implementations
-
-### [agenticlens](https://github.com/DeepAgentLabs/agenticlens)
-
-[![PyPI](https://img.shields.io/pypi/v/agenticlens.svg)](https://pypi.org/project/agenticlens/)
-[![Python](https://img.shields.io/pypi/pyversions/agenticlens.svg)](https://pypi.org/project/agenticlens/)
-
-The observability, evaluation, and operational intelligence layer. It helps
-developers understand what ran, what the model and agent did, what context and
-tools were involved, what it cost, and whether the output was reliable, safe,
-and improving over time.
-
-AgenticLens is built around a simple idea:
-
-`instrument the AI runtime once, export everywhere`
-
-AgenticLens is the flagship Python reference implementation of the AI
-Operations Specification.
-
-```bash
-pip install agenticlens
+```mermaid
+flowchart TB
+    Spec["AI Operations Specification"]
+    Spec --> Concepts["Core Concepts"]
+    Spec --> Conventions["Semantic Conventions"]
+    Spec --> Schemas["JSON Schemas"]
+    Spec --> Versioning["Versioning"]
+    Spec --> Examples["Examples"]
+    Spec --> Extensions["Extension Model"]
+    Spec --> Implementations["Reference Implementations"]
+    Implementations --> Lens["AgenticLens"]
+    Implementations --> Chaos["Agentic Chaos"]
+    Implementations --> Sidecar["Agentic Sidecar"]
+    Implementations --> MCP["DeepAgent MCP"]
+    Implementations --> Tower["AgenticOps Control Tower"]
 ```
 
-### [agentic-chaos](https://github.com/DeepAgentLabs/agentic-chaos)
+### Specification objects
 
-[![PyPI](https://img.shields.io/pypi/v/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
-[![Python](https://img.shields.io/pypi/pyversions/agentic-chaos.svg)](https://pypi.org/project/agentic-chaos/)
+The roadmap's initial operational objects:
 
-The resilience and failure-validation layer. It deliberately breaks AI
-workflows so teams can test reliability, recovery, fault tolerance, degraded
-behavior, and failure impact before production incidents do it for them.
+| Runtime objects                           | Runtime activity and outcomes                  |
+| ----------------------------------------- | ---------------------------------------------- |
+| `Workflow` · `Request` · `Step` · `Agent` | `LLM` · `Prompt` · `Context` · `Tool`          |
+| `Memory` · `RAG` · `Evaluation`           | Safety signal · Reliability event · `Incident` |
 
-Agentic Chaos produces resilience and degradation artifacts that remain
-compatible with the shared specification.
+The Phase 1 questions also name an **LLM call**, **tool call**, **memory operation**, and **RAG retrieval**.
 
-```bash
-pip install agentic-chaos
+At Phase 1, the focus is on definitions, relationships, and terminology, not Python APIs or exporters.
+
+---
+
+## 02 / Ecosystem Components
+
+The specification defines a standard; each component has a distinct role against that shared model.
+
+```mermaid
+flowchart TB
+    Spec["AI Operations Specification"]
+    Spec -->|instruments and exports| Lens["AgenticLens"]
+    Spec -->|extends with resilience evidence| Chaos["Agentic Chaos"]
+    Spec -->|governs decisions against| Sidecar["Agentic Sidecar"]
+    Spec -->|exposes through MCP| MCP["DeepAgent MCP"]
+    Tower["AgenticOps Control Tower"] -. "operator-facing control plane above ecosystem capabilities" .-> Capabilities["Ecosystem capabilities"]
 ```
 
-### [deep-agentic-core-mcp](https://github.com/DeepAgentLabs/mcp-server)
+| Component                                   | Role, specification relationship, and roadmap status                                                                                                                                                                  |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AI Operations Specification**             | Defines the standard and shared operational contract. **Phases:** 1–5. **Implement Now:** provenance/evidence concepts, conformance test suite, naming conventions.                                                   |
+| **AgenticLens**                             | Observes and evaluates the standard; instruments and exports it. **Phase:** 6. **Status:** Implement Now and Implement Next; selected `0.4.0` work is marked shipped.                                                 |
+| **Agentic Chaos**                           | Tests and stress-validates the standard; extends it with resilience evidence. **Phase:** 7. **Status:** Current frontier.                                                                                             |
+| **DeepAgent MCP** (`deep-agentic-core-mcp`) | Connects the standard through MCP and exposes it through an MCP-native interface. **Phase:** 8. **Status:** Selected `0.2.0` work is marked shipped; remaining work is listed under Implement Now and Implement Next. |
+| **Agentic Sidecar**                         | Governs decisions against the standard. **Phase:** 9. The roadmap does not state a current implementation status.                                                                                                     |
+| **AgenticOps Control Tower**                | Operates the ecosystem through a control plane above its capabilities. **Phase:** 10. The roadmap does not state a current implementation status.                                                                     |
 
-[![PyPI](https://img.shields.io/pypi/v/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
-[![Python](https://img.shields.io/pypi/pyversions/deep-agentic-core-mcp.svg)](https://pypi.org/project/deep-agentic-core-mcp/)
+The Control Tower does not replace Lens, Chaos, Sidecar, or MCP.
 
-The unified MCP control surface. It exposes the shared operational model and
-the capabilities of the ecosystem through one interface for hosts, agents, and
-external systems. Today that includes AgenticLens workflows, Agentic Chaos
-experiments, and Agentic Sidecar discovery/readiness surfaces, with deeper
-sidecar control flows landing as the sidecar runtime ships.
+---
 
-```bash
-pip install deep-agentic-core-mcp
-```
+## 03 / Roadmap Timeline
 
-### [agentic-sidecar](https://github.com/DeepAgentLabs/agentic-sidecar)
+The phase titles and sequence below follow the roadmap. The phase list describes goals, not completion status; status is called out separately only where the roadmap states it.
 
-[![PyPI](https://img.shields.io/pypi/v/agentic-sidecar.svg)](https://pypi.org/project/agentic-sidecar/)
-[![Python](https://img.shields.io/pypi/pyversions/agentic-sidecar.svg)](https://pypi.org/project/agentic-sidecar/)
+| Phase                                          | Purpose                                                                                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **01 — AI Operations Specification**           | Define the language of AI operations: objects, definitions, relationships, and terminology before package-specific behavior.                      |
+| **02 — Relationships and Execution Structure** | Define how runtime objects connect, including workflow structure, parent-child relationships, execution graphs, and portable handoffs/delegation. |
+| **03 — Semantic Conventions**                  | Define canonical AI-native event names and their meanings.                                                                                        |
+| **04 — JSON Schemas**                          | Make artifacts validatable and portable through a schema-backed artifact model.                                                                   |
+| **05 — Python Models**                         | Represent the specification in Python, with implementation models rather than independent ad hoc package types.                                   |
+| **06 — AgenticLens**                           | Populate the specification from real Python runtime activity and export its artifacts and signals.                                                |
+| **07 — Agentic Chaos**                         | Extend the same workflow artifact with resilience and failure evidence, not a parallel model.                                                     |
+| **08 — DeepAgent MCP**                         | Expose the same artifact and model through one MCP-native interface.                                                                              |
+| **09 — Agentic Sidecar**                       | Add pre-action supervision and decision governance against the same operational model.                                                            |
+| **10 — AgenticOps Control Tower**              | Add the operator-facing control plane above ecosystem capabilities without replacing them.                                                        |
 
-The decision-supervision layer for autonomous AI agents. It is designed to
-work alongside any agent framework to preserve user intent, evaluate risky or
-off-scope actions before they happen, and escalate to a human when needed.
+<details>
+<summary>Phase details and examples</summary>
 
-```bash
-pip install agentic-sidecar
-```
+- **Phase 2:** A `Workflow` contains `Request`, `Step`, `Evaluation`, and `Incident`; a `Step` may represent or contain `LLM`, `Tool`, `RAG`, `Memory`, or other runtime activity. Execution may be sequential, parallel, or graph-shaped.
+- **Phase 3:** Examples include `workflow.started`, `workflow.completed`, `request.started`, `request.completed`, `agent.started`, `agent.step`, `llm.call`, `prompt.rendered`, `context.injected`, `tool.called`, `memory.read`, `memory.write`, `rag.retrieved`, `evaluation.run`, `judge.scored`, and `incident.created`.
+- **Phase 4:** Examples are `workflow.schema.json`, `agent.schema.json`, and `evaluation.schema.json`.
+- **Phase 6:** Exports listed in the roadmap include `workflow.json`, JSON, CSV, Markdown, OpenTelemetry traces/logs/metrics, OTLP, and future transports.
+- **Phase 8:** The documented MCP flow is `workflow.json` → `analyze()` → `recommend()` → `compare()` → `report()`.
+- **Phase 10:** Centralize agent inventory, capability discovery, health and status rollups, configuration, and multi-agent operational workflows.
 
-### [agenticops-control-tower](https://github.com/DeepAgentLabs/agenticops-control-tower)
+</details>
 
-[![PyPI](https://img.shields.io/pypi/v/agenticops-control-tower.svg)](https://pypi.org/project/agenticops-control-tower/)
-[![Python](https://img.shields.io/pypi/pyversions/agenticops-control-tower.svg)](https://pypi.org/project/agenticops-control-tower/)
+---
 
-The unified control plane and operations console for the ecosystem. It is the
-operator-facing layer that centralizes agent inventory, capability discovery,
-health visibility, configuration, and eventually multi-agent operational
-actions across deployed DeepAgentLabs capabilities.
+## 04 / Specification Milestones
 
-Today it is still concept / pre-implementation work: the repo defines the
-control-plane boundary, package role, and phased build order before a real API,
-CLI, or console ships.
+| Milestone | Roadmap definition                                                                                                                                             |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **v0.1**  | Core concepts: `Workflow`, `Request`, `Step`, `Agent`, `LLM`, `Prompt`, `Tool`, `Context`, `RAG`, `Memory`, `Evaluation`, `Safety`, `Reliability`, `Incident`. |
+| **v0.2**  | Relationships: workflow-to-step structure, parent-child relationships, and execution graph representation.                                                     |
+| **v0.3**  | Semantic conventions: `workflow.started`, `llm.call`, `tool.call`, related canonical event names, and lifecycle meanings.                                      |
+| **v0.4**  | JSON Schema support.                                                                                                                                           |
+| **v0.5**  | Versioning and compatibility rules.                                                                                                                            |
+| **v1.0**  | Stable public specification.                                                                                                                                   |
 
-```bash
-pip install agenticops-control-tower
-```
+---
 
-## The Center of Gravity
+## 05 / Current Frontier
 
-At the center of the ecosystem is the **AI Operations Specification**.
+> **CURRENT FRONTIER · Agentic Chaos**
+>
+> **Structured experiment traces/reports** covering hypothesis, injection point, fault, observed behavior, recovery outcome, verdict, and provenance; plus **synthetic test scenarios** for prebuilt known-bad agent behaviors.
 
-It is not owned by a single package. DeepAgentLabs defines and stewards the
-specification so multiple tools can share one operational contract.
+This is the roadmap's explicitly named current frontier in its recommended build order. The consolidated priorities also list Agentic Chaos resilience benchmark fixtures/datasets and parallel/sharded test execution under **Implement Next**.
 
-This turns `workflow.json` into a first-class artifact rather than an internal
-implementation detail, with `workflow.schema.json` and written specification
-documents defining the contract around it.
+---
 
-The specification is best understood as a shared model of AI runtime objects
-and semantic events, not as a giant flat list of metrics.
+## 06 / Implementation Priorities
 
-Telemetry is not itself a runtime object. It is a downstream export layer built
-on top of the shared runtime model.
+These labels preserve the roadmap's own status terminology.
 
-All ecosystem tools are aligned around the **AI Operations Specification** as
-the canonical operational model for production AI systems.
+<details open>
+<summary><strong>Implement Now</strong></summary>
 
-- Spec repo: [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)
+- **deep-agentic-core-mcp:** Provenance verification on `lens.analyze_workflow`'s response shape; multi-version AIOS schema support and conformance-style reporting, blocked on `ai-operations-spec` publishing `v0.4` schema artifacts and follow-on compatibility/versioning rules; unified observability + chaos workflows and incident/readiness reporting (Phase 4). The roadmap marks sessions, rich diagnostics, tool annotations, prompt registry, and `core.verify` as shipped in `0.2.0`.
+- **agenticlens:** Judge calibration reports and statistical confidence intervals; evaluation dataset management; built-in provider clients for LLM-judge calls; next release: experiment/variant manifests and statistical comparison. The roadmap marks evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI as shipped in `0.4.0`.
+- **agentic-chaos:** Structured experiment traces/reports and synthetic test scenarios, as described in the current frontier above.
+- **ai-operations-spec:** Provenance/evidence concepts, a conformance test suite for producers, and a naming conventions document.
+- **Cross-cutting (done):** `AGENTS.md` in each repo; `CI.md` pre-push quality guide in each repo.
 
-## Summary
+</details>
 
-The ecosystem serves as an open operational framework for production AI
-systems, similar in spirit to OpenTelemetry but purpose-built for AI systems
-and agentic workflows. It makes applications observable, testable, and
-manageable through a structured, shared data model.
+<details>
+<summary><strong>Implement Next</strong></summary>
 
-At a high level, the ecosystem is organized around a simple split:
+- **agenticlens:** Investigation-style recommendation narratives; remaining CLI subcommands (`trace show`, `report explain`; `inspect` and `compare` are marked shipped); analysis guardrails (budget limits, stagnation detection); structured judge verdict fields on `LLMJudgeEvaluator` (agree/partially-agree/disagree, confidence score, factual-grounding breakdown).
+- **agentic-chaos:** Resilience benchmark fixtures/datasets; parallel/sharded test execution.
+- **ai-operations-spec:** Migration guides between spec versions; hosted docs site; report/investigation artifact schemas.
+- **deep-agentic-core-mcp:** Guided onboarding wizard; saved artifact browsing through MCP resources; explainable report recall and session history.
 
-- `agenticlens` answers: what happened, why it happened, what it cost, and
-  whether the system performed well
-- `agentic-chaos` answers: what breaks under stress, how badly it breaks, and
-  whether recovery actually works
-- `agentic-sidecar` answers: is the agent's next action still aligned with
-  user intent, and should it proceed, replan, or escalate
-- `ai-operations-spec` defines the shared contract
-- `deep-agentic-core-mcp` exposes the ecosystem through one MCP-native
-  interface, starting with Lens, Chaos, and Sidecar-aligned surfaces
-- `agenticops-control-tower` answers: what is deployed, where it is running,
-  which capabilities are enabled, what is unhealthy, and how operators manage
-  it from one place
+</details>
 
-## What's Next
+<details>
+<summary><strong>Defer</strong></summary>
 
-The MCP server and AgenticLens have already delivered **sessions, provenance,
-and verification**. The ecosystem is now building toward **structured
-resilience reports and specification-level provenance/conformance** as the
-next foundation layer:
+- `agenticlens` full interactive REPL/shell
+- `agentic-chaos` local chaos-lab stack (Docker Compose/kind)
+- `deep-agentic-core-mcp` fleet/process registry
+- `deep-agentic-core-mcp` full gateway/multi-surface architecture
+- Conversational long-term memory in `agenticlens` or `agentic-chaos`
 
-| Project | Next Milestone |
-|---------|---------------|
-| **deep-agentic-core-mcp** | Provenance verification on `lens.analyze_workflow`, multi-version AIOS schema support, Sidecar-aware MCP discovery surfaces, unified observability + chaos workflows (Phase 4) |
-| **agenticlens** | Judge calibration, evaluation dataset management, and experiments/statistical comparison (next release) |
-| **agentic-chaos** | Structured experiment reports with provenance, synthetic resilience scenarios |
-| **agentic-sidecar** | v0.1 sidecar runtime, LangGraph adapter, and rule-based decision gate |
-| **agenticops-control-tower** | v0.1 registry and discovery core: agent registration, heartbeats, capability inventory, and a read-only control API |
-| **ai-operations-spec** | Provenance/evidence concepts, conformance test suite, naming conventions |
+</details>
 
-The build order is intentional: MCP server foundations → agenticlens evidence
-model → agentic-chaos structured reports → sidecar runtime → control-tower
-registry/discovery → spec formalization of proven patterns.
+### Recommended build order
 
-## How They Fit Together
+1. ~~**deep-agentic-core-mcp** — sessions, diagnostics, tool metadata, prompts, verification~~ · shipped in `0.2.0`
+2. ~~**agenticlens** — provenance/evidence, next-step recommendations, OTel, layer enforcement, conformance CLI~~ · shipped in `0.4.0`
+3. **agentic-chaos** — structured reports/traces, synthetic scenarios · **current frontier**
+4. **ai-operations-spec** — provenance/evidence/report semantics, naming rules, conformance requirements and fixtures
 
-![AI Operations Ecosystem Diagram](assets/ai-operations-ecosystem.png)
+---
 
-Each package is independently installable and useful on its own. They compose
-through the shared specification rather than hard-coded dependencies.
+## 07 / Development Principles
 
-## Philosophy
+| Principle                              | Roadmap expression                                                                                                                                                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Specification-first**                | The AI Operations Specification comes before SDK ergonomics, package features, dashboards, or integrations.                                                              |
+| **One shared contract**                | The specification defines the standard; implementations instrument/export it, extend it with resilience evidence, expose it through MCP, or govern decisions against it. |
+| **Clean separation**                   | Keep the specification above any one package so third parties can implement the contract without depending on the Python packages directly.                              |
+| **Models implement the specification** | Python models should represent the specification, not introduce independent ad hoc package types.                                                                        |
 
-- **Architecture-first:** the ecosystem is organized around one shared
-  operational model and specification.
-- **Specification-first:** the AI Operations Specification should evolve before
-  package-specific abstractions drift apart.
-- **Package-first:** core capabilities ship as installable Python packages.
-- **Local-first:** artifacts work in local development and CI without a hosted
-  backend.
-- **Framework-agnostic:** the operational model stays broader than any one SDK.
-- **Composable by default:** one shared specification, multiple reference
-  implementations.
+---
+
+## 08 / North Star
+
+> The long-term goal is not just a Python toolkit. It is an **open operational standard for AI systems** with a shared object model, shared semantic conventions, shared schemas, shared examples, additive extensions, and multiple interoperable implementations.
+
+---
+
+## Project Navigation
+
+| Area                              | Destination                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------- |
+| Roadmap                           | [profile/ROADMAP.md](ROADMAP.md)                                                      |
+| Specification                     | [ai-operations-spec](https://github.com/DeepAgentLabs/ai-operations-spec)             |
+| Observability and evaluation      | [agenticlens](https://github.com/DeepAgentLabs/agenticlens)                           |
+| Resilience and failure validation | [agentic-chaos](https://github.com/DeepAgentLabs/agentic-chaos)                       |
+| MCP                               | [deep-agentic-core-mcp](https://github.com/DeepAgentLabs/mcp-server)                  |
+| Decision governance               | [agentic-sidecar](https://github.com/DeepAgentLabs/agentic-sidecar)                   |
+| Control plane                     | [agenticops-control-tower](https://github.com/DeepAgentLabs/agenticops-control-tower) |
