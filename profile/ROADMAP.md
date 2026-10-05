@@ -326,7 +326,15 @@ The following items are the current implementation priorities, grouped by the ro
 
 ### 🔴 Implement Now
 
-**`deep-agentic-core-mcp`** — _(sessions, rich diagnostics, tool annotations, prompt registry, and `core.verify` shipped in `0.2.0`)_
+**`deep-agentic-core-mcp`** — _(sessions, rich diagnostics, tool annotations,
+prompt registry, and `core.verify` in `0.2.0`; optional authenticated HTTP,
+DynamoDB signup/key lifecycle, Redis user-scoped state, and Sidecar discovery
+in `0.3.0`)_
+
+Local stdio remains supported. Hosted access is available at
+`https://mcp.deepagentlabs.io/mcp`, with signup at `https://mcp.deepagentlabs.io`.
+Version-tag releases publish to PyPI before deploying the same source to AWS;
+ordinary main-branch pushes run checks without deploying.
 
 - Provenance verification on `lens.analyze_workflow`'s response shape.
 - Multi-version AIOS schema support + conformance-style reporting, blocked on `ai-operations-spec` publishing `v0.4` schema artifacts and follow-on compatibility/versioning rules.

@@ -154,6 +154,17 @@ This is the roadmap's explicitly named current frontier in its recommended build
 
 ---
 
+## MCP Access and Releases
+
+The MCP server supports local stdio through the `deep-agentic-core-mcp` PyPI
+package and hosted, authenticated HTTP at
+[https://mcp.deepagentlabs.io/mcp](https://mcp.deepagentlabs.io/mcp).
+Get a user API key at [mcp.deepagentlabs.io](https://mcp.deepagentlabs.io).
+Version `0.3.0` adds the optional `http` installation extra, user-scoped workflow
+state, signup/key lifecycle, and Sidecar discovery. Hosted HTTP disables chaos
+script execution. Package publication and AWS deployment share a version-tag
+release workflow; AWS deploys only after PyPI publication succeeds.
+
 ## 06 / Implementation Priorities
 
 These labels preserve the roadmap's own status terminology.
