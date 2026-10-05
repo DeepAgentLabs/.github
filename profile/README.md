@@ -46,9 +46,17 @@ At Phase 1, the focus is on definitions, relationships, and terminology, not Pyt
 
 ---
 
-## 02 / Ecosystem Components
+## DeepAgentLabs Ecosystem
 
 The specification defines a standard; each component has a distinct role against that shared model.
+
+DeepAgentLabs is building an open, modular ecosystem for developing, operating, evaluating, and governing AI agents across real-world environments.
+
+The ecosystem brings together a unified Control Tower, shared AI Operations Specification, and specialized open-source components for observing, evaluating, supervising, testing, and connecting AI agents.
+
+<p align="center">
+    <img src="./assets/deepagentlabs-ecosystem.webp" alt="DeepAgentLabs Ecosystem Architecture" width="100%">
+</p>
 
 ```mermaid
 flowchart TB
@@ -70,6 +78,25 @@ flowchart TB
 | **AgenticOps Control Tower**                | Operates the ecosystem through a control plane above its capabilities. **Phase:** 10. The roadmap does not state a current implementation status.                                                                     |
 
 The Control Tower does not replace Lens, Chaos, Sidecar, or MCP.
+
+### Core Components
+
+| Component              | Purpose                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------- |
+|   **AgenticLens**     | Observe, evaluate, explain, compare, and audit AI agent behavior                |
+|   **Agentic Evals**   | Benchmark agents, run evaluations, regression tests, and quality gates          |
+|   **Agentic Sidecar** | Supervise agents, govern intent, escalate decisions, and support human approval |
+|   **Agentic Chaos**   | Stress-test agents through fault injection and resilience experiments           |
+|   **MCP Server**      | Provide a unified interface for tools, data sources, and enterprise systems     |
+
+### Built Around Open Standards
+
+- **Runtime Agnostic** — works across different agent frameworks and runtimes
+- **Framework Agnostic** — integrates with the tools and frameworks teams already use
+- **Modular & Open Source** — independently usable components with open-source foundations
+- **Human + AI Operable** — designed for real-world teams and human oversight
+
+Together, these components provide an end-to-end approach to **observe → evaluate → supervise → test → connect** AI agents.
 
 ---
 
