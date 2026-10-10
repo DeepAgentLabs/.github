@@ -255,7 +255,18 @@ Agentic Sidecar should answer:
 
 ### Phase 10 — AgenticOps Control Tower
 
-**Goal:** Add the operator-facing control plane above the ecosystem capabilities.
+v0.1/v0.2 are implemented: optional SQLite registry persistence, reader/writer
+authorization, HTTP and offline CLI inventory, shared health and capability
+coverage summaries, and agent filters. The read-only console is implemented locally (v0.3), with fleet health, inventory, capability coverage, minimum-version checks and evidence readiness.
+
+**Goal:** Build an AI-native operations command center and unified control plane
+for autonomous agents: live evidence, investigation through MCP and an operations
+copilot, human approvals, automated runbooks and verified recovery.
+
+The first approved incident-to-recovery staging scenario is planned for v0.6.x;
+live detection/incident views follow in v0.8 and reusable runbooks in v0.9.
+These workflows are not implemented yet. Tower coordinates them while Lens,
+Evals, Sidecar and Chaos retain their engines.
 
 AgenticOps Control Tower should not replace Lens, Chaos, Sidecar, or MCP. It should centralize:
 
@@ -426,3 +437,12 @@ flowchart TB
     Standard --> Extensions["Additive extensions"]
     Standard --> Implementations["Multiple interoperable implementations"]
 ```
+
+### Control Tower evidence alignment
+
+Control Tower owns fleet operations; Lens owns observability; Evals owns scoring
+and release gates; Sidecar supervises decisions; Chaos runs resilience
+experiments; AIOS defines draft shared semantics. Tower provides local native
+artifact readers and explicit deployment/evidence attribution. Remote collection
+and console posture views remain planned (v0.5 partial); fleet health remains
+separate from producer outcomes. No stable AIOS conformance is claimed.

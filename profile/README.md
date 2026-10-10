@@ -75,7 +75,7 @@ flowchart TB
 | **Agentic Chaos**                           | Tests and stress-validates the standard; extends it with resilience evidence. **Phase:** 7. **Status:** Current frontier.                                                                                             |
 | **DeepAgent MCP** (`deep-agentic-core-mcp`) | Connects the standard through MCP and exposes it through an MCP-native interface. **Phase:** 8. **Status:** Selected `0.2.0` work is marked shipped; remaining work is listed under Implement Now and Implement Next. |
 | **Agentic Sidecar**                         | Governs decisions against the standard. **Phase:** 9. The roadmap does not state a current implementation status.                                                                                                     |
-| **AgenticOps Control Tower**                | Operates the ecosystem through a control plane above its capabilities. **Phase:** 10. The roadmap does not state a current implementation status.                                                                     |
+| **AgenticOps Control Tower**                | Operates the ecosystem through a unified control plane, with a planned AI-native command center for investigation, human-approved remediation and verified recovery. **Phase:** 10. v0.1–v0.3 implemented locally: durable registry, authenticated API, CLI and read-only console with fleet health, inventory, coverage and explicit minimum-version checks.                                                                     |
 
 The Control Tower does not replace Lens, Chaos, Sidecar, or MCP.
 
@@ -238,3 +238,12 @@ These labels preserve the roadmap's own status terminology.
 | MCP                               | [deep-agentic-core-mcp](https://github.com/DeepAgentLabs/mcp-server)                  |
 | Decision governance               | [agentic-sidecar](https://github.com/DeepAgentLabs/agentic-sidecar)                   |
 | Control plane                     | [agenticops-control-tower](https://github.com/DeepAgentLabs/agenticops-control-tower) |
+
+### Control Tower evidence alignment
+
+Control Tower owns fleet operations; Lens owns observability; Evals owns scoring
+and release gates; Sidecar supervises decisions; Chaos runs resilience
+experiments; AIOS defines draft shared semantics. Tower provides local native
+artifact readers and explicit deployment/evidence attribution. Remote collection
+and console posture views remain planned (v0.5 partial); fleet health remains
+separate from producer outcomes. No stable AIOS conformance is claimed.
