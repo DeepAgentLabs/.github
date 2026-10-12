@@ -369,12 +369,13 @@ ordinary main-branch pushes run checks without deploying.
 - Multi-version AIOS schema support + conformance-style reporting, blocked on `ai-operations-spec` publishing `v0.4` schema artifacts and follow-on compatibility/versioning rules.
 - Unified workflows: joined observability + chaos, incident/readiness reporting (Phase 4).
 
-**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`)_
+**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`)_
 
-- Judge calibration reports and statistical confidence intervals.
-- Evaluation dataset management.
 - Built-in provider clients for LLM-judge calls.
-- Next release: experiment/variant manifests and statistical comparison.
+- v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording.
+- ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.6.0` (agreement intervals and threshold tuning).
+- ~~Evaluation dataset management~~ ✅ (`agenticlens dataset`).
+- ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
 
 **`agentic-chaos`**
 
@@ -399,7 +400,7 @@ ordinary main-branch pushes run checks without deploying.
 - Investigation-style narratives on recommendations.
 - Remaining CLI subcommands (`trace show`, `report explain` — `inspect` and `compare` already shipped).
 - Analysis guardrails (budget limits, stagnation detection).
-- Structured judge verdict fields on `LLMJudgeEvaluator` (agree/partially-agree/disagree, confidence score, factual-grounding breakdown).
+- ~~Structured judge verdict fields (agree/partially-agree/disagree, confidence score, factual-grounding breakdown)~~ ✅ `0.6.0`.
 
 **`agentic-chaos`**
 
