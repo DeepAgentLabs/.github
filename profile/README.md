@@ -74,7 +74,7 @@ flowchart TB
 | **AgenticLens**                             | Observes and evaluates the standard; instruments and exports it. **Phase:** 6. **Status:** Implement Now and Implement Next; selected `0.4.0` work is marked shipped.                                                 |
 | **Agentic Chaos**                           | Tests and stress-validates the standard; extends it with resilience evidence. **Phase:** 7. **Status:** Current frontier.                                                                                             |
 | **DeepAgent MCP** (`deep-agentic-core-mcp`) | Connects the standard through MCP and exposes it through an MCP-native interface. **Phase:** 8. **Status:** Selected `0.2.0` work is marked shipped; remaining work is listed under Implement Now and Implement Next. |
-| **Agentic Sidecar**                         | Governs decisions against the standard. **Phase:** 9. Checkout 0.6.1 prepares governed outcome suspension, local approvals, full-plan evaluation, optional live Judge providers and shared budget accounting. Authenticated provider smoke evidence remains pending; live status/audit/Control Room follows in 0.7; see the [canonical roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROADMAP.md).                                                                                                     |
+| **Agentic Sidecar** | Governs decisions against the standard. **Phase:** 9. Checkout 0.7.0 is prepared for review: governance/evaluators, runtime events, immutable durable audit evidence and authenticated task-scoped local Control Room/CLI controls. Stop/cancellation and harness revocation receipts preserve actual execution state; authenticated provider smoke remains pending. See [Sidecar PR #19](https://github.com/DeepAgentLabs/agentic-sidecar/pull/19) and its [proposed roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/bdabe440a59d7932cd497f11400b91febc51bb3d/ROADMAP.md). |
 | **AgenticOps Control Tower**                | Operates the ecosystem through a unified control plane, with a planned AI-native command center for investigation, human-approved remediation and verified recovery. **Phase:** 10. v0.1–v0.3 implemented locally: durable registry, authenticated API, CLI and read-only console with fleet health, inventory, coverage and explicit minimum-version checks.                                                                     |
 
 The Control Tower does not replace Lens, Chaos, Sidecar, or MCP.
@@ -161,7 +161,12 @@ package and hosted, authenticated HTTP at
 [https://mcp.deepagentlabs.io/mcp](https://mcp.deepagentlabs.io/mcp).
 Get a user API key at [mcp.deepagentlabs.io](https://mcp.deepagentlabs.io).
 Version `0.3.0` adds the optional `http` installation extra, user-scoped workflow
-state, signup/key lifecycle, and Sidecar discovery. Hosted HTTP disables chaos
+state, signup/key lifecycle, and Sidecar discovery. Pending review in
+[MCP PR #21](https://github.com/DeepAgentLabs/mcp-server/pull/21), discovery detects
+installed v0.7 APIs while reporting no live MCP task/control connection.
+[Tower PR #9](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/9), also
+pending review, preserves decision IDs, trigger details and causal links in native
+readers. These sibling updates are not released capabilities. Hosted HTTP disables chaos
 script execution. Package publication and AWS deployment share a version-tag
 release workflow; AWS deploys only after PyPI publication succeeds.
 
