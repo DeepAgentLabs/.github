@@ -262,10 +262,11 @@ packages. Existing components provide parts of these capabilities; integrated
 guarantees remain planned.
 
 
-## Tower v0.4 controlled configuration
+## Tower v0.4 controlled configuration proposal
 
-[Control Tower v0.4](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/11)
-adds Tower-owned desired configuration, bounded action previews, independent
+[Control Tower v0.4 PR](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/11)
+implements the following on its review branch; merge and publication are pending.
+It adds Tower-owned desired configuration, bounded action previews, independent
 approval/denial, expiry, revocation, revision checks and atomic one-use execution.
 HTTP/CLI expose the same durable configuration and audit model. Runtime-owned
 settings remain mirrored or unsupported; desired-state changes do not claim a
