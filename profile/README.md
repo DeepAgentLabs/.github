@@ -272,3 +272,18 @@ settings remain mirrored or unsupported; desired-state changes do not claim a
 remote runtime update. The console remains read-only. Lens 0.5, Evals 0.7,
 Sidecar 0.7, Chaos 0.4 and MCP 0.3.1 remain optional integrations; no writable
 sibling adapter or task stop/revoke transport is shipped.
+
+## Agentic Chaos v0.5
+
+[Agentic Chaos v0.5.0](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.5.0)
+adds sync/async streaming cuts, bounded hangs and delivery delays, reversible
+patches for explicit OpenAI/Anthropic/Google Gen AI client instances, seeded fault
+probability, TOML profiles, and authentication/context-length simulations.
+Provider SDKs and ecosystem packages remain optional. Native report fields are
+unchanged: Lens consumes the events, MCP discovers new fault names dynamically,
+and Tower reads native chaos evidence separately from fleet health.
+
+The [v0.5 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.5.md)
+documents API coverage and compatibility tests. Structured experiment reports
+and canonical AIOS exports remain unfinished v0.2.x work; safety rails are next
+in v0.5.x. This release does not claim those capabilities.
