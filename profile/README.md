@@ -75,7 +75,7 @@ flowchart TB
 | **Agentic Chaos**                           | Tests and stress-validates the standard; extends it with resilience evidence. **Phase:** 7. **Status:** Current frontier.                                                                                             |
 | **DeepAgent MCP** (`deep-agentic-core-mcp`) | Connects the standard through MCP and exposes it through an MCP-native interface. **Phase:** 8. **Status:** Selected `0.2.0` work is marked shipped; remaining work is listed under Implement Now and Implement Next. |
 | **Agentic Sidecar** | Governs decisions against the standard. **Phase:** 9. **Released:** [0.7.0](https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v0.7.0), available on [PyPI](https://pypi.org/project/agentic-sidecar/0.7.0/): governance/evaluators, runtime events, durable audit evidence and authenticated local Control Room/CLI controls. Stop/cancellation and harness revocation receipts preserve actual execution state; authenticated provider smoke remains pending. See the [release roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/v0.7.0/ROADMAP.md). |
-| **AgenticOps Control Tower**                | Operates the ecosystem through a unified control plane, with a planned AI-native command center for investigation, human-approved remediation and verified recovery. **Phase:** 10. v0.1–v0.3 implemented locally: durable registry, authenticated API, CLI and read-only console with fleet health, inventory, coverage and explicit minimum-version checks.                                                                     |
+| **AgenticOps Control Tower**                | Operates the ecosystem through a unified control plane, with a planned AI-native command center for investigation, human-approved remediation and verified recovery. **Phase:** 10. **Released:** [0.3.1](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.3.1), available on [PyPI](https://pypi.org/project/agenticops-control-tower/0.3.1/). v0.1–v0.3 implemented: durable registry, authenticated API, CLI and read-only console with fleet health, inventory, coverage and explicit minimum-version checks.                                                                     |
 
 The Control Tower does not replace Lens, Chaos, Sidecar, or MCP.
 
@@ -160,14 +160,13 @@ The MCP server supports local stdio through the `deep-agentic-core-mcp` PyPI
 package and hosted, authenticated HTTP at
 [https://mcp.deepagentlabs.io/mcp](https://mcp.deepagentlabs.io/mcp).
 Get a user API key at [mcp.deepagentlabs.io](https://mcp.deepagentlabs.io).
-Version `0.3.0` adds the optional `http` installation extra, user-scoped workflow
-state, signup/key lifecycle, and Sidecar discovery. Merged
-[MCP PR #21](https://github.com/DeepAgentLabs/mcp-server/pull/21) detects installed
-v0.7 APIs while reporting no live MCP task/control connection. Merged
-[Tower PR #9](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/9)
+Version `0.3.0` added the optional `http` installation extra, user-scoped workflow
+state, signup/key lifecycle, and Sidecar discovery. [MCP `0.3.1`](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.1),
+available on [PyPI](https://pypi.org/project/deep-agentic-core-mcp/0.3.1/), detects
+installed Sidecar v0.7 APIs while reporting no live MCP task/control connection.
+[Tower `0.3.1`](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.3.1)
 preserves decision IDs, trigger details and causal links in native readers.
-These compatibility changes are on main; new MCP/Tower package releases have
-not yet included them. Hosted HTTP disables chaos
+Hosted HTTP disables chaos
 script execution. Package publication and AWS deployment share a version-tag
 release workflow; AWS deploys only after PyPI publication succeeds.
 

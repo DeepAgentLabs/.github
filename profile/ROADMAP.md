@@ -257,11 +257,13 @@ and harness-supplied access-revocation acknowledgements.
 
 The [v0.7.0 Sidecar roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/v0.7.0/ROADMAP.md)
 prioritizes **0.8 adapters/integrations → 0.9 evaluation/authority → 1.0 stable schemas**.
-Tower retains fleet/operator aggregation. Merged [Tower PR #9](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/9)
-adds native decision IDs, trigger details and causal links. Merged [MCP PR #21](https://github.com/DeepAgentLabs/mcp-server/pull/21)
+Tower retains fleet/operator aggregation. Published
+[Tower `0.3.1`](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.3.1)
+adds native decision IDs, trigger details and causal links. Published
+[MCP `0.3.1`](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.1)
 detects installed v0.7 APIs separately from a live task connection; runtime
-operator bridging remains planned. These compatibility changes are on main,
-but new MCP/Tower package releases have not yet included them. Sidecar owns action supervision and its approval boundary.
+operator bridging remains planned. Both patches released on 2026-10-12.
+Sidecar owns action supervision and its approval boundary.
 
 **Goal:** Add pre-action supervision and decision governance against the same operational model.
 
@@ -275,7 +277,7 @@ Agentic Sidecar should answer:
 
 v0.1/v0.2 are implemented: optional SQLite registry persistence, reader/writer
 authorization, HTTP and offline CLI inventory, shared health and capability
-coverage summaries, and agent filters. The read-only console is implemented locally (v0.3), with fleet health, inventory, capability coverage, minimum-version checks and evidence readiness.
+coverage summaries, and agent filters. The read-only console is published in [v0.3.1](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.3.1), with fleet health, inventory, capability coverage, minimum-version checks and evidence readiness.
 
 **Goal:** Build an AI-native operations command center and unified control plane
 for autonomous agents: live evidence, investigation through MCP and an operations
@@ -358,7 +360,7 @@ The following items are the current implementation priorities, grouped by the ro
 **`deep-agentic-core-mcp`** — _(sessions, rich diagnostics, tool annotations,
 prompt registry, and `core.verify` in `0.2.0`; optional authenticated HTTP,
 DynamoDB signup/key lifecycle, Redis user-scoped state, and Sidecar discovery
-in `0.3.0`)_
+in `0.3.0`; Sidecar v0.7 compatibility in `0.3.1`)_
 
 Local stdio remains supported. Hosted access is available at
 `https://mcp.deepagentlabs.io/mcp`, with signup at `https://mcp.deepagentlabs.io`.
