@@ -491,3 +491,15 @@ See the [Sidecar](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROA
 [Lens](https://github.com/DeepAgentLabs/agenticlens/blob/main/agenticlens-roadmap.md),
 [Chaos](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md) and
 [Evals](https://github.com/DeepAgentLabs/agentic-evals/blob/main/ROADMAP.md) roadmaps.
+
+
+## Tower v0.4 controlled configuration
+
+[Control Tower v0.4](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/11)
+adds Tower-owned desired configuration, bounded action previews, independent
+approval/denial, expiry, revocation, revision checks and atomic one-use execution.
+HTTP/CLI expose the same durable configuration and audit model. Runtime-owned
+settings remain mirrored or unsupported; desired-state changes do not claim a
+remote runtime update. The console remains read-only. Lens 0.5, Evals 0.7,
+Sidecar 0.7, Chaos 0.4 and MCP 0.3.1 remain optional integrations; no writable
+sibling adapter or task stop/revoke transport is shipped.
