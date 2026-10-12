@@ -460,3 +460,31 @@ experiments; AIOS defines draft shared semantics. Tower provides local native
 artifact readers and explicit deployment/evidence attribution. Remote collection
 and console posture views remain planned (v0.5 partial); fleet health remains
 separate from producer outcomes. No stable AIOS conformance is claimed.
+
+## Operational safety guarantees (planned)
+
+Added 2026-10-11. Local blocking/stopping, hosted MCP key revocation, tracing,
+fault injection and evaluation checks exist in parts. The following integrated
+guarantees remain planned; package roadmaps contain their acceptance criteria.
+
+| Guarantee | Implementation owner and dependencies |
+| --- | --- |
+| Emergency brake | Sidecar owns stop, dispatch blocking and task-access revocation; MCP/credential issuers execute revocation; Tower coordinates operators |
+| Independent policy enforcement | Sidecar owns independent policy enforcement; MCP enforces its access boundary; protected tools reachable only through an enforcing boundary |
+| Verifiable execution evidence | Lens AIOS-format capture, offline evidence replay and integrity verification; Sidecar/MCP policy/action correlation; Tower presentation |
+| Adversarial containment validation | Chaos attacks/failures; Evals containment scoring/gates; Sidecar/MCP enforcing targets |
+
+Shared command, authority and evidence semantics must be coordinated in AI
+Operations Specification before claiming interoperable contracts. Stop must block
+further dispatch independently of the LLM; in-flight effects and unsupported
+credential revocation must remain visible. Evidence must distinguish verdicts
+from actual execution and verification from ordinary schema validation.
+Containment requires reproducible zero-violation tests and negative controls,
+not only successful recovery or safe-sounding answers.
+
+See the [Sidecar](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROADMAP.md),
+[MCP](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md),
+[Tower](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/ROADMAP.md),
+[Lens](https://github.com/DeepAgentLabs/agenticlens/blob/main/agenticlens-roadmap.md),
+[Chaos](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md) and
+[Evals](https://github.com/DeepAgentLabs/agentic-evals/blob/main/ROADMAP.md) roadmaps.

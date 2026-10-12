@@ -247,3 +247,11 @@ experiments; AIOS defines draft shared semantics. Tower provides local native
 artifact readers and explicit deployment/evidence attribution. Remote collection
 and console posture views remain planned (v0.5 partial); fleet health remains
 separate from producer outcomes. No stable AIOS conformance is claimed.
+
+## Operational safety roadmap
+
+The [planned operational safety guarantees](ROADMAP.md#operational-safety-guarantees-planned)
+assign emergency braking, independent policy enforcement, integrity-protected
+execution evidence and adversarial containment validation to the respective
+packages. Existing components provide parts of these capabilities; integrated
+guarantees remain planned.
