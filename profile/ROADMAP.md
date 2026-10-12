@@ -373,8 +373,8 @@ ordinary main-branch pushes run checks without deploying.
 
 - Built-in provider clients for LLM-judge calls.
 - v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording.
-- ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.6.0` (agreement intervals and threshold tuning).
-- ~~Evaluation dataset management~~ ✅ (`agenticlens dataset`).
+- ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.5.0` (agreement intervals); threshold tuning ✅ `0.6.0`.
+- ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); dataset lifecycle management (immutable snapshots, approvals) remains planned under v0.6.
 - ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
 
 **`agentic-chaos`**
