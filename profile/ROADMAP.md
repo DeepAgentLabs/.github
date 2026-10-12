@@ -245,22 +245,23 @@ This keeps the MCP layer thin, portable, and aligned with the rest of the ecosys
 
 ### Phase 9 — Agentic Sidecar
 
-Proposed checkout: **0.7.0 pending [Sidecar PR #19](https://github.com/DeepAgentLabs/agentic-sidecar/pull/19) (unmerged/unpublished)**. Deterministic policy/risk and
+Latest Sidecar release: **[0.7.0](https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v0.7.0) — 2026-10-12**, available on PyPI. Deterministic policy/risk and
 bound intent constraints are joined by governed suspension for all outcomes,
 local ID-correlated approvals, full-plan context, optional live OpenAI/Anthropic
 providers and validated shared budget accounting. Four deterministic fixtures
 cover refund/environment/export/delegation with guardian off/on and clean controls.
 Authenticated live-provider smoke evidence remains pending by request. Runtime-connected
 status, immutable durable audit lifecycle and authenticated local Control Room are
-implemented on that review branch, with task-scoped stop, async cancellation requests, explicit restart
+included in v0.7.0, with task-scoped stop, async cancellation requests, explicit restart
 and harness-supplied access-revocation acknowledgements.
 
-The [proposed Sidecar roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/bdabe440a59d7932cd497f11400b91febc51bb3d/ROADMAP.md)
-prioritizes, after acceptance of v0.7, **0.8 adapters/integrations → 0.9 evaluation/authority → 1.0 stable schemas**.
-Tower retains fleet/operator aggregation. Pending [Tower PR #9](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/9)
-adds native decision IDs, trigger details and causal links. Pending [MCP PR #21](https://github.com/DeepAgentLabs/mcp-server/pull/21)
+The [v0.7.0 Sidecar roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/v0.7.0/ROADMAP.md)
+prioritizes **0.8 adapters/integrations → 0.9 evaluation/authority → 1.0 stable schemas**.
+Tower retains fleet/operator aggregation. Merged [Tower PR #9](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/9)
+adds native decision IDs, trigger details and causal links. Merged [MCP PR #21](https://github.com/DeepAgentLabs/mcp-server/pull/21)
 detects installed v0.7 APIs separately from a live task connection; runtime
-operator bridging remains planned. These updates have not landed on main. Sidecar owns action supervision and its approval boundary.
+operator bridging remains planned. These compatibility changes are on main,
+but new MCP/Tower package releases have not yet included them. Sidecar owns action supervision and its approval boundary.
 
 **Goal:** Add pre-action supervision and decision governance against the same operational model.
 
