@@ -287,3 +287,13 @@ The [v0.5 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v
 documents API coverage and compatibility tests. Structured experiment reports
 and canonical AIOS exports remain unfinished v0.2.x work; safety rails are next
 in v0.5.x. This release does not claim those capabilities.
+
+## MCP 0.3.2 and Chaos 0.5 compatibility
+
+[MCP v0.3.2](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.2)
+adds real integration tests and an offline streaming experiment target for
+Chaos v0.5's dynamic fault catalog and native experiment events. Local stdio
+runs trusted workspace scripts; hosted HTTP rejects chaos execution. The
+release keeps Chaos optional and does not expose profile/provider configuration
+through a new MCP request schema. See the
+[MCP user guide](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/user-guide.md#chaos-v05-streaming-with-mcp-032).
