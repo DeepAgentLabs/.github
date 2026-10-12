@@ -245,19 +245,22 @@ This keeps the MCP layer thin, portable, and aligned with the rest of the ecosys
 
 ### Phase 9 — Agentic Sidecar
 
-Current checkout: **0.6.1 release preparation**. Deterministic policy/risk and
+Current checkout: **0.7.0 prepared for review (unpublished)**. Deterministic policy/risk and
 bound intent constraints are joined by governed suspension for all outcomes,
 local ID-correlated approvals, full-plan context, optional live OpenAI/Anthropic
 providers and validated shared budget accounting. Four deterministic fixtures
 cover refund/environment/export/delegation with guardian off/on and clean controls.
-Authenticated live-provider smoke evidence remains pending; runtime-connected
-status, durable audit lifecycle and Control Room follow in 0.7.
+Authenticated live-provider smoke evidence remains pending by request. Runtime-connected
+status, immutable durable audit lifecycle and authenticated local Control Room are
+implemented, with task-scoped stop, async cancellation requests, explicit restart
+and harness-supplied access-revocation acknowledgements.
 
 The [canonical Sidecar roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROADMAP.md)
-prioritizes **0.6.1 governance/evaluator implementation and live-provider validation → 0.7 live status/audit/Control Room →
-0.8 adapters/integrations → 0.9 evaluation/authority → 1.0 stable schemas**.
-Tower retains fleet/operator aggregation; Sidecar owns action supervision and
-its approval enforcement boundary.
+prioritizes **0.8 adapters/integrations → 0.9 evaluation/authority → 1.0 stable schemas**.
+Tower retains fleet/operator aggregation; its native reader preserves Sidecar
+decision IDs, trigger details and causal links. MCP discovery detects installed
+v0.7 APIs separately from a live task connection; runtime operator bridging
+remains planned. Sidecar owns action supervision and its approval boundary.
 
 **Goal:** Add pre-action supervision and decision governance against the same operational model.
 
