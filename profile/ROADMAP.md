@@ -272,9 +272,10 @@ Agentic Sidecar should answer:
 
 ### Phase 10 — AgenticOps Control Tower
 
-v0.1/v0.2 are implemented: optional SQLite registry persistence, reader/writer
+v0.1–v0.4 are released: optional SQLite registry persistence, reader/writer
 authorization, HTTP and offline CLI inventory, shared health and capability
-coverage summaries, and agent filters. The read-only console is implemented locally (v0.3), with fleet health, inventory, capability coverage, minimum-version checks and evidence readiness.
+coverage summaries, agent filters, the read-only console and controlled desired
+configuration with independent approval and audit.
 
 **Goal:** Build an AI-native operations command center and unified control plane
 for autonomous agents: live evidence, investigation through MCP and an operations
@@ -491,3 +492,15 @@ See the [Sidecar](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROA
 [Lens](https://github.com/DeepAgentLabs/agenticlens/blob/main/agenticlens-roadmap.md),
 [Chaos](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md) and
 [Evals](https://github.com/DeepAgentLabs/agentic-evals/blob/main/ROADMAP.md) roadmaps.
+
+
+## Tower v0.4 controlled configuration
+
+[Control Tower v0.4.0](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.4.0)
+adds Tower-owned desired configuration, bounded action previews, independent
+approval/denial, expiry, revocation, revision checks and atomic one-use execution.
+HTTP/CLI expose the same durable configuration and audit model. Runtime-owned
+settings remain mirrored or unsupported; desired-state changes do not claim a
+remote runtime update. The console remains read-only. Lens 0.5, Evals 0.7,
+Sidecar 0.7, Chaos 0.4 and MCP 0.3.1 remain optional integrations; no writable
+sibling adapter or task stop/revoke transport is shipped.
