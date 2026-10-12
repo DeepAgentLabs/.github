@@ -75,7 +75,7 @@ flowchart TB
 | **Agentic Chaos**                           | Tests and stress-validates the standard; extends it with resilience evidence. **Phase:** 7. **Status:** Current frontier.                                                                                             |
 | **DeepAgent MCP** (`deep-agentic-core-mcp`) | Connects the standard through MCP and exposes it through an MCP-native interface. **Phase:** 8. **Status:** Selected `0.2.0` work is marked shipped; remaining work is listed under Implement Now and Implement Next. |
 | **Agentic Sidecar** | Governs decisions against the standard. **Phase:** 9. Checkout 0.7.0 is prepared for review: governance/evaluators, runtime events, immutable durable audit evidence and authenticated task-scoped local Control Room/CLI controls. Stop/cancellation and harness revocation receipts preserve actual execution state; authenticated provider smoke remains pending. See [Sidecar PR #19](https://github.com/DeepAgentLabs/agentic-sidecar/pull/19) and its [proposed roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/bdabe440a59d7932cd497f11400b91febc51bb3d/ROADMAP.md). |
-| **AgenticOps Control Tower**                | Operates the ecosystem through a unified control plane, with a planned AI-native command center for investigation, human-approved remediation and verified recovery. **Phase:** 10. v0.1–v0.3 implemented locally: durable registry, authenticated API, CLI and read-only console with fleet health, inventory, coverage and explicit minimum-version checks.                                                                     |
+| **AgenticOps Control Tower**                | Operates the ecosystem through a unified control plane, with a planned AI-native command center for investigation, human-approved remediation and verified recovery. **Phase:** 10. v0.1–v0.4 released: durable registry, authenticated API, CLI, read-only console, fleet health and coverage, plus controlled desired configuration with independent approval and audit.                                                                     |
 
 The Control Tower does not replace Lens, Chaos, Sidecar, or MCP.
 
@@ -262,11 +262,10 @@ packages. Existing components provide parts of these capabilities; integrated
 guarantees remain planned.
 
 
-## Tower v0.4 controlled configuration proposal
+## Tower v0.4 controlled configuration
 
-[Control Tower v0.4 PR](https://github.com/DeepAgentLabs/agenticops-control-tower/pull/11)
-implements the following on its review branch; merge and publication are pending.
-It adds Tower-owned desired configuration, bounded action previews, independent
+[Control Tower v0.4.0](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.4.0)
+adds Tower-owned desired configuration, bounded action previews, independent
 approval/denial, expiry, revocation, revision checks and atomic one-use execution.
 HTTP/CLI expose the same durable configuration and audit model. Runtime-owned
 settings remain mirrored or unsupported; desired-state changes do not claim a
