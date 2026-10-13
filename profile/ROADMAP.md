@@ -272,10 +272,11 @@ Agentic Sidecar should answer:
 
 ### Phase 10 — AgenticOps Control Tower
 
-v0.1–v0.4 are released: optional SQLite registry persistence, reader/writer
+v0.1–v0.5 are released: optional SQLite registry persistence, reader/writer
 authorization, HTTP and offline CLI inventory, shared health and capability
-coverage summaries, agent filters, the read-only console and controlled desired
-configuration with independent approval and audit.
+coverage summaries, agent filters, the read-only console, controlled desired
+configuration with independent approval and audit, and pushed Lens, Evals,
+Sidecar and Chaos evidence shown as fresh/stale/missing posture.
 
 **Goal:** Build an AI-native operations command center and unified control plane
 for autonomous agents: live evidence, investigation through MCP and an operations
@@ -462,8 +463,9 @@ flowchart TB
 Control Tower owns fleet operations; Lens owns observability; Evals owns scoring
 and release gates; Sidecar supervises decisions; Chaos runs resilience
 experiments; AIOS defines draft shared semantics. Tower provides local native
-artifact readers and explicit deployment/evidence attribution. Remote collection
-and console posture views remain planned (v0.5 partial); fleet health remains
+artifact readers and explicit deployment/evidence attribution. Since v0.5 it
+stores pushed evidence and shows posture in the API, CLI and console. Pull
+collection from producer services remains planned; fleet health remains
 separate from producer outcomes. No stable AIOS conformance is claimed.
 
 ## Operational safety guarantees (planned)
@@ -560,3 +562,22 @@ With Chaos 0.5.0, the export reports `available: false`. With an older spec
 checkout, the conformance report has no rule catalog. These are
 draft-alignment claims, not stable AIOS conformance; Lens integrity
 verification and Sidecar/Tower stop/revoke remain planned.
+
+## Tower v0.5 ecosystem evidence posture
+
+[Control Tower v0.5.0](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.5.0)
+completes its ecosystem surface phase. Producers or pipelines push native Lens
+runs, Evals reports and gates, Sidecar decisions and Chaos reports with explicit
+deployment attribution. Tower stores the validated projection idempotently and
+reports, per deployment and producer, whether evidence is fresh, stale or
+missing, with counts of native outcomes, through Python, HTTP, CLI, offline
+snapshots and the read-only console.
+
+Lens runs now expose trace, timing, tool and failed-span correlation for later
+incident investigation. Tower never recomputes an evaluation, decision or
+resilience verdict, and producer outcomes never change reported health. Optional
+floors are Lens 0.6, Evals 0.7, Sidecar 0.7, Chaos 0.5 and MCP 0.3.4; none is
+required. The Lens, Evals, Sidecar and Chaos readers are checked against their
+published packages; MCP is a declared floor only. Pull collection,
+AIOS mapping and journal integrity verification remain planned. The MCP
+connector and investigation copilot (Tower v0.6) come next.

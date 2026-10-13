@@ -31,7 +31,7 @@ Every component is independently usable. None of them require each other, and an
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
 | [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery. |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
-| [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | A unified control plane for agent inventory, health, capability discovery, and fleet-wide configuration. |
+| [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | A unified control plane for agent inventory, health, capability discovery, fleet-wide configuration, and ecosystem evidence posture. |
 
 See the [roadmap](ROADMAP.md) for how these pieces fit together and what's being built next.
 
