@@ -581,3 +581,22 @@ required. The Lens, Evals, Sidecar and Chaos readers are checked against their
 published packages; MCP is a declared floor only. Pull collection,
 AIOS mapping and journal integrity verification remain planned. The MCP
 connector and investigation copilot (Tower v0.6) come next.
+
+## Agentic Chaos 0.5.2 safety rails
+
+The v0.5.x safety milestone ships in
+[Agentic Chaos 0.5.2](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.5.2).
+Circuit breakers bound explicitly recorded cost, rolling exception rate,
+cooperative duration, and admitted injection count. Dry-run records selected
+faults while target calls and streams execute normally. Abort prevents later
+instrumented dispatches and reports already-running work separately; direct
+uninstrumented calls remain outside that boundary.
+
+The [safety guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/safety.md)
+defines accounting and containment limits. Native safety fields are additive;
+AIOS exports retain them in the producer extension and mark aborted runs
+`cancelled`, without treating previews as observed failure evidence. Current
+Lens, Tower, MCP saved-report export, and AIOS readers are compatibility-tested;
+no sibling patch release is required. MCP's run tool does not yet expose the new
+safety execution flags. Pytest integration/assertions (v0.6) are next, alongside
+the remaining structured ExperimentReport and synthetic-scenario backlog.
