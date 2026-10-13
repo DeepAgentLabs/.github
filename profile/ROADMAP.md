@@ -370,10 +370,10 @@ ordinary main-branch pushes run checks without deploying.
 - ~~Multi-version AIOS schema support + conformance-style reporting~~ ✅ `0.3.3` (`spec_version` routing and rule-cited reports over the `ai-operations-spec` `0.5.1` catalogs).
 - Unified workflows: joined observability + chaos, incident/readiness reporting (Phase 4).
 
-**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`)_
+**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`)_
 
 - Built-in provider clients for LLM-judge calls.
-- v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording.
+- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. Next: v0.6 test-suite and dataset management.
 - ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.5.0` (agreement intervals); threshold tuning ✅ `0.6.0`.
 - ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); dataset lifecycle management (immutable snapshots, approvals) remains planned under v0.6.
 - ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
@@ -398,8 +398,9 @@ ordinary main-branch pushes run checks without deploying.
 
 **`agenticlens`**
 
-- Investigation-style narratives on recommendations.
-- Remaining CLI subcommands (`trace show`, `report explain` — `inspect` and `compare` already shipped).
+- ~~Investigation-style narratives on recommendations~~ ✅ `0.7.0` (`agenticlens explain`).
+- ~~Remaining CLI subcommands (`trace show`, `report explain`)~~ ✅ `0.7.0` (`trace show`, `trace timeline`, `explain`, `diagnose`).
+- v0.6 test-suite and dataset management: trace-to-test-case conversion, immutable approved suites, PII masking.
 - Analysis guardrails (budget limits, stagnation detection).
 - ~~Structured judge verdict fields (agree/partially-agree/disagree, confidence score, factual-grounding breakdown)~~ ✅ `0.6.0`.
 
@@ -582,6 +583,34 @@ required. The Lens, Evals, Sidecar and Chaos readers are checked against their
 published packages; MCP is a declared floor only. Pull collection,
 AIOS mapping and journal integrity verification remain planned. The MCP
 connector and investigation copilot (Tower v0.6) come next.
+
+## AgenticLens 0.7.0: advanced evaluation and diagnosis
+
+[AgenticLens 0.7.0](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.7.0)
+delivers Lens roadmap milestone v0.5. `agenticlens diagnose` explains a failed
+run from its trace. It applies a versioned failure taxonomy and deterministic
+rules whose diagnoses carry confidence and supporting spans. It attributes the
+failure to a step and an agent (discounting recovered failures and downstream
+consequences), rebuilds the incident timeline, flags anomalies against healthy
+baseline runs, and writes an investigation narrative. Attribution accuracy is
+measured on controlled failures. On the bundled 40-case synthetic corpus,
+attribution finds the faulty step 40/40 times; that corpus is not independent
+evidence. Evaluation gains trace-aware evaluators (trajectory, handoff, loop,
+retrieval groundedness and citations, safety in tool arguments), judge cost
+and prompt-version recording, and reports that keep deterministic and
+model-based scores apart and show where evaluators disagree. AIOS conformance
+now cites rule IDs from the spec's catalog.
+
+Sibling releases in the same window:
+
+- [Agentic Chaos 0.5.3](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.5.3):
+  `mark_span()` tags a Lens trace span with the injected fault, so chaos runs
+  become ground truth for Lens attribution accuracy.
+- [MCP 0.3.5](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.5):
+  `lens.diagnose_run` and `lens.score_analysis`; hosted images pin Lens 0.7.0.
+- [Control Tower 0.5.1](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.5.1):
+  reads Lens diagnosis reports as native evidence and tallies attribution
+  outcomes and faulty agents in posture, without re-diagnosing.
 
 ## Agentic Chaos 0.5.2 safety rails
 
