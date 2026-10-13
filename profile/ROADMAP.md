@@ -576,7 +576,8 @@ snapshots and the read-only console.
 Lens runs now expose trace, timing, tool and failed-span correlation for later
 incident investigation. Tower never recomputes an evaluation, decision or
 resilience verdict, and producer outcomes never change reported health. Optional
-floors are Lens 0.6, Evals 0.7, Sidecar 0.7, Chaos 0.5 and MCP 0.3.4. Each is
-checked against its published package, and none is required. Pull collection,
+floors are Lens 0.6, Evals 0.7, Sidecar 0.7, Chaos 0.5 and MCP 0.3.4; none is
+required. The Lens, Evals, Sidecar and Chaos readers are checked against their
+published packages; MCP is a declared floor only. Pull collection,
 AIOS mapping and journal integrity verification remain planned. The MCP
 connector and investigation copilot (Tower v0.6) come next.
