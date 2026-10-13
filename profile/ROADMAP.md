@@ -539,10 +539,13 @@ completes MCP Phase 3. Three patch releases supply what it composes:
 - [AgenticLens 0.6.1](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.6.1):
   every default recommendation, including model swaps and chaos impact, names
   its step and cites evidence for it. In MCP, `lens.analyze_workflow` adds a
-  verified provenance block (artifact digest, step, spans) to each finding.
+  provenance block (artifact digest, step, spans) to each finding, with an
+  explicit `resolved` status that is false whenever the step or a span is absent
+  from the caller's artifact.
 - [Agentic Chaos 0.5.1](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.5.1):
   `to_aios_run()` and `--save-aios` export a chaos report as an AIOS
-  v0.4-draft Run. In MCP, `chaos.run_experiment` attaches that export validated,
+  v0.4-draft Run. In MCP, `chaos.run_experiment` attaches that export and
+  reports its validation result separately (`aios_export.aligned`),
   `chaos.export_aios_run` converts saved reports, and a script allow/deny glob
   policy narrows which local scripts can run.
 - [AI Operations Specification 0.5.1](https://github.com/DeepAgentLabs/ai-operations-spec/releases/tag/v0.5.1):
@@ -551,7 +554,9 @@ completes MCP Phase 3. Three patch releases supply what it composes:
   `AIOS-0.4-*` and `AIOS-0.5-*` rules pass or fail, separately from server
   presentation.
 
-Each sibling remains optional for MCP. With an older version, the affected
-fields report themselves unavailable instead of failing. These are
+Each sibling remains optional for MCP. An older sibling degrades rather than
+failing. With an older Lens, findings without a step report `resolved: false`.
+With Chaos 0.5.0, the export reports `available: false`. With an older spec
+checkout, the conformance report has no rule catalog. These are
 draft-alignment claims, not stable AIOS conformance; Lens integrity
 verification and Sidecar/Tower stop/revoke remain planned.
