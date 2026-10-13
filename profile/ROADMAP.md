@@ -520,8 +520,9 @@ and Tower reads native chaos evidence separately from fleet health.
 
 The [v0.5 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.5.md)
 documents API coverage and compatibility tests. Structured experiment reports
-remain unfinished v0.2.x work (the AIOS run export shipped in `0.5.1`, below); safety rails are next
-in v0.5.x. This release does not claim those capabilities.
+remain unfinished v0.2.x work (the AIOS run export shipped in `0.5.1`, below).
+Safety rails subsequently ship in `0.5.2` (see below); `0.5.0` itself does not
+claim those capabilities.
 
 ## MCP 0.3.2 and Chaos 0.5 compatibility
 
