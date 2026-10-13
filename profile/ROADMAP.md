@@ -358,18 +358,18 @@ The following items are the current implementation priorities, grouped by the ro
 **`deep-agentic-core-mcp`** — _(sessions, rich diagnostics, tool annotations,
 prompt registry, and `core.verify` in `0.2.0`; optional authenticated HTTP,
 DynamoDB signup/key lifecycle, Redis user-scoped state, and Sidecar discovery
-in `0.3.0`)_
+in `0.3.0`; Phase 3 completed in `0.3.3`)_
 
 Local stdio remains supported. Hosted access is available at
 `https://mcp.deepagentlabs.io/mcp`, with signup at `https://mcp.deepagentlabs.io`.
 Version-tag releases publish to PyPI before deploying the same source to AWS;
 ordinary main-branch pushes run checks without deploying.
 
-- Provenance verification on `lens.analyze_workflow`'s response shape.
-- Multi-version AIOS schema support + conformance-style reporting, blocked on `ai-operations-spec` publishing `v0.4` schema artifacts and follow-on compatibility/versioning rules.
+- ~~Provenance verification on `lens.analyze_workflow`'s response shape~~ ✅ `0.3.3`.
+- ~~Multi-version AIOS schema support + conformance-style reporting~~ ✅ `0.3.3` (`spec_version` routing and rule-cited reports over the `ai-operations-spec` `0.5.1` catalogs).
 - Unified workflows: joined observability + chaos, incident/readiness reporting (Phase 4).
 
-**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`)_
+**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`)_
 
 - Built-in provider clients for LLM-judge calls.
 - v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording.
@@ -518,7 +518,7 @@ and Tower reads native chaos evidence separately from fleet health.
 
 The [v0.5 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.5.md)
 documents API coverage and compatibility tests. Structured experiment reports
-and canonical AIOS exports remain unfinished v0.2.x work; safety rails are next
+remain unfinished v0.2.x work (the AIOS run export shipped in `0.5.1`, below); safety rails are next
 in v0.5.x. This release does not claim those capabilities.
 
 ## MCP 0.3.2 and Chaos 0.5 compatibility
@@ -530,3 +530,33 @@ runs trusted workspace scripts; hosted HTTP rejects chaos execution. The
 release keeps Chaos optional and does not expose profile/provider configuration
 through a new MCP request schema. See the
 [MCP user guide](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/user-guide.md#chaos-v05-streaming-with-mcp-032).
+
+## Phase 3 completion: MCP 0.3.3 with Lens 0.6.1, Chaos 0.5.1 and AIOS 0.5.1
+
+[MCP v0.3.3](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.3)
+completes MCP Phase 3. Three patch releases supply what it composes:
+
+- [AgenticLens 0.6.1](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.6.1):
+  every default recommendation, including model swaps and chaos impact, names
+  its step and cites evidence for it. In MCP, `lens.analyze_workflow` adds a
+  provenance block (artifact digest, step, spans) to each finding, with an
+  explicit `resolved` status that is false whenever the step or a span is absent
+  from the caller's artifact.
+- [Agentic Chaos 0.5.1](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.5.1):
+  `to_aios_run()` and `--save-aios` export a chaos report as an AIOS
+  v0.4-draft Run. In MCP, `chaos.run_experiment` attaches that export and
+  reports its validation result separately (`aios_export.aligned`),
+  `chaos.export_aios_run` converts saved reports, and a script allow/deny glob
+  policy narrows which local scripts can run.
+- [AI Operations Specification 0.5.1](https://github.com/DeepAgentLabs/ai-operations-spec/releases/tag/v0.5.1):
+  machine-readable conformance rule IDs and the v0.5 compatibility catalog. In
+  MCP, `spec.validate_artifact` routes by `spec_version` and reports which
+  `AIOS-0.4-*` and `AIOS-0.5-*` rules pass or fail, separately from server
+  presentation.
+
+Each sibling remains optional for MCP. An older sibling degrades rather than
+failing. With an older Lens, findings without a step report `resolved: false`.
+With Chaos 0.5.0, the export reports `available: false`. With an older spec
+checkout, the conformance report has no rule catalog. These are
+draft-alignment claims, not stable AIOS conformance; Lens integrity
+verification and Sidecar/Tower stop/revoke remain planned.
