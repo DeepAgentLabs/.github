@@ -401,7 +401,7 @@ ordinary main-branch pushes run checks without deploying.
 - ~~Investigation-style narratives on recommendations~~ ✅ `0.7.0` (`agenticlens explain`).
 - ~~Remaining CLI subcommands (`trace show`, `report explain`)~~ ✅ `0.7.0` (`trace show`, `trace timeline`, `explain`, `diagnose`).
 - v0.6 test-suite and dataset management: trace-to-test-case conversion, immutable approved suites, PII masking.
-- Analysis guardrails (budget limits, stagnation detection).
+- ~~Analysis guardrails (budget limits, stagnation detection)~~ ✅ `0.7.0` (`AnalysisBudget`, `AnalysisGuard`).
 - ~~Structured judge verdict fields (agree/partially-agree/disagree, confidence score, factual-grounding breakdown)~~ ✅ `0.6.0`.
 
 **`agentic-chaos`**
