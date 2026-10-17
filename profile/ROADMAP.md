@@ -607,7 +607,7 @@ evaluate and gate exactly what was reviewed.
 
 Sibling releases in the same window:
 
-- [MCP 0.3.8](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.8):
+- [MCP 0.3.9](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.9):
   read-only `lens.suite_from_traces` and `lens.suite_check`; hosted images pin
   Lens 0.8.0.
 - [Agentic Sidecar 0.8.2](https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v0.8.2):

@@ -92,7 +92,7 @@ traces and user feedback. It masks PII before storage, flags duplicates and
 conflicting labels, adds synthetic variations and stable splits, and records
 reviews. Approved suites become immutable, hash-verified versions that CI
 verifies, exports and evaluates. Suites stay plain agentic-evals `TestSuite`
-files. MCP 0.3.8 adds read-only `lens.suite_from_traces` and `lens.suite_check`;
+files. MCP 0.3.9 adds read-only `lens.suite_from_traces` and `lens.suite_check`;
 Sidecar 0.8.2 widens its optional Lens extra to 0.8. PII detection is pattern
 based and approvals are not authenticated. See the
 [guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.8.0/docs/suite-management.md).
