@@ -373,12 +373,12 @@ ordinary main-branch pushes run checks without deploying.
 - ~~Multi-version AIOS schema support + conformance-style reporting~~ ✅ `0.3.3` (`spec_version` routing and rule-cited reports over the `ai-operations-spec` `0.5.1` catalogs).
 - Unified workflows: joined observability + chaos, incident/readiness reporting (Phase 4).
 
-**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`)_
+**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`)_
 
 - Built-in provider clients for LLM-judge calls.
-- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. Next: v0.6 test-suite and dataset management.
+- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. Next: v0.7 ModelFit.
 - ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.5.0` (agreement intervals); threshold tuning ✅ `0.6.0`.
-- ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); dataset lifecycle management (immutable snapshots, approvals) remains planned under v0.6.
+- ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); ~~dataset lifecycle management (immutable snapshots, approvals)~~ ✅ `0.8.0` (`agenticlens suite`).
 - ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
 
 **`agentic-chaos`**
@@ -405,7 +405,7 @@ ordinary main-branch pushes run checks without deploying.
 
 - ~~Investigation-style narratives on recommendations~~ ✅ `0.7.0` (`agenticlens explain`).
 - ~~Remaining CLI subcommands (`trace show`, `report explain`)~~ ✅ `0.7.0` (`trace show`, `trace timeline`, `explain`, `diagnose`).
-- v0.6 test-suite and dataset management: trace-to-test-case conversion, immutable approved suites, PII masking.
+- ~~v0.6 test-suite and dataset management: trace-to-test-case conversion, immutable approved suites, PII masking~~ ✅ `0.8.0`.
 - ~~Analysis guardrails (budget limits, stagnation detection)~~ ✅ `0.7.0` (`AnalysisBudget`, `AnalysisGuard`).
 - ~~Structured judge verdict fields (agree/partially-agree/disagree, confidence score, factual-grounding breakdown)~~ ✅ `0.6.0`.
 
@@ -590,6 +590,32 @@ published packages; MCP is a declared floor only. Pull collection,
 AIOS mapping and journal integrity verification remain planned. The MCP
 connector and investigation prompt now ship with approved staging recovery
 in Tower 0.6.0; see the combined milestone below.
+
+## AgenticLens 0.8.0: test-suite and dataset management
+
+[AgenticLens 0.8.0](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.8.0)
+delivers Lens roadmap milestone v0.6. `agenticlens suite` imports cases from
+CSV and JSON and converts successful production traces and user feedback into
+cases that need review. Failed runs and uncorrected negative feedback are
+skipped with a reason. Suites can be edited, tagged by domain, split stably
+(variants follow their original), extended with deterministic surface
+variations, de-duplicated (conflicting labels flagged) and PII-masked by
+default before storage. Approval refuses unreviewed or rejected cases, unmasked PII and
+conflicting duplicates. It then writes an immutable version whose suite and
+approval record are re-hashed on every read, so CI can verify, export,
+evaluate and gate exactly what was reviewed.
+
+Sibling releases in the same window:
+
+- [MCP 0.3.9](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.9):
+  read-only `lens.suite_from_traces` and `lens.suite_check`; hosted images pin
+  Lens 0.8.0.
+- [Agentic Sidecar 0.8.2](https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v0.8.2):
+  the optional `agenticlens` extra admits 0.8.
+
+Chaos, Evals, Control Tower and the spec need no release: suites remain
+agentic-evals `TestSuite`s and the suite schemas are Lens-local, not AIOS
+objects.
 
 ## AgenticLens 0.7.0: advanced evaluation and diagnosis
 
