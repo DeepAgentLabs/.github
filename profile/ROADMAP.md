@@ -688,3 +688,13 @@ Sibling releases in the same window:
 
 Lens, Evals, Tower and AIOS spec changes are documentation-only.
 
+
+## Evals 0.7.2: published native report contract
+
+The Evals v0.7.x milestone is complete in 0.7.2: packaged Draft 2020-12
+JSON Schemas, offline report/gate accessors, frozen 0.7.1 compatibility checks
+and validated examples. Contract 1.x changes are additive only. Tower and Lens
+retain their native reader shapes; no sibling dependency floor increases are
+needed. Chaos resilience, Sidecar supervision and AIOS conformance remain
+separate concerns. See the [contract and sibling matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/report-contract.md).
+Evals v0.8 (suite/pack/gate CLI) is next; AIOS evaluation export remains v0.10.
