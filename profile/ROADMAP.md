@@ -698,3 +698,11 @@ retain their native reader shapes; no sibling dependency floor increases are
 needed. Chaos resilience, Sidecar supervision and AIOS conformance remain
 separate concerns. See the [contract and sibling matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/report-contract.md).
 Evals v0.8 (suite/pack/gate CLI) is next; AIOS evaluation export remains v0.10.
+
+## Native Evals contract adoption
+
+MCP 0.3.8 exposes offline `evals.validate_artifact` and validates native reports
+in Lens analysis/audit/SLO tools. Tower 0.6.1 validates full Evals reports and
+gates before evidence projection; malformed evidence is unavailable. Bundled
+upstream 0.7.2 schemas keep both consumers independent of runtime sibling
+installations. This is native structural validation, not AIOS conformance.
