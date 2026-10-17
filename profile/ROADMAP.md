@@ -245,12 +245,12 @@ This keeps the MCP layer thin, portable, and aligned with the rest of the ecosys
 
 ### Phase 9 — Agentic Sidecar
 
-Sidecar **0.8.0 release target** builds on implemented 0.7 live status,
+Sidecar **0.8.0** builds on implemented 0.7 live status,
 immutable audit records and local Control Room controls. v0.8 adds native
 LangGraph/AutoGen/CrewAI/OpenAI Agents/Google ADK tool boundaries, real MCP
 transport/gateway validation and versioned native decision correlation.
 Lens 0.7.1 reads correlated decisions and verifies native journal chains;
-Chaos 0.5.3 recovery proposals retain fault IDs. Tower 0.5.1 keeps governance
+Chaos 0.5.3 recovery proposals retain fault IDs. Tower 0.5.2 keeps governance
 outcomes separate from deployment health; MCP server 0.3.5 retains discovery
 and transport ownership. Live-provider smoke remains pending credentials.
 
