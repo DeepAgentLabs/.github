@@ -65,4 +65,4 @@ with cited Lens evidence, preview, obtain separate human approval, execute once
 and verify fresh Lens/Evals evidence plus a probe. Failed recovery escalates.
 Thin Sidecar stop/restart and native MCP revocation adapters preserve runtime
 ownership. Production orchestration and hosted tenant credential binding remain
-planned. [Walkthrough and scope](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/docs/incident-recovery.md).
+planned. [Walkthrough and scope](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md).

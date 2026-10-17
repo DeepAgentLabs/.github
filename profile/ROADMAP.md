@@ -566,7 +566,8 @@ failing. With an older Lens, findings without a step report `resolved: false`.
 With Chaos 0.5.0, the export reports `available: false`. With an older spec
 checkout, the conformance report has no rule catalog. These are
 draft-alignment claims, not stable AIOS conformance; Lens integrity
-verification and Sidecar/Tower stop/revoke remain planned.
+verification remains planned. Tower 0.6.0 now supplies thin Sidecar stop and
+native MCP issuer revocation adapters with explicit containment limits.
 
 ## Tower v0.5 ecosystem evidence posture
 
@@ -585,7 +586,8 @@ floors are Lens 0.6, Evals 0.7, Sidecar 0.7, Chaos 0.5 and MCP 0.3.4; none is
 required. The Lens, Evals, Sidecar and Chaos readers are checked against their
 published packages; MCP is a declared floor only. Pull collection,
 AIOS mapping and journal integrity verification remain planned. The MCP
-connector and investigation copilot (Tower v0.6) come next.
+connector and investigation prompt now ship with approved staging recovery
+in Tower 0.6.0; see the combined milestone below.
 
 ## AgenticLens 0.7.0: advanced evaluation and diagnosis
 
@@ -641,8 +643,8 @@ cited evidence assembly, exact-preview human approval, durable at-most-one
 execution claims, and verified staging recovery with failure escalation.
 The native-producer walkthrough uses Lens 0.7.1 and Evals 0.7.1. Sidecar 0.8.0
 retains dispatch stop/restart and revoker enforcement; Chaos 0.5.3 retains fault
-injection and native reports. AIOS 0.5.1 remains draft; Tower-local incident and
-approval contracts do not become normative schemas. Producer dependencies stay
+injection and native reports. `ai-operations-spec` catalog release 0.5.1 retains AIOS v0.4-draft schemas;
+Tower-local incident and approval contracts do not become normative schemas. Producer dependencies stay
 optional and unchanged. Documentation-only alignment needs no sibling releases.
 
 Supported scope: deterministic local SQLite staging dependency fixture, explicit
@@ -651,5 +653,5 @@ manual reconciliation of interrupted/partial execution, and thin emergency
 braking adapters. Hosted MCP Tower credentials, production runtime remediation,
 bulk operations and incident console views remain later work.
 
-[Operator walkthrough](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/docs/incident-recovery.md) ·
-[MCP setup](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/docs/mcp-connector.md).
+[Operator walkthrough](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md) ·
+[MCP setup](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/mcp-connector.md).
