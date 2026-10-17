@@ -31,7 +31,7 @@ Every component is independently usable. None of them require each other, and an
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
 | [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2) and AgenticLens diagnosis span markers (0.5.3). |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
-| [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | A unified control plane for agent inventory, health, capability discovery, fleet-wide configuration, and ecosystem evidence posture. |
+| [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0). |
 
 See the [roadmap](ROADMAP.md) for how these pieces fit together and what's being built next.
 
@@ -56,3 +56,13 @@ See the [Sidecar acceptance criteria](https://github.com/DeepAgentLabs/agentic-s
 ## Get involved
 
 Found a bug or have an idea? Open an issue or discussion on the relevant repository above. Most projects also publish to PyPI — search for the package name shown next to each project.
+
+## Tower 0.6.0: investigation to verified recovery
+
+Phase 6 and Phase 6A ship as one release, paired with MCP 0.3.6. The supported
+first runtime is a deterministic staging dependency fixture: detect, investigate
+with cited Lens evidence, preview, obtain separate human approval, execute once
+and verify fresh Lens/Evals evidence plus a probe. Failed recovery escalates.
+Thin Sidecar stop/restart and native MCP revocation adapters preserve runtime
+ownership. Production orchestration and hosted tenant credential binding remain
+planned. [Walkthrough and scope](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md).
