@@ -383,8 +383,10 @@ ordinary main-branch pushes run checks without deploying.
 
 **`agentic-chaos`**
 
+- ~~v0.6 pytest plugin and assertions~~ ✅ `0.6.0` (`pytest --chaos`, seven contracts, CLI contract gating).
 - Structured experiment traces/reports (hypothesis, injection point, fault, observed behavior, recovery outcome, verdict, provenance).
 - Synthetic test scenarios (prebuilt known-bad agent behaviors).
+- v0.7 fault cascades, adaptive intensity and response poisoning.
 
 **`ai-operations-spec`**
 
@@ -655,3 +657,34 @@ bulk operations and incident console views remain later work.
 
 [Operator walkthrough](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md) ·
 [MCP setup](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/mcp-connector.md).
+
+## Agentic Chaos 0.6.0 pytest plugin and contracts
+
+[Agentic Chaos 0.6.0](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.6.0)
+makes chaos part of an ordinary test run. A `@pytest.mark.chaos` test runs under
+faults when pytest is started with `--chaos`; without the flag it runs normally.
+Seven contracts check the run's native report and return `passed`, `failed`
+or `inconclusive`:
+`CompletesWithin`, `NoUnhandledError`, `MaxRetries`, `RecoveredAfterFailure`,
+`MaxCostImpact`, `NoRetryStorm` (retries across the whole topology) and
+`FullTopologyTraversal` (every baseline node still ran). Contracts fail closed:
+a check the report cannot support, including one on a report written before 0.6,
+is `inconclusive`, and inconclusive never passes. The same contracts gate
+`agentic-chaos chaos run --contract ...` and `contracts check` on saved reports.
+
+Reports gain an additive call log and the escaped `unhandled_error`. Lens and
+Tower readers ignore them, and the AIOS export carries only call counts and the
+error in the producer extension, so no core AIOS object changes. Contract
+verdicts are Chaos-native per-run checks; Evals still owns scoring and release
+gates. The [v0.6 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.6.md)
+covers the marker, the fixture, async tests and the exact retry and visit definitions.
+
+Sibling releases in the same window:
+
+- [Agentic Sidecar 0.8.1](https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v0.8.1):
+  the optional `agentic-chaos` extra admits 0.6; no runtime change.
+- [MCP 0.3.7](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.7):
+  hosted images pin Chaos 0.6.0; MCP tools are unchanged.
+
+Lens, Evals, Tower and AIOS spec changes are documentation-only.
+
