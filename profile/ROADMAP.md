@@ -599,8 +599,8 @@ CSV and JSON and converts successful production traces and user feedback into
 cases that need review. Failed runs and uncorrected negative feedback are
 skipped with a reason. Suites can be edited, tagged by domain, split stably
 (variants follow their original), extended with deterministic surface
-variations, de-duplicated (conflicting labels flagged) and PII-masked before
-storage. Approval refuses unreviewed or rejected cases, unmasked PII and
+variations, de-duplicated (conflicting labels flagged) and PII-masked by
+default before storage. Approval refuses unreviewed or rejected cases, unmasked PII and
 conflicting duplicates. It then writes an immutable version whose suite and
 approval record are re-hashed on every read, so CI can verify, export,
 evaluate and gate exactly what was reviewed.

@@ -88,7 +88,7 @@ installations. This is native structural validation, not AIOS conformance.
 ## AgenticLens 0.8.0: test-suite and dataset management
 
 AgenticLens 0.8.0 builds regression suites from CSV/JSON imports, production
-traces and user feedback. It masks PII before storage, flags duplicates and
+traces and user feedback. It masks PII by default before storage, flags duplicates and
 conflicting labels, adds synthetic variations and stable splits, and records
 reviews. Approved suites become immutable, hash-verified versions that CI
 verifies, exports and evaluates. Suites stay plain agentic-evals `TestSuite`
