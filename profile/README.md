@@ -35,6 +35,17 @@ Every component is independently usable. None of them require each other, and an
 
 See the [roadmap](ROADMAP.md) for how these pieces fit together and what's being built next.
 
+**Sidecar v0.8: Shared & Exclusive context/intent and guardrails.** Users may choose
+context only, guardrails only, or both, independently Shared across a system/task
+or Exclusive to designated agent(s). Each agent receives shared plus assigned
+exclusive context; shared guardrails remain mandatory alongside exclusive rules.
+v0.8 provides scoped configuration, delivery and composition; v0.9 validates
+privacy, authority and lifecycle behavior; v1.0 stabilizes contracts. Explicit host context delivery is implemented; automatic prompt rewriting and
+end-to-end private-context isolation are not claimed. Lens 0.7.1 reads correlated
+decisions; Semantica export remains conditional.
+
+See the [Sidecar acceptance criteria](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROADMAP.md#shared--exclusive-context-and-guardrails).
+
 ## Principles
 
 - **Specification-first** — the contract comes before SDK ergonomics, dashboards, or integrations.
