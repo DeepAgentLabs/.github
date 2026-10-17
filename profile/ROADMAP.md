@@ -284,9 +284,10 @@ Sidecar and Chaos evidence shown as fresh/stale/missing posture.
 for autonomous agents: live evidence, investigation through MCP and an operations
 copilot, human approvals, automated runbooks and verified recovery.
 
-The first approved incident-to-recovery staging scenario is planned for v0.6.x;
-live detection/incident views follow in v0.8 and reusable runbooks in v0.9.
-These workflows are not implemented yet. Tower coordinates them while Lens,
+The first approved incident-to-recovery staging scenario ships with the local MCP
+investigation connector in Tower 0.6.0 (Phase 6 and 6A combined). The supported
+runtime is a deterministic dependency fixture; live incident views follow in
+v0.8 and reusable production runbooks in v0.9. Tower coordinates them while Lens,
 Evals, Sidecar and Chaos retain their engines.
 
 AgenticOps Control Tower should not replace Lens, Chaos, Sidecar, or MCP. It should centralize:
@@ -632,3 +633,23 @@ Lens, Tower, MCP saved-report export, and AIOS readers are compatibility-tested;
 no sibling patch release is required. MCP's run tool does not yet expose the new
 safety execution flags. Pytest integration/assertions (v0.6) are next, alongside
 the remaining structured ExperimentReport and synthetic-scenario backlog.
+
+## Tower 0.6.0 combined Phase 6/6A release
+
+Tower 0.6.0 and MCP 0.3.6 deliver local authenticated investigation tools and
+cited evidence assembly, exact-preview human approval, durable at-most-one
+execution claims, and verified staging recovery with failure escalation.
+The native-producer walkthrough uses Lens 0.7.1 and Evals 0.7.1. Sidecar 0.8.0
+retains dispatch stop/restart and revoker enforcement; Chaos 0.5.3 retains fault
+injection and native reports. AIOS 0.5.1 remains draft; Tower-local incident and
+approval contracts do not become normative schemas. Producer dependencies stay
+optional and unchanged. Documentation-only alignment needs no sibling releases.
+
+Supported scope: deterministic local SQLite staging dependency fixture, explicit
+detection, independent approval, fresh same-run Lens/Evals plus probe checks,
+manual reconciliation of interrupted/partial execution, and thin emergency
+braking adapters. Hosted MCP Tower credentials, production runtime remediation,
+bulk operations and incident console views remain later work.
+
+[Operator walkthrough](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/docs/incident-recovery.md) ·
+[MCP setup](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/docs/mcp-connector.md).
