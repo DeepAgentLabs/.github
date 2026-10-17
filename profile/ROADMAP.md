@@ -663,7 +663,8 @@ bulk operations and incident console views remain later work.
 [Agentic Chaos 0.6.0](https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v0.6.0)
 makes chaos part of an ordinary test run. A `@pytest.mark.chaos` test runs under
 faults when pytest is started with `--chaos`; without the flag it runs normally.
-Seven contracts are pass/fail checks over the run's native report:
+Seven contracts check the run's native report and return `passed`, `failed`
+or `inconclusive`:
 `CompletesWithin`, `NoUnhandledError`, `MaxRetries`, `RecoveredAfterFailure`,
 `MaxCostImpact`, `NoRetryStorm` (retries across the whole topology) and
 `FullTopologyTraversal` (every baseline node still ran). Contracts fail closed:
