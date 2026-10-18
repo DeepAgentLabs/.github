@@ -31,7 +31,7 @@ Every component is independently usable. None of them require each other, and an
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
 | [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), and cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0). |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
-| [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0). |
+| [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0), plus approved fleet desired settings and bounded stop/MCP-revocation coordination (0.7.0). |
 
 See the [roadmap](ROADMAP.md) for how these pieces fit together and what's being built next.
 
@@ -123,3 +123,18 @@ schema, automatic adapter, hosted execution capability or containment guarantee
 is introduced.
 
 Chaos 0.7.0 ships this milestone; Sidecar 0.8.3 admits its optional dependency and MCP 0.3.10 updates published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
+
+## Control Tower 0.7.0 fleet operations
+
+Tower 0.7.0 adds frozen environment/capability targeting, bulk desired settings,
+separate approval, durable per-target results and bounded stop/MCP-revocation
+acknowledgement through Python, HTTP and CLI. No fleet atomicity or automatic
+rollback/resume is claimed. Timed-out/requested commands need host reconciliation.
+
+Tower owns fleet coordination, Sidecar owns dispatch enforcement, issuers own credential revocation, Lens owns analysis, Evals owns scoring and Chaos owns controlled faults. AIOS remains the shared-semantics authority.
+
+Existing optional dependency ranges remain sufficient. No sibling runtime or
+native evidence schema changes are required; this documentation alignment needs
+no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.7.0/docs/fleet-operations.md).
+
+See the [local Tower compatibility guide](tower-0.7-fleet-operations.md) for the operator workflow and package boundaries.
