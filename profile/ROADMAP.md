@@ -605,7 +605,8 @@ deployment, capabilities), or whose evidence cannot show they meet it, are
 never recommended. Feasible candidates are scored with configurable weights,
 and each category reports its Pareto frontier and cost-per-success ranking.
 Recommendations carry confidence with reasons, explanations citing measured
-values, alternatives, a provider-diverse fallback, savings against a reference
+values, alternatives, a fallback (provider-diverse when one is feasible),
+savings against a reference
 variant on the same cases (citing the experiment report's SHA-256), and quality
 risks; `--fail-on-unfit` gates CI when a category has no feasible model.
 
