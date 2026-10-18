@@ -29,7 +29,7 @@ Every component is independently usable. None of them require each other, and an
 | [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0) and reviewed, immutable regression suites built from traces and feedback (0.8.0). |
 | [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
-| [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), and a pytest plugin with fail-closed resilience contracts (0.6.0). |
+| [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), and cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0). |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
 | [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0). |
 
@@ -106,3 +106,20 @@ files. MCP 0.3.9 adds read-only `lens.suite_from_traces` and `lens.suite_check`;
 Sidecar 0.8.2 widens its optional Lens extra to 0.8. PII detection is pattern
 based and approvals are not authenticated. See the
 [guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.8.0/docs/suite-management.md).
+
+## Chaos 0.7.0 interoperability
+
+Chaos 0.7.0 adds sequential fault cascades, deterministic monotonic breaking-point
+search, synthetic response poisoning (including prompt/tool-response instruction
+and policy-bypass payloads), and explicit-price retry cost estimates. Native
+child event IDs and fault types remain intact; cascade IDs/stages and poisoning
+strategy/payload/seed are additive event detail. Existing report readers and
+AIOS exports remain compatible.
+
+See the [v0.7 guide and offline synthetic example](https://github.com/DeepAgentLabs/agentic-chaos/blob/v0.7.0/docs/v0.7.md).
+The example includes observed synthetic dispatches and a bypassed negative
+control. Injection or recovery alone does not prove containment. No new shared
+schema, automatic adapter, hosted execution capability or containment guarantee
+is introduced.
+
+Chaos 0.7.0 ships this milestone; Sidecar 0.8.3 admits its optional dependency and MCP 0.3.10 updates published image pins. Lens, Evals, Tower and AIOS need no runtime releases.

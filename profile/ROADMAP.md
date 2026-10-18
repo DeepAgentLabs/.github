@@ -742,3 +742,20 @@ in Lens analysis/audit/SLO tools. Tower 0.6.1 validates full Evals reports and
 gates before evidence projection; malformed evidence is unavailable. Bundled
 upstream 0.7.2 schemas keep both consumers independent of runtime sibling
 installations. This is native structural validation, not AIOS conformance.
+
+## Chaos 0.7.0 interoperability
+
+Chaos 0.7.0 adds sequential fault cascades, deterministic monotonic breaking-point
+search, synthetic response poisoning (including prompt/tool-response instruction
+and policy-bypass payloads), and explicit-price retry cost estimates. Native
+child event IDs and fault types remain intact; cascade IDs/stages and poisoning
+strategy/payload/seed are additive event detail. Existing report readers and
+AIOS exports remain compatible.
+
+See the [v0.7 guide and offline synthetic example](https://github.com/DeepAgentLabs/agentic-chaos/blob/v0.7.0/docs/v0.7.md).
+The example includes observed synthetic dispatches and a bypassed negative
+control. Injection or recovery alone does not prove containment. No new shared
+schema, automatic adapter, hosted execution capability or containment guarantee
+is introduced.
+
+Chaos 0.7.0 ships this milestone; Sidecar 0.8.3 admits its optional dependency and MCP 0.3.10 updates published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
