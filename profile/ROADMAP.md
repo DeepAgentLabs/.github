@@ -759,3 +759,16 @@ schema, automatic adapter, hosted execution capability or containment guarantee
 is introduced.
 
 Chaos 0.7.0 ships this milestone; Sidecar 0.8.3 admits its optional dependency and MCP 0.3.10 updates published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
+
+## Control Tower 0.7.0 fleet operations
+
+Tower 0.7.0 adds frozen environment/capability targeting, bulk desired settings,
+separate approval, durable per-target results and bounded stop/MCP-revocation
+acknowledgement through Python, HTTP and CLI. No fleet atomicity or automatic
+rollback/resume is claimed. Timed-out/requested commands need host reconciliation.
+
+Tower owns fleet coordination, Sidecar owns dispatch enforcement, issuers own credential revocation, Lens owns analysis, Evals owns scoring and Chaos owns controlled faults. AIOS remains the shared-semantics authority.
+
+Existing optional dependency ranges remain sufficient. No sibling runtime or
+native evidence schema changes are required; this documentation alignment needs
+no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.7.0/docs/fleet-operations.md).
