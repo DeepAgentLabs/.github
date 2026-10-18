@@ -26,7 +26,7 @@ Every component is independently usable. None of them require each other, and an
 | Project | What it does |
 | --- | --- |
 | [**ai-operations-spec**](https://github.com/DeepAgentLabs/ai-operations-spec) | The AIOS specification: a vendor-neutral contract and shared vocabulary for runs, steps, model/tool calls, retrieval, memory, evaluations, and incidents. |
-| [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0) and reviewed, immutable regression suites built from traces and feedback (0.8.0). |
+| [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0), reviewed, immutable regression suites built from traces and feedback (0.8.0), and evidence-backed model recommendations per task category (0.9.0). |
 | [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
 | [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), and cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0). |
@@ -94,6 +94,20 @@ in Lens analysis/audit/SLO tools. Tower 0.6.1 validates full Evals reports and
 gates before evidence projection; malformed evidence is unavailable. Bundled
 upstream 0.7.2 schemas keep both consumers independent of runtime sibling
 installations. This is native structural validation, not AIOS conformance.
+
+## AgenticLens 0.9.0: ModelFit
+
+AgenticLens 0.9.0 recommends a model per task category from recorded
+experiment reports. Hard constraints on quality, cost, latency, safety,
+provider and deployment fail closed, so a limit the evidence cannot verify
+rejects the candidate. Each recommendation carries a confidence level with
+reasons, an explanation, alternatives, a fallback (on a different provider
+when one is feasible),
+savings against a reference model tied to the experiment report's SHA-256, and
+the quality risks of switching, plus a task-level model matrix. MCP 0.3.11 adds
+read-only `lens.modelfit_recommend`; Sidecar 0.8.4 widens its optional Lens
+extra to `<1`. ModelFit recommends; runtime routing is Lens v0.8. See the
+[guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.9.0/docs/modelfit.md).
 
 ## AgenticLens 0.8.0: test-suite and dataset management
 
