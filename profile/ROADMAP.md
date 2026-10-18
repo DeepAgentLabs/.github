@@ -679,7 +679,7 @@ Supported scope: deterministic local SQLite staging dependency fixture, explicit
 detection, independent approval, fresh same-run Lens/Evals plus probe checks,
 manual reconciliation of interrupted/partial execution, and thin emergency
 braking adapters. Hosted MCP Tower credentials, production runtime remediation,
-bulk operations and incident console views remain later work.
+Fleet operations ship in Tower 0.7.0; broader incident console views remain later work.
 
 [Operator walkthrough](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md) ·
 [MCP setup](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/mcp-connector.md).
