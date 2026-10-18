@@ -96,3 +96,19 @@ files. MCP 0.3.9 adds read-only `lens.suite_from_traces` and `lens.suite_check`;
 Sidecar 0.8.2 widens its optional Lens extra to 0.8. PII detection is pattern
 based and approvals are not authenticated. See the
 [guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.8.0/docs/suite-management.md).
+
+## Evals 0.8.0: declarative evaluation and release gates
+
+The next Evals milestone is complete in 0.8.0: `evaluate` handles YAML/JSON
+suites and JSON/JSONL samples, `live` calls Python/HTTP targets with concurrency,
+`gate` applies release policy, and `pack list/show` discovers built-in packs.
+CI can retain native JSON evidence and produce JUnit XML or Markdown summaries.
+Evaluation writes evidence even for failures; gate exit codes are 0 pass,
+1 failed policy and 2 invalid input/usage. A worked GitHub Actions workflow and
+the voice-agent example exercise this path.
+
+Lens approved suite exports remain compatible. MCP and Tower validate native
+JSON with their existing 0.7.2 schemas; report schema 1.0 is unchanged. Chaos
+and Sidecar remain independent producers, and native reports do not imply AIOS
+conformance. No sibling runtime dependency bump or patch release is required.
+See the [CLI guide and compatibility matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.8.0/docs/cli.md).
