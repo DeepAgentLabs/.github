@@ -27,7 +27,7 @@ Every component is independently usable. None of them require each other, and an
 | --- | --- |
 | [**ai-operations-spec**](https://github.com/DeepAgentLabs/ai-operations-spec) | The AIOS specification: a vendor-neutral contract and shared vocabulary for runs, steps, model/tool calls, retrieval, memory, evaluations, and incidents. |
 | [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0) and reviewed, immutable regression suites built from traces and feedback (0.8.0). |
-| [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring and evaluation engine for LLM and agent outputs. |
+| [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
 | [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), and a pytest plugin with fail-closed resilience contracts (0.6.0). |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
@@ -67,15 +67,25 @@ Thin Sidecar stop/restart and native MCP revocation adapters preserve runtime
 ownership. Production orchestration and hosted tenant credential binding remain
 planned. [Walkthrough and scope](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md).
 
-## Evals 0.7.2: published native report contract
+## Evals 0.8.0: declarative evaluation and release gates
 
-The Evals v0.7.x milestone is complete in 0.7.2: packaged Draft 2020-12
-JSON Schemas, offline report/gate accessors, frozen 0.7.1 compatibility checks
-and validated examples. Contract 1.x changes are additive only. Tower and Lens
-retain their native reader shapes; no sibling dependency floor increases are
-needed. Chaos resilience, Sidecar supervision and AIOS conformance remain
-separate concerns. See the [contract and sibling matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/report-contract.md).
-Evals v0.8 (suite/pack/gate CLI) is next; AIOS evaluation export remains v0.10.
+[Evals 0.8.0](https://github.com/DeepAgentLabs/agentic-evals/releases/tag/v0.8.0) is released: `evaluate` handles YAML/JSON
+suites and JSON/JSONL samples, `live` calls Python/HTTP targets with concurrency,
+`gate` applies release policy, and `pack list/show` discovers built-in packs.
+CI can retain native JSON evidence and produce JUnit XML or Markdown summaries.
+Evaluation writes evidence even for failures; gate exit codes are 0 pass,
+1 failed policy and 2 invalid input/usage. A worked GitHub Actions workflow and
+the voice-agent example exercise this path.
+
+Lens approved suite exports remain compatible. MCP and Tower validate native
+JSON with their existing 0.7.2 schemas; report schema 1.0 is unchanged. Chaos
+and Sidecar remain independent producers, and native reports do not imply AIOS
+conformance. No sibling runtime dependency bump or patch release is required.
+See the [CLI guide and compatibility matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.8.0/docs/cli.md).
+
+The published native report/gate contract introduced in 0.7.2 remains
+supported. Next is v0.9 judge reliability, cost and live-target resilience;
+AIOS evaluation evidence export remains planned for v0.10.
 
 ## Native Evals contract adoption
 
@@ -96,19 +106,3 @@ files. MCP 0.3.9 adds read-only `lens.suite_from_traces` and `lens.suite_check`;
 Sidecar 0.8.2 widens its optional Lens extra to 0.8. PII detection is pattern
 based and approvals are not authenticated. See the
 [guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.8.0/docs/suite-management.md).
-
-## Evals 0.8.0: declarative evaluation and release gates
-
-The next Evals milestone is complete in 0.8.0: `evaluate` handles YAML/JSON
-suites and JSON/JSONL samples, `live` calls Python/HTTP targets with concurrency,
-`gate` applies release policy, and `pack list/show` discovers built-in packs.
-CI can retain native JSON evidence and produce JUnit XML or Markdown summaries.
-Evaluation writes evidence even for failures; gate exit codes are 0 pass,
-1 failed policy and 2 invalid input/usage. A worked GitHub Actions workflow and
-the voice-agent example exercise this path.
-
-Lens approved suite exports remain compatible. MCP and Tower validate native
-JSON with their existing 0.7.2 schemas; report schema 1.0 is unchanged. Chaos
-and Sidecar remain independent producers, and native reports do not imply AIOS
-conformance. No sibling runtime dependency bump or patch release is required.
-See the [CLI guide and compatibility matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.8.0/docs/cli.md).

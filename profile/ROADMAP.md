@@ -715,27 +715,9 @@ Sibling releases in the same window:
 Lens, Evals, Tower and AIOS spec changes are documentation-only.
 
 
-## Evals 0.7.2: published native report contract
-
-The Evals v0.7.x milestone is complete in 0.7.2: packaged Draft 2020-12
-JSON Schemas, offline report/gate accessors, frozen 0.7.1 compatibility checks
-and validated examples. Contract 1.x changes are additive only. Tower and Lens
-retain their native reader shapes; no sibling dependency floor increases are
-needed. Chaos resilience, Sidecar supervision and AIOS conformance remain
-separate concerns. See the [contract and sibling matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/report-contract.md).
-Evals v0.8 (suite/pack/gate CLI) is next; AIOS evaluation export remains v0.10.
-
-## Native Evals contract adoption
-
-MCP 0.3.8 exposes offline `evals.validate_artifact` and validates native reports
-in Lens analysis/audit/SLO tools. Tower 0.6.1 validates full Evals reports and
-gates before evidence projection; malformed evidence is unavailable. Bundled
-upstream 0.7.2 schemas keep both consumers independent of runtime sibling
-installations. This is native structural validation, not AIOS conformance.
-
 ## Evals 0.8.0: declarative evaluation and release gates
 
-The next Evals milestone is complete in 0.8.0: `evaluate` handles YAML/JSON
+[Evals 0.8.0](https://github.com/DeepAgentLabs/agentic-evals/releases/tag/v0.8.0) is released: `evaluate` handles YAML/JSON
 suites and JSON/JSONL samples, `live` calls Python/HTTP targets with concurrency,
 `gate` applies release policy, and `pack list/show` discovers built-in packs.
 CI can retain native JSON evidence and produce JUnit XML or Markdown summaries.
@@ -748,3 +730,15 @@ JSON with their existing 0.7.2 schemas; report schema 1.0 is unchanged. Chaos
 and Sidecar remain independent producers, and native reports do not imply AIOS
 conformance. No sibling runtime dependency bump or patch release is required.
 See the [CLI guide and compatibility matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.8.0/docs/cli.md).
+
+The published native report/gate contract introduced in 0.7.2 remains
+supported. Next is v0.9 judge reliability, cost and live-target resilience;
+AIOS evaluation evidence export remains planned for v0.10.
+
+## Native Evals contract adoption
+
+MCP 0.3.8 exposes offline `evals.validate_artifact` and validates native reports
+in Lens analysis/audit/SLO tools. Tower 0.6.1 validates full Evals reports and
+gates before evidence projection; malformed evidence is unavailable. Bundled
+upstream 0.7.2 schemas keep both consumers independent of runtime sibling
+installations. This is native structural validation, not AIOS conformance.
