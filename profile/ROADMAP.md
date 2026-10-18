@@ -593,6 +593,33 @@ AIOS mapping and journal integrity verification remain planned. The MCP
 connector and investigation prompt now ship with approved staging recovery
 in Tower 0.6.0; see the combined milestone below.
 
+## AgenticLens 0.9.0: ModelFit
+
+[AgenticLens 0.9.0](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.9.0)
+delivers Lens roadmap milestone v0.7. `agenticlens modelfit recommend` reads
+recorded experiment reports and recommends a model per task category; a
+category selects cases by tag, domain or case ID. Candidates that break a hard
+constraint (pass rate and its interval, cost per case and per success, mean
+and p95 latency, consistency, suite-wide safety pass rate, provider,
+deployment, capabilities), or whose evidence cannot show they meet it, are
+never recommended. Feasible candidates are scored with configurable weights,
+and each category reports its Pareto frontier and cost-per-success ranking.
+Recommendations carry confidence with reasons, explanations citing measured
+values, alternatives, a provider-diverse fallback, savings against a reference
+variant on the same cases (citing the experiment report's SHA-256), and quality
+risks; `--fail-on-unfit` gates CI when a category has no feasible model.
+
+Sibling releases in the same window:
+
+- [MCP 0.3.11](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.11):
+  read-only `lens.modelfit_recommend`; hosted images pin Lens 0.9.0.
+- [Agentic Sidecar 0.8.4](https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v0.8.4):
+  the optional `agenticlens` extra admits 0.9 (`<1`).
+
+Chaos, Evals, Control Tower and the spec need no release: ModelFit reads Lens
+experiment reports only, computes no release gate, reports no fleet health,
+and its schemas are Lens-local, not AIOS objects.
+
 ## AgenticLens 0.8.0: test-suite and dataset management
 
 [AgenticLens 0.8.0](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.8.0)
