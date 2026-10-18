@@ -678,8 +678,8 @@ optional and unchanged. Documentation-only alignment needs no sibling releases.
 Supported scope: deterministic local SQLite staging dependency fixture, explicit
 detection, independent approval, fresh same-run Lens/Evals plus probe checks,
 manual reconciliation of interrupted/partial execution, and thin emergency
-braking adapters. Hosted MCP Tower credentials, production runtime remediation,
-Fleet operations ship in Tower 0.7.0; broader incident console views remain later work.
+braking adapters. Hosted MCP Tower credentials and production runtime remediation
+remain planned. Fleet operations ship in Tower 0.7.0; broader incident console views remain later work.
 
 [Operator walkthrough](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/incident-recovery.md) ·
 [MCP setup](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.6.0/docs/mcp-connector.md).
@@ -772,3 +772,5 @@ Tower owns fleet coordination, Sidecar owns dispatch enforcement, issuers own cr
 Existing optional dependency ranges remain sufficient. No sibling runtime or
 native evidence schema changes are required; this documentation alignment needs
 no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.7.0/docs/fleet-operations.md).
+
+See the [local Tower compatibility guide](tower-0.7-fleet-operations.md) for the operator workflow and package boundaries.
