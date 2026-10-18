@@ -95,6 +95,19 @@ gates before evidence projection; malformed evidence is unavailable. Bundled
 upstream 0.7.2 schemas keep both consumers independent of runtime sibling
 installations. This is native structural validation, not AIOS conformance.
 
+## AgenticLens 0.9.0: ModelFit
+
+AgenticLens 0.9.0 recommends a model per task category from recorded
+experiment reports. Hard constraints on quality, cost, latency, safety,
+provider and deployment fail closed, so a limit the evidence cannot verify
+rejects the candidate. Each recommendation carries a confidence level with
+reasons, an explanation, alternatives, a fallback on a different provider,
+savings against a reference model tied to the experiment report's SHA-256, and
+the quality risks of switching, plus a task-level model matrix. MCP 0.3.11 adds
+read-only `lens.modelfit_recommend`; Sidecar 0.8.4 widens its optional Lens
+extra to `<1`. ModelFit recommends; runtime routing is Lens v0.8. See the
+[guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.9.0/docs/modelfit.md).
+
 ## AgenticLens 0.8.0: test-suite and dataset management
 
 AgenticLens 0.8.0 builds regression suites from CSV/JSON imports, production
