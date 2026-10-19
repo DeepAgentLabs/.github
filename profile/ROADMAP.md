@@ -746,6 +746,18 @@ Sibling releases in the same window:
 Lens, Evals, Tower and AIOS spec changes are documentation-only.
 
 
+## Evals 0.9.0: judge reliability, cost and live-target resilience
+
+[Evals 0.9.0](https://github.com/DeepAgentLabs/agentic-evals/releases/tag/v0.9.0) is released. LLM-judged and live evaluations now report what they cost and whether they actually happened:
+
+- **Judge cost and latency** on every judge score, under the `judge_*` keys AgenticLens already reads, totalled in `summary.judge` and kept apart from the agent's own cost.
+- **Bounded retries and an explicit unavailable outcome.** A judge that fails after its retries never passes, and the default gate fails and names the affected cases.
+- **Repeated judging** (`samples=N`) with per-case agreement, so a flaky judge is detected (`min_judge_agreement`) instead of averaged away.
+- **Live-target resilience:** retries with backoff, and per-case `timed_out` / `error` kept apart from wrong answers (`summary.live`, JUnit `<error>`, gate limits).
+- **Async** evaluators and targets: `aevaluate_suite` and `arun_live_suite`.
+
+Report schema 1.0 gains optional fields only. [MCP 0.3.14](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.3.14) and [Control Tower 0.7.1](https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v0.7.1) bundle the 0.9.0 schemas. Tower also projects judge and live outcomes into evaluation evidence, and MCP's hosted images pin Evals 0.9.0. Lens 0.10.0 passes unchanged on its existing `>=0.7.1,<1` range. Chaos, Sidecar and the spec need documentation only. Next is v0.10, AIOS evaluation evidence export. See the [judge reliability guide](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.9.0/docs/judge-reliability.md).
+
 ## Evals 0.8.0: declarative evaluation and release gates
 
 [Evals 0.8.0](https://github.com/DeepAgentLabs/agentic-evals/releases/tag/v0.8.0) is released: `evaluate` handles YAML/JSON
@@ -763,8 +775,8 @@ conformance. No sibling runtime dependency bump or patch release is required.
 See the [CLI guide and compatibility matrix](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.8.0/docs/cli.md).
 
 The published native report/gate contract introduced in 0.7.2 remains
-supported. Next is v0.9 judge reliability, cost and live-target resilience;
-AIOS evaluation evidence export remains planned for v0.10.
+supported. v0.9 judge reliability, cost and live-target resilience shipped in
+0.9.0; AIOS evaluation evidence export remains planned for v0.10.
 
 ## Native Evals contract adoption
 
