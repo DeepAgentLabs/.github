@@ -371,7 +371,7 @@ ordinary main-branch pushes run checks without deploying.
 
 - ~~Provenance verification on `lens.analyze_workflow`'s response shape~~ ✅ `0.3.3`.
 - ~~Multi-version AIOS schema support + conformance-style reporting~~ ✅ `0.3.3` (`spec_version` routing and rule-cited reports over the `ai-operations-spec` `0.5.1` catalogs).
-- Unified workflows: joined observability + chaos, incident/readiness reporting (Phase 4).
+- ~~Unified workflows: joined observability + chaos, incident/readiness reporting~~ ✅ `0.4.0` (fail-closed `core.release_check`, `core.incident_summary`, `core.export_report`). Phase 4 continues with authenticated stop/revoke, tool-level authorization and correlated denial evidence.
 
 **`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`; v0.7 ModelFit shipped in `0.9.0`; v0.8 advisory runtime routing shipped in `0.10.0`)_
 
@@ -745,6 +745,17 @@ Sibling releases in the same window:
 
 Lens, Evals, Tower and AIOS spec changes are documentation-only.
 
+
+## MCP 0.4.0: unified release checks
+
+[MCP 0.4.0](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.0) ships the first Phase 4 unified workflows, so a host can ask "is this ready?" across packages in one call:
+
+- **`core.release_check`** gates a Lens baseline/candidate comparison, a native Evals report and a Chaos run report. It **fails closed**: each gate is `passed`, `failed`, `invalid` or `missing`. Malformed or failed-call evidence blocks the release, as does missing evidence of a required kind (all three by default; `required_evidence` narrows that).
+- **Evals judges the evaluation** through its own release gate (every `GateConfig` threshold, strict by default, unknown keys rejected). Lens validates the comparison, and Chaos crashes or timeouts block the release while injected faults alone do not.
+- **`core.incident_summary`** reports only failure signals, and **`core.export_report`** returns the session's evidence as an MCP-local envelope, not an AIOS artifact.
+- **`core.compare_runs`** shares the `lens.compare_runs` path.
+
+All four work on the hosted server; hosted callers pass a locally produced chaos report because remote chaos execution stays disabled. No sibling runtime change, dependency bump or patch release is needed, and Tower's `>=0.3.6,<1` range already admits 0.4.0. Phase 4 continues with authenticated stop/revoke, tool-level authorization and correlated denial evidence. See the [unified workflows guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.4.0/docs/unified-workflows.md).
 
 ## Evals 0.9.0: judge reliability, cost and live-target resilience
 
