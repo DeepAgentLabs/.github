@@ -373,10 +373,10 @@ ordinary main-branch pushes run checks without deploying.
 - ~~Multi-version AIOS schema support + conformance-style reporting~~ ✅ `0.3.3` (`spec_version` routing and rule-cited reports over the `ai-operations-spec` `0.5.1` catalogs).
 - Unified workflows: joined observability + chaos, incident/readiness reporting (Phase 4).
 
-**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`; v0.7 ModelFit shipped in `0.9.0`)_
+**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`; v0.7 ModelFit shipped in `0.9.0`; v0.8 advisory runtime routing shipped in `0.10.0`)_
 
 - Built-in provider clients for LLM-judge calls.
-- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. ~~v0.7 ModelFit~~ ✅ `0.9.0`. Next: v0.8 advisory runtime routing.
+- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. ~~v0.7 ModelFit~~ ✅ `0.9.0`. v0.8 advisory runtime routing ships in `0.10.0`. Next: v0.9 optimization intelligence.
 - ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.5.0` (agreement intervals); threshold tuning ✅ `0.6.0`.
 - ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); ~~dataset lifecycle management (immutable snapshots, approvals)~~ ✅ `0.8.0` (`agenticlens suite`).
 - ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
@@ -407,7 +407,8 @@ ordinary main-branch pushes run checks without deploying.
 - ~~Remaining CLI subcommands (`trace show`, `report explain`)~~ ✅ `0.7.0` (`trace show`, `trace timeline`, `explain`, `diagnose`).
 - ~~v0.6 test-suite and dataset management: trace-to-test-case conversion, immutable approved suites, PII masking~~ ✅ `0.8.0`.
 - ~~v0.7 ModelFit: task-level model recommendations under hard constraints, tied to experiment evidence~~ ✅ `0.9.0`.
-- v0.8 advisory runtime routing: rule- and score-based routing from ModelFit evidence, fallback chains, shadow and canary modes, routing audit log.
+- ~~v0.8 advisory runtime routing: rule- and score-based routing from ModelFit evidence, fallback chains, shadow and canary modes, routing audit log~~ ✅ `0.10.0`.
+- v0.9 optimization intelligence: evidence-backed recommendations and adoption outcome tracking.
 - ~~Analysis guardrails (budget limits, stagnation detection)~~ ✅ `0.7.0` (`AnalysisBudget`, `AnalysisGuard`).
 - ~~Structured judge verdict fields (agree/partially-agree/disagree, confidence score, factual-grounding breakdown)~~ ✅ `0.6.0`.
 
@@ -804,3 +805,20 @@ native evidence schema changes are required; this documentation alignment needs
 no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.7.0/docs/fleet-operations.md).
 
 See the [local Tower compatibility guide](tower-0.7-fleet-operations.md) for the operator workflow and package boundaries.
+
+## AgenticLens 0.10.0 routing compatibility
+
+AgenticLens 0.10.0 implements roadmap v0.8: evidence-based runtime model
+selection, fail-closed routing constraints, bounded provider failover,
+confidence/escalation handoffs, shadow/canary modes and a local routing journal.
+The default is advisory; execution uses explicit caller-owned callbacks.
+MCP 0.3.12 exposes read-only `lens.routing_decide` and pins hosted Lens 0.10.0.
+See the [routing guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.10.0/docs/routing.md)
+and [offline example](https://github.com/DeepAgentLabs/agenticlens/blob/v0.10.0/examples/routing_demo.py).
+
+Lens owns model selection and recorded routing outcomes. Sidecar retains
+pre-action authority and approvals; Chaos retains fault injection; Evals retains
+scoring/gates; Tower retains fleet control and native evidence posture; AIOS
+remains the shared contract authority. Routing schemas stay Lens-local.
+Only MCP needs a patch release (0.3.12); existing Chaos, Evals and Sidecar ranges
+already admit Lens 0.10.0, and Tower/AIOS need no runtime/schema change.

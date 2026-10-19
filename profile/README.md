@@ -26,7 +26,7 @@ Every component is independently usable. None of them require each other, and an
 | Project | What it does |
 | --- | --- |
 | [**ai-operations-spec**](https://github.com/DeepAgentLabs/ai-operations-spec) | The AIOS specification: a vendor-neutral contract and shared vocabulary for runs, steps, model/tool calls, retrieval, memory, evaluations, and incidents. |
-| [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0), reviewed, immutable regression suites built from traces and feedback (0.8.0), and evidence-backed model recommendations per task category (0.9.0). |
+| [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0), reviewed, immutable regression suites built from traces and feedback (0.8.0), and evidence-backed model recommendations per task category (0.9.0), and advisory runtime routing from that evidence (0.10.0). |
 | [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
 | [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), and cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0). |
@@ -152,3 +152,20 @@ native evidence schema changes are required; this documentation alignment needs
 no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.7.0/docs/fleet-operations.md).
 
 See the [local Tower compatibility guide](tower-0.7-fleet-operations.md) for the operator workflow and package boundaries.
+
+## AgenticLens 0.10.0 routing compatibility
+
+AgenticLens 0.10.0 implements roadmap v0.8: evidence-based runtime model
+selection, fail-closed routing constraints, bounded provider failover,
+confidence/escalation handoffs, shadow/canary modes and a local routing journal.
+The default is advisory; execution uses explicit caller-owned callbacks.
+MCP 0.3.12 exposes read-only `lens.routing_decide` and pins hosted Lens 0.10.0.
+See the [routing guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.10.0/docs/routing.md)
+and [offline example](https://github.com/DeepAgentLabs/agenticlens/blob/v0.10.0/examples/routing_demo.py).
+
+Lens owns model selection and recorded routing outcomes. Sidecar retains
+pre-action authority and approvals; Chaos retains fault injection; Evals retains
+scoring/gates; Tower retains fleet control and native evidence posture; AIOS
+remains the shared contract authority. Routing schemas stay Lens-local.
+Only MCP needs a patch release (0.3.12); existing Chaos, Evals and Sidecar ranges
+already admit Lens 0.10.0, and Tower/AIOS need no runtime/schema change.
