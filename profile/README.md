@@ -251,3 +251,10 @@ Lens and Chaos exports, MCP schema routing, Evals reports, Sidecar decisions and
 Tower evidence retain their existing contracts and ownership. No sibling runtime
 dependency floor changes or package patch releases are required. See the
 [compatibility matrix and offline example workflow](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.0/docs/v0.6-ecosystem.md).
+
+## Control Tower 0.8.0 live operations
+
+See [operator compatibility and ownership](tower-0.8-live-operations.md) for
+periodic detection, durable alerts, acknowledgements and joined incident console
+views. Existing native contracts and optional dependency ranges remain compatible;
+no runtime or patch release is required here.
