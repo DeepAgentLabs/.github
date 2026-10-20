@@ -904,3 +904,11 @@ Lens and Chaos exports, MCP schema routing, Evals reports, Sidecar decisions and
 Tower evidence retain their existing contracts and ownership. No sibling runtime
 dependency floor changes or package patch releases are required. See the
 [compatibility matrix and offline example workflow](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.0/docs/v0.6-ecosystem.md).
+
+## Control Tower 0.8.0 integration alignment
+
+Tower Phase 8 implements periodic detection, alerts, attributed lifecycle audit
+and incident console views. Tower owns fleet operations and incident coordination. Lens owns analysis, Evals scoring, Sidecar enforcement, Chaos resilience and MCP tool exposure; AIOS remains the draft shared-semantics authority.
+
+See [compatibility and operator example](tower-0.8-live-operations.md).
+No sibling runtime change or patch release is required.
