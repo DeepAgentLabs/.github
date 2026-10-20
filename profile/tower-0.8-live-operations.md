@@ -7,7 +7,9 @@ commands and recovery checks. Fresh native Lens failures can open recovery
 incidents; stale heartbeats and stale/missing evidence produce separate warnings.
 Detection never executes recovery, and clearing an alert never resolves an incident.
 
-Tower owns fleet operations and incident coordination. Lens owns analysis, Evals scoring, Sidecar enforcement, Chaos resilience and MCP tool exposure; AIOS remains the draft shared-semantics authority.
+Tower owns fleet operations and incident coordination. Lens owns analysis; Evals
+owns scoring; Sidecar owns runtime enforcement; Chaos owns resilience testing;
+MCP owns tool exposure. AIOS remains the draft shared-semantics authority.
 
 The detector uses the latest observation per deployment/producer, with a default
 300-second freshness window and 30-second polling interval. It is not lossless
