@@ -218,3 +218,21 @@ They are not scores, release gates or proof of containment. No new shared
 schema, automatic adapter or hosted execution capability is introduced.
 
 Chaos 0.8.0 ships this milestone. Sidecar 0.8.5 admits it as an optional dependency, and MCP 0.3.13 updates the published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
+
+## Sidecar 0.9.0 — authority, privacy and evidence
+
+Sidecar now enforces explicitly bound task authority with narrowed delegation,
+ancestor revocation and dispatch-time expiry checks. Scoped context has explicit
+reader access and redacted summaries; framework transport and process isolation
+remain host responsibilities. Native Decision and sidecar.correlation/1 remain
+compatible. Stable shared schemas remain v1.0 work.
+
+The reproducible 24-run synthetic comparison records 0/6 unsafe dispatches with
+Sidecar and 2/6 clean false interventions during gate/provider outages. Chaos 0.8
+injects faults; Evals 0.9 scores supplied observations; Lens reads native evidence;
+Tower keeps governance outcomes separate from deployment health; MCP discovers
+installed capability without connecting to a task; AIOS retains schema ownership.
+
+See the [v0.9 guide and migration notes](https://github.com/DeepAgentLabs/agentic-sidecar/blob/v0.9.0/website/docs/v0.9.md).
+Only Sidecar needs the 0.9.0 feature release. MCP receives a 0.4.1 compatibility
+patch; other siblings retain compatible dependency ranges and need no runtime release.
