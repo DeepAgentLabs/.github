@@ -286,8 +286,9 @@ copilot, human approvals, automated runbooks and verified recovery.
 
 The first approved incident-to-recovery staging scenario ships with the local MCP
 investigation connector in Tower 0.6.0 (Phase 6 and 6A combined). The supported
-runtime is a deterministic dependency fixture; live incident views follow in
-v0.8 and reusable production runbooks in v0.9. Tower coordinates them while Lens,
+runtime is a deterministic dependency fixture. Tower 0.8.0 adds periodic local
+detection, durable alerts and incident console views; reusable production runbooks
+remain v0.9 work. Tower coordinates them while Lens,
 Evals, Sidecar and Chaos retain their engines.
 
 AgenticOps Control Tower should not replace Lens, Chaos, Sidecar, or MCP. It should centralize:
@@ -904,3 +905,11 @@ Lens and Chaos exports, MCP schema routing, Evals reports, Sidecar decisions and
 Tower evidence retain their existing contracts and ownership. No sibling runtime
 dependency floor changes or package patch releases are required. See the
 [compatibility matrix and offline example workflow](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.0/docs/v0.6-ecosystem.md).
+
+## Control Tower 0.8.0 integration alignment
+
+Tower Phase 8 implements periodic detection, alerts, attributed lifecycle audit
+and incident console views. Tower owns fleet operations and incident coordination. Lens owns analysis, Evals scoring, Sidecar enforcement, Chaos resilience and MCP tool exposure; AIOS remains the draft shared-semantics authority.
+
+See [compatibility and operator example](tower-0.8-live-operations.md).
+No sibling runtime change or patch release is required.
