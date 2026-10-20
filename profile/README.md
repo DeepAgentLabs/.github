@@ -236,3 +236,18 @@ installed capability without connecting to a task; AIOS retains schema ownership
 See the [v0.9 guide and migration notes](https://github.com/DeepAgentLabs/agentic-sidecar/blob/v0.9.0/website/docs/v0.9.md).
 Only Sidecar needs the 0.9.0 feature release. MCP receives a 0.4.1 compatibility
 patch; other siblings retain compatible dependency ranges and need no runtime release.
+
+## AIOS v0.6 canonical examples and extension model
+
+[AI Operations Specification v0.6.0](https://github.com/DeepAgentLabs/ai-operations-spec/tree/v0.6.0/specification/v0.6)
+adds exploratory canonical minimal/advanced artifacts, retry examples, schema
+and semantic negative controls, and third-party extension guidance. Offline
+validation uses the existing v0.4 schemas; artifact markers remain `0.4-draft`.
+Independent review is still pending; this repository release does not freeze
+any layer or establish stable conformance. Provenance objects and a portable
+conformance suite remain v0.6.x work.
+
+Lens and Chaos exports, MCP schema routing, Evals reports, Sidecar decisions and
+Tower evidence retain their existing contracts and ownership. No sibling runtime
+dependency floor changes or package patch releases are required. See the
+[compatibility matrix and offline example workflow](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.0/docs/v0.6-ecosystem.md).
