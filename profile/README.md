@@ -86,7 +86,7 @@ planned. [Walkthrough and scope](https://github.com/DeepAgentLabs/agenticops-con
 - **`core.incident_summary`** reports only failure signals, and **`core.export_report`** returns the session's evidence as an MCP-local envelope, not an AIOS artifact.
 - **`core.compare_runs`** shares the `lens.compare_runs` path.
 
-All four work on the hosted server; hosted callers pass a locally produced chaos report because remote chaos execution stays disabled. No sibling runtime change, dependency bump or patch release is needed, and Tower's `>=0.3.6,<1` range already admits 0.4.0. MCP's Phase 5 adds hosted access control: tool-level permissions, revocation at dispatch, authenticated stop/revoke and correlated denial evidence. See the [unified workflows guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.4.0/docs/unified-workflows.md).
+All four work on the hosted server; hosted callers pass a locally produced chaos report because remote chaos execution stays disabled. No sibling runtime change, dependency bump or patch release is needed, and Tower's `>=0.3.6,<1` range already admits 0.4.0. MCP 0.5.0 (Phase 5) adds hosted access control: per-key tool permissions, revocation at dispatch and correlated denial evidence. See the [unified workflows guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.4.0/docs/unified-workflows.md).
 
 ## Evals 0.10.0: AIOS evaluation evidence export
 
@@ -330,3 +330,15 @@ Running the suite through DeepAgent MCP surfaced two `0.4-draft` divergences,
 fixed in MCP 0.4.5. Lens, Chaos, Evals, Sidecar and Tower keep their existing
 contracts and dependency ranges and need no release. See the
 [sibling compatibility guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.1/docs/v0.6.1-ecosystem.md).
+
+## MCP 0.5.0: hosted access control
+
+[MCP 0.5.0](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.5.0) completes MCP Phase 5 with hosted access control. Each hosted key can carry allow and deny tool globs, an expiry and a task scope. The server enforces them at dispatch, outside the model: before each hosted handler runs, it re-authenticates the key and reloads its policy. Revocation, a narrower policy or expiry therefore stops queued calls, retries and calls on existing connections. Calls already running finish. Denied calls return an MCP-local `mcp.access-decision.v1` record, and every hosted call logs `dispatch`/`completion` records that share a `correlation_id`. These records are not AIOS artifacts. `core.access_status` reports a key's effective policy, and operators use `deep-agentic-core-mcp-admin` to narrow or revoke a key by user ID.
+
+Tower's MCP revocation adapter is unchanged and now also stops queued calls.
+Hosted chaos execution and `tower.*` stay disabled, and a policy cannot widen
+the hosted surface. Lens, Chaos, Evals, Sidecar, Tower and the spec need
+documentation only, with no dependency or pin changes. Next for MCP is Phase 6:
+hosted Tower credentials, an authenticated Sidecar stop/revoke bridge and a
+shared AIOS access-evidence format. See the
+[hosted access control guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.5.0/docs/access-control.md).
