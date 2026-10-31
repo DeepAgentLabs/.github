@@ -25,7 +25,7 @@ Every component is independently usable. None of them require each other, and an
 
 | Project | What it does |
 | --- | --- |
-| [**ai-operations-spec**](https://github.com/DeepAgentLabs/ai-operations-spec) | The AIOS specification: a vendor-neutral contract and shared vocabulary for runs, steps, model/tool calls, retrieval, memory, evaluations, and incidents. |
+| [**ai-operations-spec**](https://github.com/DeepAgentLabs/ai-operations-spec) | The AIOS specification: a vendor-neutral contract and shared vocabulary for runs, steps, model/tool calls, retrieval, memory, evaluations, and incidents, with draft provenance records and a portable conformance suite. |
 | [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0), reviewed, immutable regression suites built from traces and feedback (0.8.0), and evidence-backed model recommendations per task category (0.9.0), and advisory runtime routing from that evidence (0.10.0), and evidence-backed optimization recommendations with post-adoption outcome tracking (0.11.0). |
 | [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0), plus judge cost, bounded retries, unavailable-judge gating, sampling agreement, and live-target timeouts and async runs (0.9.0), and AIOS evaluation evidence export (0.10.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
@@ -313,3 +313,20 @@ containment. No new shared schema, automatic adapter or hosted execution
 capability is introduced.
 
 Chaos 0.9.0 ships this milestone. Sidecar 0.9.1 admits it as an optional dependency, and MCP 0.4.4 updates the published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
+
+## AIOS v0.6.1 provenance records and conformance suite
+
+[AI Operations Specification v0.6.1](https://github.com/DeepAgentLabs/ai-operations-spec/tree/v0.6.1/specification/v0.6)
+is the first v0.6.x increment. Exploratory `0.6-draft` provenance records
+describe where a finding came from (subjects with optional digests, source
+references, derived findings and evidence lineage) without changing any
+`0.4-draft` Run or Workflow. A portable conformance suite gives every case an
+expected outcome and rule citations so implementations can check themselves
+offline, and naming conventions are now documented and tested. Independent
+review is still pending; no layer freezes and stable conformance is not
+claimed. A verified, resolved source never shows that a finding is true.
+
+Running the suite through DeepAgent MCP surfaced two `0.4-draft` divergences,
+fixed in MCP 0.4.5. Lens, Chaos, Evals, Sidecar and Tower keep their existing
+contracts and dependency ranges and need no release. See the
+[sibling compatibility guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.1/docs/v0.6.1-ecosystem.md).
