@@ -968,3 +968,20 @@ containment. No new shared schema, automatic adapter or hosted execution
 capability is introduced.
 
 Chaos 0.9.0 ships this milestone. Sidecar 0.9.1 admits it as an optional dependency, and MCP 0.4.4 updates the published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
+
+## AIOS v0.6.1 provenance records and conformance suite
+
+[AI Operations Specification v0.6.1](https://github.com/DeepAgentLabs/ai-operations-spec/tree/v0.6.1/specification/v0.6)
+is the first v0.6.x increment. Exploratory `0.6-draft` provenance records
+describe where a finding came from (subjects with optional digests, source
+references, derived findings and evidence lineage) without changing any
+`0.4-draft` Run or Workflow. A portable conformance suite gives every case an
+expected outcome and rule citations so implementations can check themselves
+offline, and naming conventions are now documented and tested. Independent
+review is still pending; no layer freezes and stable conformance is not
+claimed. A verified, resolved source never shows that a finding is true.
+
+Running the suite through DeepAgent MCP surfaced two `0.4-draft` divergences,
+fixed in MCP 0.4.5. Lens, Chaos, Evals, Sidecar and Tower keep their existing
+contracts and dependency ranges and need no release. See the
+[sibling compatibility guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.1/docs/v0.6.1-ecosystem.md).
