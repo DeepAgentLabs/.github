@@ -29,7 +29,7 @@ Every component is independently usable. None of them require each other, and an
 | [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0), reviewed, immutable regression suites built from traces and feedback (0.8.0), and evidence-backed model recommendations per task category (0.9.0), and advisory runtime routing from that evidence (0.10.0), and evidence-backed optimization recommendations with post-adoption outcome tracking (0.11.0). |
 | [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0), plus judge cost, bounded retries, unavailable-judge gating, sampling agreement, and live-target timeouts and async runs (0.9.0), and AIOS evaluation evidence export (0.10.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
-| [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0), and gated multi-stage chaos workflows, linted declarative experiments, explosion-radius scopes and topology fuzzing (0.8.0). |
+| [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0), gated multi-stage chaos workflows, linted declarative experiments, explosion-radius scopes and topology fuzzing (0.8.0), and pre/during/post resilience probes with a 0–100 resilience score, bounded score trends and a `--min-score` CI gate (0.9.0). |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
 | [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0), plus approved fleet desired settings and bounded stop/MCP-revocation coordination (0.7.0), periodic local detection, durable alerts and joined incident console views (0.8.0). |
 
@@ -278,3 +278,38 @@ See [operator compatibility and ownership](tower-0.8-live-operations.md) for
 periodic detection, durable alerts, acknowledgements and joined incident console
 views. Existing native contracts and optional dependency ranges remain compatible;
 no runtime or patch release is required here.
+
+## Chaos 0.9.0 interoperability
+
+Chaos 0.9.0 adds:
+
+- resilience probes: `HttpProbe`, `ResponseQualityProbe`, `LatencyProbe` and
+  `FunctionProbe` check steady state before chaos, while faults are active and
+  after recovery. By default no fault is injected when a pre-chaos probe
+  fails; `require_steady_state=False` runs the chaos anyway and leaves the
+  score inconclusive
+- a 0-100 resilience score built from recovery, probe, latency,
+  retry-efficiency and cost evidence, with per-fault verdicts. Components a
+  run cannot show (for example latency without a baseline) are left out and
+  the remaining weights renormalized. The score is inconclusive (`null`) after
+  a failed pre-chaos probe, for dry runs, when no fault fired, or when no
+  component can be computed
+- a local run-history store for score trends, with `max_runs` and
+  `max_age_days` retention, and a `--min-score` CI gate
+- probes and scoring on chaos workflows, experiment files and the pytest marker
+
+Native event IDs and fault types are unchanged. `ChaosReport.probes`,
+`ChaosReport.resilience` and the matching `WorkflowReport` fields are optional
+and additive. When a score was computed, AIOS exports add a derived
+`resilience_score` measurement; inconclusive runs export none. Probe results
+and the score breakdown stay in the `io.deepagentlabs.agentic-chaos`
+producer extension.
+
+See the [v0.9 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/v0.9.0/docs/v0.9.md)
+and the [offline demo](https://github.com/DeepAgentLabs/agentic-chaos/blob/v0.9.0/examples/chaos_resilience_demo.py).
+The resilience score summarizes the evidence of one chaos run. It is not an
+Evals score, a release-gate decision, a deployment health signal or proof of
+containment. No new shared schema, automatic adapter or hosted execution
+capability is introduced.
+
+Chaos 0.9.0 ships this milestone. Sidecar 0.9.1 admits it as an optional dependency, and MCP 0.4.4 updates the published image pins. Lens, Evals, Tower and AIOS need no runtime releases.
