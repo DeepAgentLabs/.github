@@ -1004,7 +1004,9 @@ shared AIOS access-evidence format. See the
 
 Tower Phase 9 implements versioned runbooks with exact-digest approval, bounded
 steps, compensation, cancellation, lease-based reconciliation and verified
-recovery. Each sibling keeps its engine: Chaos reports and Evals gates are read as validation and recovery evidence, Lens runs as recovery evidence, and MCP 0.5.1 adds local `tower.runbook*` tools while approval stays human-only.
+recovery. Chaos reports are read only as runbook validation evidence, Evals gates
+as validation and recovery evidence, and Lens runs as recovery evidence. MCP 0.5.1
+adds local `tower.runbook*` tools; approval stays human-only.
 
 See [compatibility and operator example](tower-0.9-runbooks.md).
-No sibling runtime change or patch release is required.
+MCP needs a patch release (0.5.1); the other siblings need documentation only.

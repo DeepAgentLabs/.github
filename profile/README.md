@@ -348,4 +348,5 @@ shared AIOS access-evidence format. See the
 See [operator compatibility and ownership](tower-0.9-runbooks.md) for versioned runbooks,
 exact-digest approval, bounded steps, compensation, cancellation and verified
 recovery. Existing native contracts and optional dependency ranges remain
-compatible; no runtime or patch release is required here.
+compatible. MCP 0.5.1 adds local `tower.runbook*` tools; the other siblings need
+documentation only.

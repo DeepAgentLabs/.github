@@ -16,12 +16,13 @@ Tower owns runbooks, approvals and incident coordination. Lens owns analysis; Ev
 owns scoring; Sidecar owns runtime enforcement; Chaos owns resilience testing;
 MCP owns tool exposure. AIOS remains the draft shared-semantics authority.
 
-Each sibling keeps its engine: Chaos reports and Evals gates are read as validation and recovery evidence, Lens runs as recovery evidence, and MCP 0.5.1 adds local `tower.runbook*` tools while approval stays human-only.
+Each sibling keeps its engine. Chaos reports are read only as runbook validation
+evidence, Evals gates as validation and recovery evidence, and Lens runs as
+recovery evidence.
 
-MCP 0.5.1 adds local `tower.runbook*` tools over the new routes; approval stays
-human-only. No sibling dependency bump, new mandatory import or native artifact
-change is needed here. This compatibility update is documentation only and needs
-no patch release.
+MCP 0.5.1 is a patch release that adds local `tower.runbook*` tools over the new
+routes; approval stays human-only. Lens, Evals, Chaos, Sidecar and AIOS need
+documentation only, with no dependency floor or native artifact change.
 
 ## Example operator workflow
 
