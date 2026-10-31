@@ -374,10 +374,10 @@ ordinary main-branch pushes run checks without deploying.
 - ~~Multi-version AIOS schema support + conformance-style reporting~~ ✅ `0.3.3` (`spec_version` routing and rule-cited reports over the `ai-operations-spec` `0.5.1` catalogs).
 - ~~Unified workflows: joined observability + chaos, incident/readiness reporting~~ ✅ `0.4.0` (fail-closed `core.release_check`, `core.incident_summary`, `core.export_report`). MCP's Phase 5 adds hosted access control: tool-level permissions, revocation at dispatch, authenticated stop/revoke and correlated denial evidence.
 
-**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`; v0.7 ModelFit shipped in `0.9.0`; v0.8 advisory runtime routing shipped in `0.10.0`)_
+**`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`; v0.7 ModelFit shipped in `0.9.0`; v0.8 advisory runtime routing shipped in `0.10.0`; v0.9 optimization intelligence shipped in `0.11.0`)_
 
 - Built-in provider clients for LLM-judge calls.
-- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. ~~v0.7 ModelFit~~ ✅ `0.9.0`. v0.8 advisory runtime routing ships in `0.10.0`. Next: v0.9 optimization intelligence.
+- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. ~~v0.7 ModelFit~~ ✅ `0.9.0`. ~~v0.8 advisory runtime routing~~ ✅ `0.10.0`. ~~v0.9 optimization intelligence~~ ✅ `0.11.0`. Next: v1.0 production and enterprise readiness.
 - ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.5.0` (agreement intervals); threshold tuning ✅ `0.6.0`.
 - ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); ~~dataset lifecycle management (immutable snapshots, approvals)~~ ✅ `0.8.0` (`agenticlens suite`).
 - ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
@@ -409,7 +409,7 @@ ordinary main-branch pushes run checks without deploying.
 - ~~v0.6 test-suite and dataset management: trace-to-test-case conversion, immutable approved suites, PII masking~~ ✅ `0.8.0`.
 - ~~v0.7 ModelFit: task-level model recommendations under hard constraints, tied to experiment evidence~~ ✅ `0.9.0`.
 - ~~v0.8 advisory runtime routing: rule- and score-based routing from ModelFit evidence, fallback chains, shadow and canary modes, routing audit log~~ ✅ `0.10.0`.
-- v0.9 optimization intelligence: evidence-backed recommendations and adoption outcome tracking.
+- ~~v0.9 optimization intelligence: evidence-backed recommendations, accepted/rejected tracking and adoption outcome evaluation~~ ✅ `0.11.0`.
 - ~~Analysis guardrails (budget limits, stagnation detection)~~ ✅ `0.7.0` (`AnalysisBudget`, `AnalysisGuard`).
 - ~~Structured judge verdict fields (agree/partially-agree/disagree, confidence score, factual-grounding breakdown)~~ ✅ `0.6.0`.
 
@@ -757,6 +757,16 @@ Lens, Evals, Tower and AIOS spec changes are documentation-only.
 - **`core.compare_runs`** shares the `lens.compare_runs` path.
 
 All four work on the hosted server; hosted callers pass a locally produced chaos report because remote chaos execution stays disabled. No sibling runtime change, dependency bump or patch release is needed, and Tower's `>=0.3.6,<1` range already admits 0.4.0. MCP's Phase 5 adds hosted access control: tool-level permissions, revocation at dispatch, authenticated stop/revoke and correlated denial evidence. See the [unified workflows guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.4.0/docs/unified-workflows.md).
+
+## AgenticLens 0.11.0: optimization intelligence
+
+[AgenticLens 0.11.0](https://github.com/DeepAgentLabs/agenticlens/releases/tag/v0.11.0) is released. Roadmap v0.9 turns recorded traces into recommendations you can act on and then check:
+
+- `agenticlens optimize analyze` ranks opportunities across prompts (caching, compression), retrieval (top-k pruning, reranking), memory (summarization, retention), tools (result caching, non-retryable errors), workflows (redundant steps, handoffs that add no work) and models (quality-cost trade-offs between variants). Each cites the runs and spans it came from.
+- Projected benefit (with its basis), confidence (with reasons) and quality risks are separate fields and never netted. Cost stays unavailable when any span lacks a recorded cost.
+- An append-only ledger tracks accepted, rejected, adopted and reverted recommendations, and `agenticlens optimize outcome` reports projected and observed results side by side after adoption, failing CI when quality regressed.
+
+[MCP 0.4.3](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.3) adds read-only `lens.optimization_analyze` and pins hosted Lens 0.11.0. Sidecar's locked integration CI moves to Lens 0.11.0. Evals, Chaos, Tower and the spec need documentation only; optimization artifacts are Lens-local. Next for Lens is v1.0, production and enterprise readiness. See the [optimization guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.11.0/docs/optimization.md).
 
 ## Evals 0.10.0: AIOS evaluation evidence export
 
