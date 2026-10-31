@@ -998,3 +998,12 @@ documentation only, with no dependency or pin changes. Next for MCP is Phase 6:
 hosted Tower credentials, an authenticated Sidecar stop/revoke bridge and a
 shared AIOS access-evidence format. See the
 [hosted access control guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.5.0/docs/access-control.md).
+
+## Control Tower 0.9.0 integration alignment
+
+Tower Phase 9 implements versioned runbooks with exact-digest approval, bounded
+steps, compensation, cancellation, lease-based reconciliation and verified
+recovery. Each sibling keeps its engine: Chaos reports and Evals gates are read as validation and recovery evidence, Lens runs as recovery evidence, and MCP 0.5.1 adds local `tower.runbook*` tools while approval stays human-only.
+
+See [compatibility and operator example](tower-0.9-runbooks.md).
+No sibling runtime change or patch release is required.
