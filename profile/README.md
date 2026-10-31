@@ -342,3 +342,10 @@ documentation only, with no dependency or pin changes. Next for MCP is Phase 6:
 hosted Tower credentials, an authenticated Sidecar stop/revoke bridge and a
 shared AIOS access-evidence format. See the
 [hosted access control guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.5.0/docs/access-control.md).
+
+## Control Tower 0.9.0 runbooks
+
+See [operator compatibility and ownership](tower-0.9-runbooks.md) for versioned runbooks,
+exact-digest approval, bounded steps, compensation, cancellation and verified
+recovery. Existing native contracts and optional dependency ranges remain
+compatible; no runtime or patch release is required here.
