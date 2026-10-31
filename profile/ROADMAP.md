@@ -287,8 +287,9 @@ copilot, human approvals, automated runbooks and verified recovery.
 The first approved incident-to-recovery staging scenario ships with the local MCP
 investigation connector in Tower 0.6.0 (Phase 6 and 6A combined). The supported
 runtime is a deterministic dependency fixture. Tower 0.8.0 adds periodic local
-detection, durable alerts and incident console views; reusable production runbooks
-remain v0.9 work. Tower coordinates them while Lens,
+detection, durable alerts and incident console views; Tower 0.9.0 adds reusable
+versioned runbooks for the staging fixture, and production runtime connectors remain
+planned. Tower coordinates them while Lens,
 Evals, Sidecar and Chaos retain their engines.
 
 AgenticOps Control Tower should not replace Lens, Chaos, Sidecar, or MCP. It should centralize:
