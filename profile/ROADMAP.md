@@ -287,8 +287,9 @@ copilot, human approvals, automated runbooks and verified recovery.
 The first approved incident-to-recovery staging scenario ships with the local MCP
 investigation connector in Tower 0.6.0 (Phase 6 and 6A combined). The supported
 runtime is a deterministic dependency fixture. Tower 0.8.0 adds periodic local
-detection, durable alerts and incident console views; reusable production runbooks
-remain v0.9 work. Tower coordinates them while Lens,
+detection, durable alerts and incident console views; Tower 0.9.0 adds reusable
+versioned runbooks for the staging fixture, and production runtime connectors remain
+planned. Tower coordinates them while Lens,
 Evals, Sidecar and Chaos retain their engines.
 
 AgenticOps Control Tower should not replace Lens, Chaos, Sidecar, or MCP. It should centralize:
@@ -998,3 +999,14 @@ documentation only, with no dependency or pin changes. Next for MCP is Phase 6:
 hosted Tower credentials, an authenticated Sidecar stop/revoke bridge and a
 shared AIOS access-evidence format. See the
 [hosted access control guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.5.0/docs/access-control.md).
+
+## Control Tower 0.9.0 integration alignment
+
+Tower Phase 9 implements versioned runbooks with exact-digest approval, bounded
+steps, compensation, cancellation, lease-based reconciliation and verified
+recovery. Chaos reports are read only as runbook validation evidence, Evals gates
+as validation and recovery evidence, and Lens runs as recovery evidence. MCP 0.5.1
+adds local `tower.runbook*` tools; approval stays human-only.
+
+See [compatibility and operator example](tower-0.9-runbooks.md).
+MCP needs a patch release (0.5.1); the other siblings need documentation only.
