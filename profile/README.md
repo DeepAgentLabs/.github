@@ -1,5 +1,15 @@
 <h1 align="center">DeepAgentLabs</h1>
 
+## Minor releases until the coordinated v1.0 launch
+
+Final local roadmap phases continue as minor releases: AIOS v0.7, Chaos
+v0.11, Evals v0.12, Sidecar v0.10, Lens v0.13, MCP v0.7 and Tower v0.10.
+Reserve v1.0 for one coordinated ecosystem release after every project's
+readiness, compatibility and independent-review gates pass. No package version,
+schema marker or completion status changes in this documentation update.
+See the [release policy and readiness gate](RELEASE_POLICY.md).
+
+
 <p align="center"><strong>Open, modular infrastructure for building, observing, evaluating, and governing AI agents in production.</strong></p>
 
 <p align="center">
@@ -40,7 +50,7 @@ context only, guardrails only, or both, independently Shared across a system/tas
 or Exclusive to designated agent(s). Each agent receives shared plus assigned
 exclusive context; shared guardrails remain mandatory alongside exclusive rules.
 v0.8 provides scoped configuration, delivery and composition; v0.9 validates
-privacy, authority and lifecycle behavior; v1.0 stabilizes contracts. Explicit host context delivery is implemented; automatic prompt rewriting and
+privacy, authority and lifecycle behavior; v0.10 prepares contracts for the coordinated ecosystem v1.0 freeze. Explicit host context delivery is implemented; automatic prompt rewriting and
 end-to-end private-context isolation are not claimed. Lens 0.7.1 reads correlated
 decisions; Semantica export remains conditional.
 
@@ -65,7 +75,7 @@ Found a bug or have an idea? Open an issue or discussion on the relevant reposit
 - Projected benefit (with its basis), confidence (with reasons) and quality risks are separate fields and never netted. Cost stays unavailable when any span lacks a recorded cost.
 - An append-only ledger tracks accepted, rejected, adopted and reverted recommendations, and `agenticlens optimize outcome` reports projected and observed results side by side after adoption, failing CI when quality regressed.
 
-[MCP 0.4.3](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.3) adds read-only `lens.optimization_analyze` and pins hosted Lens 0.11.0. Sidecar's locked integration CI moves to Lens 0.11.0. Evals, Chaos, Tower and the spec need documentation only; optimization artifacts are Lens-local. Next for Lens is v1.0, production and enterprise readiness. See the [optimization guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.11.0/docs/optimization.md).
+[MCP 0.4.3](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.3) adds read-only `lens.optimization_analyze` and pins hosted Lens 0.11.0. Sidecar's locked integration CI moves to Lens 0.11.0. Evals, Chaos, Tower and the spec need documentation only; optimization artifacts are Lens-local. Next for Lens is v0.13, production and enterprise readiness, ahead of the coordinated ecosystem v1.0 release. See the [optimization guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.11.0/docs/optimization.md).
 
 ## Tower 0.6.0: investigation to verified recovery
 
@@ -245,7 +255,7 @@ Sidecar now enforces explicitly bound task authority with narrowed delegation,
 ancestor revocation and dispatch-time expiry checks. Scoped context has explicit
 reader access and redacted summaries; framework transport and process isolation
 remain host responsibilities. Native Decision and sidecar.correlation/1 remain
-compatible. Stable shared schemas remain v1.0 work.
+compatible. Sidecar contract readiness continues in v0.10; the stable freeze belongs to the coordinated ecosystem v1.0 release.
 
 The reproducible 24-run synthetic comparison records 0/6 unsafe dispatches with
 Sidecar and 2/6 clean false interventions during gate/provider outages. Chaos 0.8

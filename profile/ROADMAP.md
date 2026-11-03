@@ -1,5 +1,15 @@
 # DeepAgentLabs Roadmap
 
+## Minor releases until the coordinated v1.0 launch
+
+Final local roadmap phases continue as minor releases: AIOS v0.7, Chaos
+v0.11, Evals v0.12, Sidecar v0.10, Lens v0.13, MCP v0.7 and Tower v0.10.
+Reserve v1.0 for one coordinated ecosystem release after every project's
+readiness, compatibility and independent-review gates pass. No package version,
+schema marker or completion status changes in this documentation update.
+See the [release policy and readiness gate](RELEASE_POLICY.md).
+
+
 > DeepAgentLabs should be built **specification-first** toward an **open operational standard for AI systems**.
 
 The AI Operations Specification comes before SDK ergonomics, package features, dashboards, or integrations. The specification is the foundation; the packages are reference implementations of that foundation.
@@ -259,7 +269,7 @@ configuration/delivery/composition level: context only, guardrails only, or both
 scoped across a system/task or designated agents. Shared restrictions cannot be
 weakened by agent-specific rules. Context transport is explicit and host-owned;
 in-process wrappers are not isolation. v0.9 validates privacy, authority and
-lifecycle behavior; v1.0 stabilizes schemas. Semantica export remains conditional
+lifecycle behavior; v0.10 prepares schemas for the coordinated ecosystem v1.0 freeze. Semantica export remains conditional
 on upstream API validation. AIOS records the native correlation convention as a
 non-normative draft, not stable conformance.
 See the [canonical roadmap](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROADMAP.md).
@@ -338,7 +348,9 @@ flowchart TB
     V02 --> V03["v0.3<br/>Semantic conventions"]
     V03 --> V04["v0.4<br/>JSON Schema support"]
     V04 --> V05["v0.5<br/>Versioning and compatibility rules"]
-    V05 --> V10["v1.0<br/>Stable public specification"]
+    V05 --> V06["v0.6<br/>Examples and provenance"]
+    V06 --> V07["v0.7<br/>Review and stabilization readiness"]
+    V07 --> ECO["Coordinated ecosystem v1.0<br/>Only after all readiness gates pass"]
 ```
 
 <details>
@@ -351,7 +363,8 @@ flowchart TB
 | **v0.3**  | Semantic conventions: `workflow.started`, `llm.call`, `tool.call`, related canonical event names and lifecycle meanings.                                       |
 | **v0.4**  | JSON Schema support.                                                                                                                                           |
 | **v0.5**  | Versioning and compatibility rules.                                                                                                                            |
-| **v1.0**  | Stable public specification.                                                                                                                                   |
+| **v0.6** | Canonical examples, extensions, provenance and conformance suite. |
+| **v0.7**  | Review and stabilization readiness; stable freeze reserved for coordinated ecosystem v1.0.                                                                                                                                   |
 
 </details>
 
@@ -379,7 +392,7 @@ ordinary main-branch pushes run checks without deploying.
 **`agenticlens`** — _(evidence/provenance objects, next-best-analysis guidance, OpenTelemetry export, import-layer enforcement, and AIOS conformance CLI shipped in `0.4.0`; v0.3 evaluation evidence and v0.4 experiments and statistical comparison shipped in `0.6.0`; step provenance on every default recommendation in `0.6.1`; v0.5 advanced evaluation and diagnosis shipped in `0.7.0`; v0.6 test-suite and dataset management shipped in `0.8.0`; v0.7 ModelFit shipped in `0.9.0`; v0.8 advisory runtime routing shipped in `0.10.0`; v0.9 optimization intelligence shipped in `0.11.0`)_
 
 - Built-in provider clients for LLM-judge calls.
-- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. ~~v0.7 ModelFit~~ ✅ `0.9.0`. ~~v0.8 advisory runtime routing~~ ✅ `0.10.0`. ~~v0.9 optimization intelligence~~ ✅ `0.11.0`. Next: v1.0 production and enterprise readiness.
+- ~~v0.5 advanced evaluation and diagnosis: failure taxonomy, faulty-step attribution, judge cost recording~~ ✅ `0.7.0`. ~~v0.6 test-suite and dataset management~~ ✅ `0.8.0`. ~~v0.7 ModelFit~~ ✅ `0.9.0`. ~~v0.8 advisory runtime routing~~ ✅ `0.10.0`. ~~v0.9 optimization intelligence~~ ✅ `0.11.0`. Next: v0.13 production and enterprise readiness; v1.0 is reserved for the coordinated ecosystem launch.
 - ~~Judge calibration reports and statistical confidence intervals~~ ✅ `0.5.0` (agreement intervals); threshold tuning ✅ `0.6.0`.
 - ~~Versioned evaluation datasets (summary, split, sample export)~~ ✅ (`agenticlens dataset`); ~~dataset lifecycle management (immutable snapshots, approvals)~~ ✅ `0.8.0` (`agenticlens suite`).
 - ~~Experiment/variant manifests and statistical comparison~~ ✅ `0.6.0` (pass@k/pass^k, intervals, significance tests, heatmaps, HTML/CSV).
@@ -768,7 +781,7 @@ All four work on the hosted server; hosted callers pass a locally produced chaos
 - Projected benefit (with its basis), confidence (with reasons) and quality risks are separate fields and never netted. Cost stays unavailable when any span lacks a recorded cost.
 - An append-only ledger tracks accepted, rejected, adopted and reverted recommendations, and `agenticlens optimize outcome` reports projected and observed results side by side after adoption, failing CI when quality regressed.
 
-[MCP 0.4.3](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.3) adds read-only `lens.optimization_analyze` and pins hosted Lens 0.11.0. Sidecar's locked integration CI moves to Lens 0.11.0. Evals, Chaos, Tower and the spec need documentation only; optimization artifacts are Lens-local. Next for Lens is v1.0, production and enterprise readiness. See the [optimization guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.11.0/docs/optimization.md).
+[MCP 0.4.3](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.3) adds read-only `lens.optimization_analyze` and pins hosted Lens 0.11.0. Sidecar's locked integration CI moves to Lens 0.11.0. Evals, Chaos, Tower and the spec need documentation only; optimization artifacts are Lens-local. Next for Lens is v0.13, production and enterprise readiness, ahead of the coordinated ecosystem v1.0 release. See the [optimization guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.11.0/docs/optimization.md).
 
 ## Evals 0.10.0: AIOS evaluation evidence export
 
@@ -901,7 +914,7 @@ Sidecar now enforces explicitly bound task authority with narrowed delegation,
 ancestor revocation and dispatch-time expiry checks. Scoped context has explicit
 reader access and redacted summaries; framework transport and process isolation
 remain host responsibilities. Native Decision and sidecar.correlation/1 remain
-compatible. Stable shared schemas remain v1.0 work.
+compatible. Sidecar contract readiness continues in v0.10; the stable freeze belongs to the coordinated ecosystem v1.0 release.
 
 The reproducible 24-run synthetic comparison records 0/6 unsafe dispatches with
 Sidecar and 2/6 clean false interventions during gate/provider outages. Chaos 0.8
