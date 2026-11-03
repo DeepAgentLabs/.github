@@ -358,4 +358,4 @@ HMAC trust-store verification and offline record replay. This Lens-local format
 is not a shared AIOS execution ledger. Lens now exports/imports AIOS 0.4-draft execution Runs through a lossless
 namespaced mapping, and MCP 0.5.2 and Tower 0.9.1 delegate verification with host-owned trust
 and redacted causal IDs. Shared canonical access-event semantics remain draft work. See the
-[Lens verification guide](https://github.com/DeepAgentLabs/agenticlens/blob/main/docs/evidence-verification.md).
+[Lens verification guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.12.0/docs/evidence-verification.md).
