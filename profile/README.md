@@ -403,10 +403,10 @@ unchanged report/gate schema 1.0. AIOS 0.6.1 and its exploratory access profile
 gain no normative schema or universal containment claim.
 See [the guide and executable passing/failing fixtures](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/containment.md).
 
-## AIOS v0.6.2 interoperability guidance — 2026-11-03
+## AIOS v0.7.0 interoperability guidance — 2026-11-03
 
-AIOS repository v0.6.2 delivers a [migration guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.2/specification/v0.6/migration-guide.md),
-a [non-normative OpenTelemetry companion](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.2/specification/v0.6/otel-binding.md)
+AIOS repository v0.7.0 delivers a [migration guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/specification/v0.6/migration-guide.md),
+a [non-normative OpenTelemetry companion](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/specification/v0.6/otel-binding.md)
 pinned to upstream 1.37.0 with complete canonical-event coverage and a tested
 retry projection, plus a strict MkDocs build and main-only Pages publishing.
 Run/Workflow remain `0.4-draft`; provenance remains `0.6-draft`. Independent
@@ -414,4 +414,4 @@ review and producer/consumer acceptance gates remain open. Verification-signal,
 audit-event and incident-summary shapes still require implementation evidence.
 Lens, Chaos, Evals, Sidecar, MCP and Control Tower need documentation alignment
 only: no dependency floors, runtime adapters or sibling patch releases change.
-See the [compatibility matrix and offline commands](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.6.2/docs/v0.6.2-ecosystem.md).
+See the [compatibility matrix and offline commands](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/docs/v0.7.0-ecosystem.md).
