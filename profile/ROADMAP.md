@@ -1040,7 +1040,7 @@ paired release.
 See [MCP's release gate](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md#coordinated-mcp-and-chaos-release-planned)
 and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md#required-paired-release-acceptance).
 
-## MCP Phase 6 coordinated containment candidate
+## MCP Phase 6 coordinated containment delivery
 
 MCP 0.6.0 adds hosted Tower user bindings, authenticated task-scoped Sidecar
 stop/revoke, guided setup and saved-report recall. Chaos 0.10.0 authenticates
