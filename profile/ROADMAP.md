@@ -1056,7 +1056,8 @@ hosted arbitrary chaos execution stays disabled. See the
 Evals 0.11.0 adds required containment judgments over authenticated, bounded
 dispatch/completion and denial observations, with six reusable stop/revoke,
 denied-tool, authority, injected-instruction and fail-closed scenarios.
-Lens 0.12 verifies snapshot integrity; coverage remains producer-declared.
+Lens 0.12.1 synchronizes embedded Evals schemas and failed live-target trials;
+its 0.12 integrity API verifies snapshot integrity; coverage remains producer-declared.
 Chaos 0.10 and Sidecar 0.9.2 own attacks and enforcement; MCP 0.6.1 pins
 Evals 0.11 and checks real dispatch negative controls. Tower 0.9 reads the
 unchanged report/gate schema 1.0. AIOS 0.6.1 and its exploratory access profile
