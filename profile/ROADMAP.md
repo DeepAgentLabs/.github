@@ -1050,3 +1050,15 @@ CI and paired publication close the release gate. Evals v0.11 scoring remains
 next. Running side effects and uninstrumented boundaries remain explicit limits;
 hosted arbitrary chaos execution stays disabled. See the
 [operator guide and acceptance matrix](https://github.com/DeepAgentLabs/mcp-server/blob/c18f73decdc75aaac3e2e95004ae88589d587e75/docs/phase6-containment.md).
+
+## Evals 0.11 containment scoring — 2026-11-03
+
+Evals 0.11.0 adds required containment judgments over authenticated, bounded
+dispatch/completion and denial observations, with six reusable stop/revoke,
+denied-tool, authority, injected-instruction and fail-closed scenarios.
+Lens 0.12 verifies snapshot integrity; coverage remains producer-declared.
+Chaos 0.10 and Sidecar 0.9.2 own attacks and enforcement; MCP 0.6.1 pins
+Evals 0.11 and checks real dispatch negative controls. Tower 0.9 reads the
+unchanged report/gate schema 1.0. AIOS 0.6.1 and its exploratory access profile
+gain no normative schema or universal containment claim.
+See [the guide and executable passing/failing fixtures](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/containment.md).
