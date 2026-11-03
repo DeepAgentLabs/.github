@@ -778,7 +778,7 @@ All four work on the hosted server; hosted callers pass a locally produced chaos
 - Nothing is guessed. A missing mapping, an unmapped case or a target missing from the Run fails loudly. Skipped scores are `skipped`, undelivered judgments are `unavailable`, and cases with no observed output are reported rather than exported.
 - Merged Runs pass MCP's `spec.validate_artifact` with `conformance.aligned = true`, and Lens's `agenticlens validate` agrees.
 
-Native report schema 1.0 is unchanged. [MCP 0.4.2](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.2) pins Evals 0.10.0 in its hosted images and tests the export with `spec.validate_artifact`. Tower moves its development pin. Lens, Sidecar, Chaos and the spec need documentation only, and the spec now holds an Evals-produced review artifact. Next is v0.11, adversarial containment scoring, which is still blocked on Sidecar, Chaos, MCP and Lens evidence. See the [AIOS evidence guide](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.10.0/docs/aios-evidence.md).
+Native report schema 1.0 is unchanged. [MCP 0.4.2](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v0.4.2) pins Evals 0.10.0 in its hosted images and tests the export with `spec.validate_artifact`. Tower moves its development pin. Lens, Sidecar, Chaos and the spec need documentation only, and the spec now holds an Evals-produced review artifact. Evals v0.11 adversarial containment scoring is now released as 0.11.0 with bounded authenticated observations. See the [AIOS evidence guide](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.10.0/docs/aios-evidence.md).
 
 ## Evals 0.9.0: judge reliability, cost and live-target resilience
 
@@ -1034,7 +1034,7 @@ acknowledgement across queues, retries, existing sessions and delegated access.
 Report in-flight effects separately. Use actual execution observations, require a
 bypassed negative control to fail, and reject missing or failed/unknown/incomplete
 verification as a passing result. Chaos runs on isolated synthetic targets; MCP's
-hosted arbitrary-chaos restriction remains. Evals v0.11 scoring follows this
+hosted arbitrary-chaos restriction remains. Evals v0.11 scoring now ships in 0.11.0 after this
 paired release.
 
 See [MCP's release gate](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md#coordinated-mcp-and-chaos-release-planned)
@@ -1046,7 +1046,19 @@ MCP 0.6.0 adds hosted Tower user bindings, authenticated task-scoped Sidecar
 stop/revoke, guided setup and saved-report recall. Chaos 0.10.0 authenticates
 observed containment scenarios with Lens 0.12.0; Sidecar 0.9.2 widens its optional
 Chaos ranges. Evals 0.10.0, Tower 0.9.0 and AIOS 0.6.1 remain compatible.
-CI and paired publication close the release gate. Evals v0.11 scoring remains
-next. Running side effects and uninstrumented boundaries remain explicit limits;
+CI and paired publication close the release gate. Evals v0.11 scoring subsequently shipped in 0.11.0. Running side effects and uninstrumented boundaries remain explicit limits;
 hosted arbitrary chaos execution stays disabled. See the
 [operator guide and acceptance matrix](https://github.com/DeepAgentLabs/mcp-server/blob/c18f73decdc75aaac3e2e95004ae88589d587e75/docs/phase6-containment.md).
+
+## Evals 0.11 containment scoring — 2026-11-03
+
+Evals 0.11.0 adds required containment judgments over authenticated, bounded
+dispatch/completion and denial observations, with six reusable stop/revoke,
+denied-tool, authority, injected-instruction and fail-closed scenarios.
+Lens 0.12.1 synchronizes embedded Evals schemas and failed live-target trials;
+its 0.12 integrity API verifies snapshot integrity; coverage remains producer-declared.
+Chaos 0.10 and Sidecar 0.9.2 own attacks and enforcement; MCP 0.6.1 pins
+Evals 0.11 and checks real dispatch negative controls. Tower 0.9 reads the
+unchanged report/gate schema 1.0. AIOS 0.6.1 and its exploratory access profile
+gain no normative schema or universal containment claim.
+See [the guide and executable passing/failing fixtures](https://github.com/DeepAgentLabs/agentic-evals/blob/main/docs/containment.md).
