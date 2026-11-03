@@ -350,3 +350,12 @@ exact-digest approval, bounded steps, compensation, cancellation and verified
 recovery. Existing native contracts and optional dependency ranges remain
 compatible. MCP 0.5.1 adds local `tower.runbook*` tools; the other siblings need
 documentation only.
+
+### Lens 0.12 execution evidence
+
+Lens 0.12 implements authenticated ordered-record snapshots, explicit coverage,
+HMAC trust-store verification and offline record replay. This Lens-local format
+is not a shared AIOS execution ledger. Lens now exports/imports AIOS 0.4-draft execution Runs through a lossless
+namespaced mapping, and MCP 0.5.2 and Tower 0.9.1 delegate verification with host-owned trust
+and redacted causal IDs. Shared canonical access-event semantics remain draft work. See the
+[Lens verification guide](https://github.com/DeepAgentLabs/agenticlens/blob/main/docs/evidence-verification.md).
