@@ -1039,3 +1039,14 @@ paired release.
 
 See [MCP's release gate](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md#coordinated-mcp-and-chaos-release-planned)
 and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md#required-paired-release-acceptance).
+
+## MCP Phase 6 coordinated containment delivery
+
+MCP 0.6.0 adds hosted Tower user bindings, authenticated task-scoped Sidecar
+stop/revoke, guided setup and saved-report recall. Chaos 0.10.0 authenticates
+observed containment scenarios with Lens 0.12.0; Sidecar 0.9.2 widens its optional
+Chaos ranges. Evals 0.10.0, Tower 0.9.0 and AIOS 0.6.1 remain compatible.
+CI and paired publication close the release gate. Evals v0.11 scoring remains
+next. Running side effects and uninstrumented boundaries remain explicit limits;
+hosted arbitrary chaos execution stays disabled. See the
+[operator guide and acceptance matrix](https://github.com/DeepAgentLabs/mcp-server/blob/c18f73decdc75aaac3e2e95004ae88589d587e75/docs/phase6-containment.md).
