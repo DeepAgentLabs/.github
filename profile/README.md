@@ -359,3 +359,23 @@ is not a shared AIOS execution ledger. Lens now exports/imports AIOS 0.4-draft e
 namespaced mapping, and MCP 0.5.2 and Tower 0.9.1 delegate verification with host-owned trust
 and redacted causal IDs. Shared canonical access-event semantics remain draft work. See the
 [Lens verification guide](https://github.com/DeepAgentLabs/agenticlens/blob/v0.12.0/docs/evidence-verification.md).
+
+## Next coordinated release: MCP Phase 6 and Chaos containment validation
+
+MCP's authenticated Sidecar stop/revoke integration and Chaos containment tests
+are one planned delivery, published as coordinated sibling releases. Target MCP
+0.6.0 plus a Chaos 0.9.x validation patch (0.10.0 if public APIs change).
+Validate candidate wheels together and publish the tested version matrix before
+closing the milestone. Other siblings get patches only when compatibility needs
+one.
+
+The shared gate requires zero forbidden dispatches after effective stop/revoke
+acknowledgement across queues, retries, existing sessions and delegated access.
+Report in-flight effects separately. Use actual execution observations, require a
+bypassed negative control to fail, and reject missing or failed/unknown/incomplete
+verification as a passing result. Chaos runs on isolated synthetic targets; MCP's
+hosted arbitrary-chaos restriction remains. Evals v0.11 scoring follows this
+paired release.
+
+See [MCP's release gate](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md#coordinated-mcp-and-chaos-release-planned)
+and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md#required-paired-release-acceptance).
