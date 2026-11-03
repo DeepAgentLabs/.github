@@ -389,4 +389,4 @@ Chaos ranges. Evals 0.10.0, Tower 0.9.0 and AIOS 0.6.1 remain compatible.
 CI and paired publication close the release gate. Evals v0.11 scoring remains
 next. Running side effects and uninstrumented boundaries remain explicit limits;
 hosted arbitrary chaos execution stays disabled. See the
-[operator guide and acceptance matrix](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/phase6-containment.md).
+[operator guide and acceptance matrix](https://github.com/DeepAgentLabs/mcp-server/blob/c18f73decdc75aaac3e2e95004ae88589d587e75/docs/phase6-containment.md).
