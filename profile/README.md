@@ -477,3 +477,12 @@ Existing native sibling schemas, optional dependency ranges and evidence/health
 boundaries are unchanged. Sibling updates are documentation-only; Tower is the
 only package requiring publication. Production runtime connectors, independent
 ecosystem acceptance and the coordinated v1.0 stable freeze remain open.
+
+Operator discovery against a running Tower 0.10 server:
+
+```bash
+curl --fail -H "Authorization: Bearer $AGENTICOPS_READ_TOKEN" \
+  "$AGENTICOPS_API_URL/contracts/capabilities"
+```
+
+Expect `contract_version: tower.capabilities.v1` and `maturity: candidate`.
