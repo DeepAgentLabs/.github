@@ -1170,3 +1170,19 @@ Use [the ChaosHub guide and offline example](https://github.com/DeepAgentLabs/ag
 from a Chaos checkout. Availability is not response quality or containment;
 remote recipes require review and target binding. Shared v1.0 stability and
 independent AIOS acceptance remain open.
+
+
+## MCP 0.7 integration readiness — 2026-11-04
+
+MCP 0.7.0 completes its local readiness milestone with read-only
+`core.compatibility`, a packaged candidate matrix, installed-wheel protocol
+acceptance without optional siblings, and aligned real-adapter containment CI.
+The baseline is MCP SDK 2.0.0, Lens 0.13.0, Chaos 0.11.0, Evals 0.12.0,
+Sidecar 0.10.1, Tower 0.10.0 and AIOS repository 0.7.0. Distribution metadata
+does not prove imported source, live runtime readiness or hosted deployment
+health. Optional dependency and native-schema boundaries remain unchanged.
+
+Sibling documentation aligns without unnecessary package releases. Package
+publication does not deploy AWS. Coordinated v1.0 remains gated on independent
+project acceptance, AIOS review and operator security/deployment evidence.
+See [the support policy, example, upgrade and rollback guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.7.0/docs/release-readiness.md).
