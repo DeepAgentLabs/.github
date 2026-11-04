@@ -5,8 +5,8 @@
 Final local roadmap phases continue as minor releases: AIOS v0.7, Chaos
 v0.11, Evals v0.12, Sidecar v0.10, Lens v0.13, MCP v0.7 and Tower v0.10.
 Reserve v1.0 for one coordinated ecosystem release after every project's
-readiness, compatibility and independent-review gates pass. No package version,
-schema marker or completion status changes in this documentation update.
+readiness, compatibility and independent-review gates pass. The status entries
+below track delivered minor releases; shared schema stability remains separate.
 See the [release policy and readiness gate](RELEASE_POLICY.md).
 
 
@@ -39,7 +39,7 @@ Every component is independently usable. None of them require each other, and an
 | [**AgenticLens**](https://github.com/DeepAgentLabs/agenticlens) (`agenticlens`) | Observability, evaluation, and operational intelligence for production AI systems — what ran, why, at what cost, and how to improve it, with failure diagnosis and faulty-step attribution (0.7.0), reviewed, immutable regression suites built from traces and feedback (0.8.0), and evidence-backed model recommendations per task category (0.9.0), and advisory runtime routing from that evidence (0.10.0), and evidence-backed optimization recommendations with post-adoption outcome tracking (0.11.0). |
 | [**Agentic Evals**](https://github.com/DeepAgentLabs/agentic-evals) (`agentic-evals`) | A standalone, framework-agnostic scoring engine for LLM and agent outputs, with declarative suite/live evaluation, release gates, and JSON/JUnit/Markdown CI output (0.8.0), plus judge cost, bounded retries, unavailable-judge gating, sampling agreement, and live-target timeouts and async runs (0.9.0), and AIOS evaluation evidence export (0.10.0). |
 | [**Agentic Sidecar**](https://github.com/DeepAgentLabs/agentic-sidecar) (`agentic-sidecar`) | A real-time supervision layer that checks an agent's plans and actions against intent, policy, risk, and budget before they execute. |
-| [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0), gated multi-stage chaos workflows, linted declarative experiments, explosion-radius scopes and topology fuzzing (0.8.0), and pre/during/post resilience probes with a 0–100 resilience score, bounded score trends and a `--min-score` CI gate (0.9.0). |
+| [**Agentic Chaos**](https://github.com/DeepAgentLabs/agentic-chaos) (`agentic-chaos`) | A fault-injection toolkit that deliberately breaks agent workflows to measure resilience and recovery, with circuit breakers and dry-run previews (0.5.2), AgenticLens diagnosis span markers (0.5.3), a pytest plugin with fail-closed resilience contracts (0.6.0), cascades, threshold search, synthetic response poisoning and cost estimates (0.7.0), gated multi-stage chaos workflows, linted declarative experiments, explosion-radius scopes and topology fuzzing (0.8.0), and pre/during/post resilience probes with a 0–100 resilience score, bounded score trends and a `--min-score` CI gate (0.9.0), plus offline ChaosHub recipes, pinned GitHub exchange and opt-in fault plugins (0.11.0). |
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface that exposes workflow inspection, evaluation, and chaos/resilience tooling to AI clients. |
 | [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0), plus approved fleet desired settings and bounded stop/MCP-revocation coordination (0.7.0), periodic local detection, durable alerts and joined incident console views (0.8.0), and versioned runbooks with exact-digest approval, bounded steps, compensation and verified recovery (0.9.0). |
 
@@ -388,7 +388,7 @@ hosted arbitrary-chaos restriction remains. Evals v0.11 scoring now ships in 0.1
 paired release.
 
 See [MCP's release gate](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md#coordinated-mcp-and-chaos-release-planned)
-and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md#required-paired-release-acceptance).
+and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/ROADMAP.md#required-paired-release-acceptance).
 
 ## MCP Phase 6 coordinated containment delivery
 
@@ -512,7 +512,7 @@ agentic-chaos hub search rag
 agentic-chaos chaos run examples/chaoshub_app.py --experiment rag-context-poisoning --save hub-report.json
 ```
 
-Use [the ChaosHub guide and offline example](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.11.md)
+Use [the ChaosHub guide and offline example](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/docs/v0.11.md)
 from a Chaos checkout. Availability is not response quality or containment;
 remote recipes require review and target binding. Shared v1.0 stability and
 independent AIOS acceptance remain open.
