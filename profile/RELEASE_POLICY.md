@@ -14,7 +14,7 @@ major release. No launch date is committed by this policy.
 | Agentic Evals | v0.12 | Public API and report-schema readiness |
 | Agentic Sidecar | v0.10 | Interoperability contract readiness |
 | AgenticLens | v0.13 | Local candidate delivered in 0.13.0; independent security/deployment acceptance and coordinated stability remain open |
-| DeepAgent MCP | v0.7 | Integration and release readiness over the existing Phase 6 delivery |
+| DeepAgent MCP | v0.7 | Local candidate delivered in 0.7.0; coordinated stability and independent security/deployment acceptance remain open |
 | AgenticOps Control Tower | v0.10 | Control-plane and capability-contract readiness |
 
 The targets above replace package-local final v1.0 milestones. Historical
