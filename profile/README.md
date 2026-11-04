@@ -425,3 +425,17 @@ audit-event and incident-summary shapes still require implementation evidence.
 Lens, Chaos, Evals, Sidecar, MCP and Control Tower need documentation alignment
 only: no dependency floors, runtime adapters or sibling patch releases change.
 See the [compatibility matrix and offline commands](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/docs/v0.7.0-ecosystem.md).
+
+## Evals 0.12 readiness — 2026-11-04
+
+Evals 0.12.0 implements the final local API/report readiness phase: candidate
+root API and current-schema compatibility baselines, every registered offline
+Python example exercised in CI, CPython 3.10-3.14 support, and pinned
+Lens 0.12.1 / Tower 0.9.1 / MCP 0.6.1 downstream candidate validation.
+Native report/gate schema 1.0 and AIOS 0.4-draft exports are unchanged.
+
+MCP and Tower validation pins advance in patch releases after Evals publication;
+Lens, Chaos, Sidecar and AIOS need documentation alignment only. Stable APIs,
+the >=1.0,<2 downstream matrix and coordinated release-candidate acceptance
+remain open gates for the ecosystem v1.0 launch. See
+[the implementation, support matrix and remaining gates](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.12.0/docs/support-policy.md).
