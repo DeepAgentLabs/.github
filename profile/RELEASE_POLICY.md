@@ -1,6 +1,6 @@
 # Coordinated ecosystem release policy
 
-Updated 2026-11-03.
+Updated 2026-11-04.
 
 DeepAgentLabs will continue delivering each project's remaining roadmap phases
 through **minor releases**. Reserve **v1.0 for one coordinated ecosystem
@@ -21,8 +21,8 @@ The targets above replace package-local final v1.0 milestones. Historical
 roadmap labels and already published versions remain unchanged. In particular,
 Lens's earlier roadmap labels differ from package versions; the upcoming
 v0.13 target follows the current 0.12.x package line. Additional minor releases
-may be used when scope or evidence requires them. This policy does not bump
-package metadata, change dependency ranges or declare any planned work done.
+may be used when scope or evidence requires them. This policy does not itself bump package metadata or dependency ranges;
+delivered status rows refer to the corresponding implementation releases.
 
 ## Gate for the coordinated v1.0 launch
 
