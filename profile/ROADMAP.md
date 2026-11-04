@@ -5,8 +5,8 @@
 Final local roadmap phases continue as minor releases: AIOS v0.7, Chaos
 v0.11, Evals v0.12, Sidecar v0.10, Lens v0.13, MCP v0.7 and Tower v0.10.
 Reserve v1.0 for one coordinated ecosystem release after every project's
-readiness, compatibility and independent-review gates pass. No package version,
-schema marker or completion status changes in this documentation update.
+readiness, compatibility and independent-review gates pass. The status entries
+below track delivered minor releases; shared schema stability remains separate.
 See the [release policy and readiness gate](RELEASE_POLICY.md).
 
 
@@ -518,7 +518,7 @@ See the [Sidecar](https://github.com/DeepAgentLabs/agentic-sidecar/blob/main/ROA
 [MCP](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md),
 [Tower](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/main/ROADMAP.md),
 [Lens](https://github.com/DeepAgentLabs/agenticlens/blob/main/agenticlens-roadmap.md),
-[Chaos](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md) and
+[Chaos](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/ROADMAP.md) and
 [Evals](https://github.com/DeepAgentLabs/agentic-evals/blob/main/ROADMAP.md) roadmaps.
 
 
@@ -543,7 +543,7 @@ Provider SDKs and ecosystem packages remain optional. Native report fields are
 unchanged: Lens consumes the events, MCP discovers new fault names dynamically,
 and Tower reads native chaos evidence separately from fleet health.
 
-The [v0.5 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.5.md)
+The [v0.5 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/docs/v0.5.md)
 documents API coverage and compatibility tests. Structured experiment reports
 remain unfinished v0.2.x work (the AIOS run export shipped in `0.5.1`, below).
 Safety rails subsequently ship in `0.5.2` (see below); `0.5.0` itself does not
@@ -702,7 +702,7 @@ faults while target calls and streams execute normally. Abort prevents later
 instrumented dispatches and reports already-running work separately; direct
 uninstrumented calls remain outside that boundary.
 
-The [safety guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/safety.md)
+The [safety guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/docs/safety.md)
 defines accounting and containment limits. Native safety fields are additive;
 AIOS exports retain them in the producer extension and mark aborted runs
 `cancelled`, without treating previews as observed failure evidence. Current
@@ -749,7 +749,7 @@ Reports gain an additive call log and the escaped `unhandled_error`. Lens and
 Tower readers ignore them, and the AIOS export carries only call counts and the
 error in the producer extension, so no core AIOS object changes. Contract
 verdicts are Chaos-native per-run checks; Evals still owns scoring and release
-gates. The [v0.6 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.6.md)
+gates. The [v0.6 guide](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/docs/v0.6.md)
 covers the marker, the fixture, async tests and the exact retry and visit definitions.
 
 Sibling releases in the same window:
@@ -1051,7 +1051,7 @@ hosted arbitrary-chaos restriction remains. Evals v0.11 scoring now ships in 0.1
 paired release.
 
 See [MCP's release gate](https://github.com/DeepAgentLabs/mcp-server/blob/main/ROADMAP.md#coordinated-mcp-and-chaos-release-planned)
-and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/ROADMAP.md#required-paired-release-acceptance).
+and [Chaos's acceptance criteria](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/ROADMAP.md#required-paired-release-acceptance).
 
 ## MCP Phase 6 coordinated containment delivery
 
@@ -1150,3 +1150,23 @@ Native schemas and optional dependency boundaries are unchanged. The MCP runtime
 update and Tower companion docs need no package release. Package publication
 does not deploy the hosted service.
 See the [operator guide and example](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/tower-0.10-compatibility.md).
+
+## ChaosHub 0.11 delivery — 2026-11-04
+
+Agentic Chaos 0.11.0 delivers six offline instrumented-call recipes, commit-pinned
+opt-in GitHub list/search/pull, contribution staging through ordinary PRs and
+explicitly loaded BaseFault entry-point plugins. The generic scenarios use
+existing fault primitives; specialized provider/vector-store integrations are
+not implied. Native reports and AIOS exports remain unchanged. Sidecar 0.10.1
+widens optional ranges and MCP 0.6.6 updates image pins; Lens 0.13.0, Evals 0.12.0,
+Tower 0.10.0 and AIOS repository 0.7.0 require documentation alignment only.
+
+```bash
+agentic-chaos hub search rag
+agentic-chaos chaos run examples/chaoshub_app.py --experiment rag-context-poisoning --save hub-report.json
+```
+
+Use [the ChaosHub guide and offline example](https://github.com/DeepAgentLabs/agentic-chaos/blob/4b60f2e8deb7b68a469a10d3219e60fdc3f3c562/docs/v0.11.md)
+from a Chaos checkout. Availability is not response quality or containment;
+remote recipes require review and target binding. Shared v1.0 stability and
+independent AIOS acceptance remain open.

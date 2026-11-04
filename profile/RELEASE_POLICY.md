@@ -1,6 +1,6 @@
 # Coordinated ecosystem release policy
 
-Updated 2026-11-03.
+Updated 2026-11-04.
 
 DeepAgentLabs will continue delivering each project's remaining roadmap phases
 through **minor releases**. Reserve **v1.0 for one coordinated ecosystem
@@ -10,7 +10,7 @@ major release. No launch date is committed by this policy.
 | Project | Final local phase / next minor target | Scope |
 | --- | --- | --- |
 | AI Operations Specification | v0.7 | Review and stabilization readiness; repository v0.7.0 already delivered implementation guidance, while independent review remains open |
-| Agentic Chaos | v0.11 | ChaosHub shared experiment registry |
+| Agentic Chaos | v0.11 | ChaosHub delivered in 0.11.0; coordinated stability remains open |
 | Agentic Evals | v0.12 | Public API and report-schema readiness |
 | Agentic Sidecar | v0.10 | Interoperability contract readiness |
 | AgenticLens | v0.13 | Local candidate delivered in 0.13.0; independent security/deployment acceptance and coordinated stability remain open |
@@ -21,8 +21,8 @@ The targets above replace package-local final v1.0 milestones. Historical
 roadmap labels and already published versions remain unchanged. In particular,
 Lens's earlier roadmap labels differ from package versions; the upcoming
 v0.13 target follows the current 0.12.x package line. Additional minor releases
-may be used when scope or evidence requires them. This policy does not bump
-package metadata, change dependency ranges or declare any planned work done.
+may be used when scope or evidence requires them. This policy does not itself bump package metadata or dependency ranges;
+delivered status rows refer to the corresponding implementation releases.
 
 ## Gate for the coordinated v1.0 launch
 
