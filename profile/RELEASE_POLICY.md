@@ -13,7 +13,7 @@ major release. No launch date is committed by this policy.
 | Agentic Chaos | v0.11 | ChaosHub shared experiment registry |
 | Agentic Evals | v0.12 | Public API and report-schema readiness |
 | Agentic Sidecar | v0.10 | Interoperability contract readiness |
-| AgenticLens | v0.13 | Production and enterprise readiness |
+| AgenticLens | v0.13 | Local candidate delivered in 0.13.0; independent security/deployment acceptance and coordinated stability remain open |
 | DeepAgent MCP | v0.7 | Integration and release readiness over the existing Phase 6 delivery |
 | AgenticOps Control Tower | v0.10 | Control-plane and capability-contract readiness |
 

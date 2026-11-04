@@ -1113,3 +1113,19 @@ parent registry; disconnected authorization remains out of scope. AIOS hosts
 Native correlation, containment receipts, scoring and deployment health retain
 their separate meanings. MCP 0.6.3 image recipes pin Sidecar 0.10.0; package
 publication does not update hosted infrastructure. Coordinated v1.0 remains open.
+
+## Lens 0.13 production readiness candidate — 2026-11-04
+
+Lens 0.13.0 delivers the local enterprise readiness candidate: single-node
+organization/project artifact storage, scoped bearer roles, atomic audit,
+immutable model/prompt metadata registries, mandatory pattern redaction, trace
+retention, reproducible Evals gate receipts and candidate container/Helm recipes.
+Existing native schemas remain unchanged. MCP 0.6.4 pairs hosted Lens 0.13.0;
+Chaos 0.10.0, Evals 0.12.0, Sidecar 0.10.0 and Tower 0.9.1 ranges remain compatible.
+AIOS requires no runtime/schema change. Sibling docs/examples are aligned without
+unnecessary package releases. See the [Lens guide and security boundaries](https://github.com/DeepAgentLabs/agenticlens/blob/v0.13.0/docs/production-readiness.md).
+
+Local audit integrity is not verified, metadata export is not certification and
+pattern redaction is not comprehensive PII discovery. Independent security review,
+operator deployment acceptance and stable API freeze remain open for coordinated
+ecosystem v1.0. Publishing these packages does not deploy a new hosted service.
