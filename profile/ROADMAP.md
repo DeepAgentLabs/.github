@@ -842,7 +842,7 @@ child event IDs and fault types remain intact; cascade IDs/stages and poisoning
 strategy/payload/seed are additive event detail. Existing report readers and
 AIOS exports remain compatible.
 
-See the [v0.7 guide and offline synthetic example](https://github.com/DeepAgentLabs/agentic-chaos/blob/v0.7.0/docs/v0.7.md).
+See the [v0.7 guide and offline synthetic example](https://github.com/DeepAgentLabs/agentic-chaos/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/docs/v0.7.md).
 The example includes observed synthetic dispatches and a bypassed negative
 control. Injection or recovery alone does not prove containment. No new shared
 schema, automatic adapter, hosted execution capability or containment guarantee
@@ -861,7 +861,7 @@ Tower owns fleet coordination, Sidecar owns dispatch enforcement, issuers own cr
 
 Existing optional dependency ranges remain sufficient. No sibling runtime or
 native evidence schema changes are required; this documentation alignment needs
-no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.7.0/docs/fleet-operations.md).
+no patch release. See the [operator guide](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/docs/fleet-operations.md).
 
 See the [local Tower compatibility guide](tower-0.7-fleet-operations.md) for the operator workflow and package boundaries.
 
@@ -1078,8 +1078,8 @@ See [the guide and executable passing/failing fixtures](https://github.com/DeepA
 
 ## AIOS v0.7.0 interoperability guidance — 2026-11-03
 
-AIOS repository v0.7.0 delivers a [migration guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/specification/v0.6/migration-guide.md),
-a [non-normative OpenTelemetry companion](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/specification/v0.6/otel-binding.md)
+AIOS repository v0.7.0 delivers a [migration guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/specification/v0.6/migration-guide.md),
+a [non-normative OpenTelemetry companion](https://github.com/DeepAgentLabs/ai-operations-spec/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/specification/v0.6/otel-binding.md)
 pinned to upstream 1.37.0 with complete canonical-event coverage and a tested
 retry projection, plus a strict MkDocs build and main-only Pages publishing.
 Run/Workflow remain `0.4-draft`; provenance remains `0.6-draft`. Independent
@@ -1087,7 +1087,7 @@ review and producer/consumer acceptance gates remain open. Verification-signal,
 audit-event and incident-summary shapes still require implementation evidence.
 Lens, Chaos, Evals, Sidecar, MCP and Control Tower need documentation alignment
 only: no dependency floors, runtime adapters or sibling patch releases change.
-See the [compatibility matrix and offline commands](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.7.0/docs/v0.7.0-ecosystem.md).
+See the [compatibility matrix and offline commands](https://github.com/DeepAgentLabs/ai-operations-spec/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/docs/v0.7.0-ecosystem.md).
 
 ## Evals 0.12 readiness — 2026-11-04
 
@@ -1185,4 +1185,4 @@ health. Optional dependency and native-schema boundaries remain unchanged.
 Sibling documentation aligns without unnecessary package releases. Package
 publication does not deploy AWS. Coordinated v1.0 remains gated on independent
 project acceptance, AIOS review and operator security/deployment evidence.
-See [the support policy, example, upgrade and rollback guide](https://github.com/DeepAgentLabs/mcp-server/blob/v0.7.0/docs/release-readiness.md).
+See [the support policy, example, upgrade and rollback guide](https://github.com/DeepAgentLabs/mcp-server/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/docs/release-readiness.md).
