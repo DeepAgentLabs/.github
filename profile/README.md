@@ -439,3 +439,14 @@ Lens, Chaos, Sidecar and AIOS need documentation alignment only. Stable APIs,
 the >=1.0,<2 downstream matrix and coordinated release-candidate acceptance
 remain open gates for the ecosystem v1.0 launch. See
 [the implementation, support matrix and remaining gates](https://github.com/DeepAgentLabs/agentic-evals/blob/v0.12.0/docs/support-policy.md).
+
+## Sidecar 0.10 contract readiness — 2026-11-04
+
+Sidecar publishes candidate intent, decision, audit, scope and transfer contracts
+with migration tests and an offline cross-instance/cross-agent propagation
+example. Receiving hosts preserve constraints, narrow authority and consult a live
+parent registry; disconnected authorization remains out of scope. AIOS hosts
+[non-normative schemas and mappings](https://github.com/DeepAgentLabs/ai-operations-spec/tree/main/drafts/sidecar-contracts-v1).
+Native correlation, containment receipts, scoring and deployment health retain
+their separate meanings. MCP 0.6.3 image recipes pin Sidecar 0.10.0; package
+publication does not update hosted infrastructure. Coordinated v1.0 remains open.
