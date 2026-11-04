@@ -496,3 +496,23 @@ Native schemas and optional dependency boundaries are unchanged. The MCP runtime
 update and Tower companion docs need no package release. Package publication
 does not deploy the hosted service.
 See the [operator guide and example](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/tower-0.10-compatibility.md).
+
+## ChaosHub 0.11 delivery — 2026-11-04
+
+Agentic Chaos 0.11.0 delivers six offline instrumented-call recipes, commit-pinned
+opt-in GitHub list/search/pull, contribution staging through ordinary PRs and
+explicitly loaded BaseFault entry-point plugins. The generic scenarios use
+existing fault primitives; specialized provider/vector-store integrations are
+not implied. Native reports and AIOS exports remain unchanged. Sidecar 0.10.1
+widens optional ranges and MCP 0.6.6 updates image pins; Lens 0.13.0, Evals 0.12.0,
+Tower 0.10.0 and AIOS repository 0.7.0 require documentation alignment only.
+
+```bash
+agentic-chaos hub search rag
+agentic-chaos chaos run examples/chaoshub_app.py --experiment rag-context-poisoning --save hub-report.json
+```
+
+Use [the ChaosHub guide and offline example](https://github.com/DeepAgentLabs/agentic-chaos/blob/main/docs/v0.11.md)
+from a Chaos checkout. Availability is not response quality or containment;
+remote recipes require review and target binding. Shared v1.0 stability and
+independent AIOS acceptance remain open.
