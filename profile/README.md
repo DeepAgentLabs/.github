@@ -474,8 +474,8 @@ authenticated discovery of registration, heartbeat and readback schemas with
 explicit status semantics. CPython and Node.js clients are validated over live
 HTTP, including durable SQLite readback. See the [contract, examples and migration policy](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.10.0/docs/capability-contract.md).
 Existing native sibling schemas, optional dependency ranges and evidence/health
-boundaries are unchanged. Sibling updates are documentation-only; Tower is the
-only package requiring publication. Production runtime connectors, independent
+boundaries are unchanged. The initial Tower delivery used documentation-only sibling updates. The
+MCP 0.6.5 follow-up below adds runtime discovery and its own patch publication. Production runtime connectors, independent
 ecosystem acceptance and the coordinated v1.0 stable freeze remain open.
 
 Operator discovery against a running Tower 0.10 server:
@@ -492,6 +492,7 @@ Expect `contract_version: tower.capabilities.v1` and `maturity: candidate`.
 MCP 0.6.5 exposes read-only `tower.capability_contract` over Tower 0.10's
 candidate contract endpoint. Hosted access reuses per-user reader bindings and
 MCP dispatch policy; local operators configure the Tower reader credential.
-Native schemas and optional dependency boundaries are unchanged. Only MCP needs
-this patch publication; package publication does not deploy the hosted service.
+Native schemas and optional dependency boundaries are unchanged. The MCP runtime implementation needs the 0.6.5 patch release; this profile
+update and Tower companion docs need no package release. Package publication
+does not deploy the hosted service.
 See the [operator guide and example](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/tower-0.10-compatibility.md).
