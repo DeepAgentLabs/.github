@@ -10,7 +10,7 @@ major release. No launch date is committed by this policy.
 | Project | Final local phase / next minor target | Scope |
 | --- | --- | --- |
 | AI Operations Specification | v0.7 | Review and stabilization readiness; repository v0.7.0 already delivered implementation guidance, while independent review remains open |
-| Agentic Chaos | v0.11 | ChaosHub shared experiment registry |
+| Agentic Chaos | v0.11 | ChaosHub delivered in 0.11.0; coordinated stability remains open |
 | Agentic Evals | v0.12 | Public API and report-schema readiness |
 | Agentic Sidecar | v0.10 | Interoperability contract readiness |
 | AgenticLens | v0.13 | Local candidate delivered in 0.13.0; independent security/deployment acceptance and coordinated stability remain open |
