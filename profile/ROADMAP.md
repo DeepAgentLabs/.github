@@ -1140,3 +1140,12 @@ Existing native sibling schemas, optional dependency ranges and evidence/health
 boundaries are unchanged. Sibling updates are documentation-only; Tower is the
 only package requiring publication. Production runtime connectors, independent
 ecosystem acceptance and the coordinated v1.0 stable freeze remain open.
+
+## MCP 0.6.5 Tower discovery
+
+MCP 0.6.5 exposes read-only `tower.capability_contract` over Tower 0.10's
+candidate contract endpoint. Hosted access reuses per-user reader bindings and
+MCP dispatch policy; local operators configure the Tower reader credential.
+Native schemas and optional dependency boundaries are unchanged. Only MCP needs
+this patch publication; package publication does not deploy the hosted service.
+See the [operator guide and example](https://github.com/DeepAgentLabs/mcp-server/blob/main/docs/tower-0.10-compatibility.md).
