@@ -466,3 +466,14 @@ Local audit integrity is not verified, metadata export is not certification and
 pattern redaction is not comprehensive PII discovery. Independent security review,
 operator deployment acceptance and stable API freeze remain open for coordinated
 ecosystem v1.0. Publishing these packages does not deploy a new hosted service.
+
+## Control Tower 0.10 capability contract readiness
+
+Tower 0.10 implements the Tower-local `tower.capabilities.v1` candidate:
+authenticated discovery of registration, heartbeat and readback schemas with
+explicit status semantics. CPython and Node.js clients are validated over live
+HTTP, including durable SQLite readback. See the [contract, examples and migration policy](https://github.com/DeepAgentLabs/agenticops-control-tower/blob/v0.10.0/docs/capability-contract.md).
+Existing native sibling schemas, optional dependency ranges and evidence/health
+boundaries are unchanged. Sibling updates are documentation-only; Tower is the
+only package requiring publication. Production runtime connectors, independent
+ecosystem acceptance and the coordinated v1.0 stable freeze remain open.
