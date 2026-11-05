@@ -43,7 +43,7 @@ class ReleaseReadinessTests(unittest.TestCase):
         self.temp.cleanup()
 
     def add(self, gate, **changes):
-        kind, scope = readiness.GATES[gate]
+        _kind, scope = readiness.GATES[gate]
         record = {
             "gate_id": gate,
             "candidate_digest": readiness.validate_manifest(self.matrix),

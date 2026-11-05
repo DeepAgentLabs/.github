@@ -10,7 +10,7 @@ import argparse
 import hashlib
 import json
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 REPOSITORIES = {
@@ -56,7 +56,7 @@ def validate_manifest(manifest):
         )
     for repo, row in candidates.items():
         if not isinstance(row, dict):
-            raise ValueError("Each candidate must be an object")
+            raise TypeError("Each candidate must be an object")
         if (
             row.get("repository") != f"DeepAgentLabs/{repo}"
             or row.get("distribution") != REPOSITORIES[repo]
@@ -113,7 +113,7 @@ def read_evidence(root, entry):
         raise ValueError("Evidence content digest differs from the reviewed manifest")
     document = json.loads(raw)
     if not isinstance(document, dict):
-        raise ValueError("Evidence must be a JSON object")
+        raise TypeError("Evidence must be a JSON object")
     return document
 
 
@@ -144,13 +144,11 @@ def assess(manifest, root):
                     raise ValueError(
                         "Acceptance failed or does not cover the required scope"
                     )
-                at = datetime.fromisoformat(
-                    document["recorded_at"].upper().replace("Z", "+00:00")
-                )
+                at = datetime.fromisoformat(document["recorded_at"].upper())
                 if (
                     at.tzinfo is None
                     or at.utcoffset() is None
-                    or at > datetime.now(timezone.utc)
+                    or at > datetime.now(UTC)
                 ):
                     raise ValueError(
                         "Evidence needs an observed timezone-aware recording time"

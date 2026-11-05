@@ -11,9 +11,9 @@ import hashlib
 import json
 import os
 import subprocess
-import tempfile
 import tarfile
-from datetime import datetime, timezone
+import tempfile
+from datetime import UTC, datetime
 from pathlib import Path
 
 from release_readiness import REPOSITORIES, validate_manifest
@@ -216,7 +216,7 @@ def main():
             "candidate_digest": candidate_digest,
             "scope": sorted(REPOSITORIES),
             "result": "passed",
-            "recorded_at": datetime.now(timezone.utc).isoformat(),
+            "recorded_at": datetime.now(UTC).isoformat(),
             "actor": {
                 "name": "isolated-wheel-acceptance",
                 "organization": "DeepAgentLabs",

@@ -10,7 +10,7 @@ import importlib.metadata
 import json
 import sys
 import tempfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 MODULES = {
@@ -159,7 +159,7 @@ def main():
     )
     from deep_agentic_core_mcp.services.access_evidence import record
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     reference = {
         "id": "subject",
         "producer": "agenticlens",
@@ -220,9 +220,7 @@ def main():
         tool="private",
         reason="private",
     )
-    access_audit = export_access(
-        access, target=reference, created_at=datetime.now(timezone.utc)
-    )
+    access_audit = export_access(access, target=reference, created_at=datetime.now(UTC))
     detection = EvidenceRecord(
         record_id="e-1",
         ingested_at=now,
