@@ -6,7 +6,8 @@ The seven ecosystem projects mark the coordinated 1.0.0 milestone on 2026-11-05.
 Feature delivery and roadmap work continue. Draft/candidate schemas keep their
 maturity; independent review, external implementations, security/deployment
 acceptance, live-provider validation and the stable contract freeze remain open.
-See the [release policy and remaining acceptance work](RELEASE_POLICY.md).
+See the [1.0.0 release summary](RELEASE_1_0_0.md) and
+[release policy and remaining acceptance work](RELEASE_POLICY.md).
 
 
 <p align="center"><strong>Open, modular infrastructure for building, observing, evaluating, and governing AI agents in production.</strong></p>

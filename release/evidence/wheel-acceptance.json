@@ -1,6 +1,6 @@
 {
   "gate_id": "wheel-interoperability",
-  "candidate_digest": "4b8ac46af7eec0d3d870028c62be88a9677ad7cece36d34216af0b96bae7e867",
+  "candidate_digest": "0884ce32844f709bcb40684be4a25d12273f155b7c708e6dc44e5f78bc3881c3",
   "scope": [
     "agentic-chaos",
     "agentic-evals",
@@ -11,7 +11,7 @@
     "mcp-server"
   ],
   "result": "passed",
-  "recorded_at": "2026-11-05T05:28:23.039591+00:00",
+  "recorded_at": "2026-11-05T21:20:57.584089+00:00",
   "actor": {
     "name": "isolated-wheel-acceptance",
     "organization": "DeepAgentLabs"
@@ -32,20 +32,20 @@
     "agenticops-control-tower": true
   },
   "runtime_dependencies": {
+    "agentic-chaos": "1.0.0",
     "six": "1.17.0",
-    "agentic-chaos": "0.11.0",
+    "pydantic": "2.14.3",
     "cryptography": "50.0.2",
     "idna": "3.20",
     "tzdata": "2026.6",
     "shellingham": "1.5.4",
-    "agenticlens": "0.14.0",
     "click": "8.5.0",
     "jsonschema-specifications": "2025.9.1",
+    "pydantic_core": "2.50.4",
     "isoduration": "20.11.0",
     "opentelemetry-api": "1.45.2",
-    "pydantic_core": "2.50.2",
+    "agenticops-control-tower": "1.0.0",
     "referencing": "0.37.0",
-    "deep-agentic-core-mcp": "0.8.0",
     "uri-template": "1.3.0",
     "webcolors": "25.10.0",
     "rfc3987": "1.3.8",
@@ -59,16 +59,18 @@
     "python-dateutil": "4.0.0",
     "PyJWT": "2.15.1",
     "starlette": "1.10.0",
-    "agentic-sidecar": "0.11.0",
     "attrs": "26.1.0",
     "cffi": "2.1.1",
     "arrow": "1.4.0",
     "annotated-types": "0.8.0",
+    "agentic-evals": "1.0.0",
     "h11": "0.16.0",
     "mcp-types": "2.0.0",
     "uvicorn": "0.54.0",
     "packaging": "26.3",
-    "jsonpointer": "3.8",
+    "agenticlens": "1.0.0",
+    "deep-agentic-core-mcp": "1.0.0",
+    "agentic-sidecar": "1.0.0",
     "typer": "0.27.3",
     "mcp": "2.0.0",
     "rfc3339-validator": "0.1.4",
@@ -77,22 +79,20 @@
     "pycparser": "3.12",
     "PyYAML": "6.0.3",
     "rich": "13.9.4",
-    "agentic-evals": "0.12.0",
+    "jsonpointer": "3.9",
     "annotated-doc": "0.0.5",
     "mdurl": "0.1.2",
     "fqdn": "1.6.0",
     "Pygments": "2.21.0",
     "httpx2": "2.16.0",
-    "anyio": "4.16.0",
-    "agenticops-control-tower": "0.11.0",
-    "pydantic": "2.14.2"
+    "anyio": "4.16.0"
   },
   "wheel_sha256": {
-    "agenticlens": "b0c23c2b3938fb3f3e245ea06f3023c1d90693a8dd61f22c165b3d9df11da63c",
-    "agentic-chaos": "10de5d989eabb6d768981b8594b83d42b185148831696309d4a2111e4fb4ae7b",
-    "agentic-evals": "1e42f25005179c87ffc093d0f88191b8bc8c8ef20740888fe6e5e2b26661d56d",
-    "agentic-sidecar": "2e8280c0015aef09e279f5b7160b0de51d2b39408437e3b20a600d10f1e4a73b",
-    "mcp-server": "6fe93f42161f18bcd4e88ed64bc36a7ac7c9dfbee0ebff7495de1d46aee6efad",
-    "agenticops-control-tower": "9bc07ef59a143fbb4224cc163e480825d0e517536ec4135dfc0be13759bf79f4"
+    "agenticlens": "77e41859549af8dadcf68ddf206b17d2e78683cec496c25df05a50177b13ddc5",
+    "agentic-chaos": "4b71b67edc94e6fb0d506d6992c73ccb805b8a2ed4e68428eb5080151d88ccb3",
+    "agentic-evals": "fefec98898399bee6c927cc178e509f99af3d875611c535ab69a70253ad8e6b9",
+    "agentic-sidecar": "aaa1cdda9e2c9c379ac0bebb1b6c34638e49993eddb8e4e2b3a1ad1160df1513",
+    "mcp-server": "c6bd693cf84d34d11134037344d2568ec3c53f59b6a421edd42de20829f5c0a7",
+    "agenticops-control-tower": "e466118a9a8c79e53bd2ed1abe51605dee62eafcfb87698c291a2b918239840c"
   }
 }
