@@ -7,6 +7,15 @@ including things that fail or are unclear. Agreement is not a requirement.
 
 You do **not** need to review every project or complete every task.
 
+## A few words used below
+
+- **Artifact:** a JSON record describing an execution, observation or finding.
+- **Producer / consumer:** a tool that writes / reads those records.
+- **Validator:** a tool that checks a record's structure and meaning rules.
+- **Provenance:** a record of which source data a finding came from.
+- **Commit:** the exact source-code revision tested, rather than just a version label.
+- **Acceptance gate:** a requirement maintainers need evidence for before declaring it complete.
+
 ## Start in three steps
 
 1. Pick a track below that matches your experience. Tell us which task IDs you
