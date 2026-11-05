@@ -1,0 +1,85 @@
+{
+  "schema_version": "ecosystem.candidate/1",
+  "scope": "documented-local-candidate",
+  "candidates": {
+    "ai-operations-spec": {
+      "repository": "DeepAgentLabs/ai-operations-spec",
+      "distribution": null,
+      "version": "0.8.1",
+      "commit": "b8fe4e6ebb9b9d5e51970d29874f87c3f656b14a"
+    },
+    "agenticlens": {
+      "repository": "DeepAgentLabs/agenticlens",
+      "distribution": "agenticlens",
+      "version": "0.14.0",
+      "commit": "a444ff8abad5fdca9e7b636a3afa141698c1bc37"
+    },
+    "agentic-chaos": {
+      "repository": "DeepAgentLabs/agentic-chaos",
+      "distribution": "agentic-chaos",
+      "version": "0.11.0",
+      "commit": "0c45ce10a7d6c2f46e0b517c46a0c1cf180dff0a"
+    },
+    "agentic-evals": {
+      "repository": "DeepAgentLabs/agentic-evals",
+      "distribution": "agentic-evals",
+      "version": "0.12.0",
+      "commit": "88781d7e51ab1fff3028104f0591d77fb6ad30ca"
+    },
+    "agentic-sidecar": {
+      "repository": "DeepAgentLabs/agentic-sidecar",
+      "distribution": "agentic-sidecar",
+      "version": "0.11.0",
+      "commit": "64f671b86755aef9af1d2f828950f060302a137b"
+    },
+    "mcp-server": {
+      "repository": "DeepAgentLabs/mcp-server",
+      "distribution": "deep-agentic-core-mcp",
+      "version": "0.8.0",
+      "commit": "fda0c3e705e2176daa0bc50d52d68cb74f526965"
+    },
+    "agenticops-control-tower": {
+      "repository": "DeepAgentLabs/agenticops-control-tower",
+      "distribution": "agenticops-control-tower",
+      "version": "0.11.0",
+      "commit": "1e8a3dd0ae3f379e75ca5cf4263f7cffb2d36b7f"
+    }
+  },
+  "contract_markers": {
+    "aios": [
+      "0.4-draft",
+      "0.6-draft",
+      "0.8-draft"
+    ],
+    "evals.report": [
+      "1.0"
+    ],
+    "evals.gate": [
+      "1.0"
+    ],
+    "sidecar": [
+      "sidecar.intent/1",
+      "sidecar.decision/1",
+      "sidecar.audit/1",
+      "sidecar.scope/1",
+      "sidecar.transfer/1"
+    ],
+    "tower": [
+      "tower.capabilities.v1"
+    ],
+    "lens.enterprise": [
+      "lens.enterprise.audit/1-candidate",
+      "lens.enterprise.compliance/1-candidate",
+      "lens.enterprise.gate/1-candidate"
+    ]
+  },
+  "evidence": {
+    "wheel-interoperability": {
+      "path": "release/evidence/wheel-acceptance.json",
+      "sha256": "8d23b66958702f2d9ab18e302136d04cd9281f0cd64ebae002abc65798095ab0"
+    }
+  },
+  "runtime_pins": {
+    "mcp": "2.0.0"
+  }
+}

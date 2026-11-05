@@ -1,0 +1,43 @@
+{
+  "schema_version": "ecosystem.readiness/1",
+  "candidate_digest": "4b8ac46af7eec0d3d870028c62be88a9677ad7cece36d34216af0b96bae7e867",
+  "ready": false,
+  "gates": [
+    {
+      "id": "wheel-interoperability",
+      "kind": "internal",
+      "status": "recorded",
+      "reason": "Held evidence matches the candidate matrix; provenance/independence still requires human review"
+    },
+    {
+      "id": "aios-independent-review",
+      "kind": "independent",
+      "status": "missing",
+      "reason": "No acceptance evidence recorded"
+    },
+    {
+      "id": "aios-independent-implementations",
+      "kind": "independent",
+      "status": "missing",
+      "reason": "No acceptance evidence recorded"
+    },
+    {
+      "id": "security-deployment-acceptance",
+      "kind": "independent",
+      "status": "missing",
+      "reason": "No acceptance evidence recorded"
+    },
+    {
+      "id": "live-provider-smoke",
+      "kind": "provider",
+      "status": "missing",
+      "reason": "No acceptance evidence recorded"
+    },
+    {
+      "id": "contract-freeze",
+      "kind": "maintainer",
+      "status": "missing",
+      "reason": "No acceptance evidence recorded"
+    }
+  ]
+}

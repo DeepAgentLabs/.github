@@ -1202,3 +1202,13 @@ Source-inspected sibling mappings justify shared drafts, but no sibling gains
 an exporter or validator automatically. Sibling alignment is documentation-only:
 no runtime dependency increases or package patch releases. Independent review,
 external validator/producer evidence and coordinated v1.0 stability remain open.
+
+## Coordinated v1.0 remaining gates
+
+The repo-local follow-on implements full draft validators, native companion
+exports, notice-preserving MIT schema bundles and a machine-checked candidate
+acceptance runner. See [the v1 readiness plan](V1_READINESS.md). External AIOS
+review/implementation evidence, independent security/deployment acceptance,
+authenticated live provider results and the final stable freeze remain open.
+Production/distributed extensions outside the documented local candidate scope
+remain explicitly deferred; completing them is not inferred from this candidate.
