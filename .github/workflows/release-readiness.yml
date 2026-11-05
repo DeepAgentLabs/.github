@@ -21,15 +21,18 @@ jobs:
       - name: Check out immutable candidates
         run: python3 release-manager/scripts/checkout_candidates.py --manifest release-manager/release/candidate.json --workspace candidates
       - name: Build and verify isolated wheels
-        run: python3 release-manager/scripts/accept_ecosystem.py --manifest release-manager/release/candidate.json --workspace candidates --output wheel-acceptance.json
+        run: |
+          cp release-manager/release/candidate.json release-manager/release/ci-candidate.json
+          python3 release-manager/scripts/accept_ecosystem.py --manifest release-manager/release/ci-candidate.json --workspace candidates --output release-manager/release/evidence/ci-wheel-acceptance.json --record-evidence
       - name: Report all remaining acceptance gates
-        run: python3 release-manager/scripts/release_readiness.py --manifest release-manager/release/candidate.json > readiness.json
+        run: python3 release-manager/scripts/release_readiness.py --manifest release-manager/release/ci-candidate.json > readiness.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: coordinated-readiness
           path: |
-            wheel-acceptance.json
+            release-manager/release/ci-candidate.json
+            release-manager/release/evidence/ci-wheel-acceptance.json
             readiness.json
 # This workflow never publishes. Publication must invoke --require-ready and
 # verify the evidence attribution through the normal maintainer review process.

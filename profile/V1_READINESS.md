@@ -35,12 +35,21 @@ manifest's exact clean commits:
 
 ```bash
 python3 -m unittest discover -s tests -v
-python3 scripts/accept_ecosystem.py --output release/evidence/wheel-acceptance.json
+python3 scripts/accept_ecosystem.py --output /tmp/wheel-acceptance.json
 python3 scripts/release_readiness.py
 python3 scripts/release_readiness.py --require-ready
 ```
 
-The acceptance runner builds six wheels, tests each in a fresh isolated base
+To replace reviewed internal evidence deliberately, run
+`python3 scripts/accept_ecosystem.py --output release/evidence/wheel-acceptance.json --record-evidence`.
+This records the new receipt SHA-256 in the manifest only after all checks pass;
+review and commit both files together. Ordinary reproductions write to `/tmp`
+and leave the held receipt unchanged. CI records a separate manifest/receipt pair
+and reports readiness against that exact run, uploading both for inspection.
+
+The acceptance runner materializes committed source bytes into fresh temporary
+build trees, excluding ignored workspace files, and rejects source mutation
+during builds before checking the resulting wheels. It builds six wheels, tests each in a fresh isolated base
 environment, then installs the combined candidate matrix in another environment.
 Python `-I`, empty working directories and imported-source-origin checks prevent
 sibling source/virtualenv fallbacks. Both validators run every portable case and
@@ -94,7 +103,7 @@ source reference, rather than renaming an internal test as an outside review.
 A manifest evidence entry names a held file beneath release/evidence plus its
 SHA-256. Its JSON contains gate_id, candidate_digest, result (passed), scope,
 recorded_at and actor attribution. The candidate digest binds both all seven
-source pins and the declared contract markers. Changed candidates or altered
+source pins, declared contract markers and the explicit MCP SDK runtime pin. Changed candidates or altered
 receipt bytes invalidate old evidence. Paths outside the evidence directory,
 symlinks, missing scope, naive/future dates, unrun providers and incomplete
 internal checks are rejected. References are not fetched.
