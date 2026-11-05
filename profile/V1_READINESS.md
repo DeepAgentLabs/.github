@@ -73,6 +73,10 @@ Internal tests and bot reviews cannot close independent gates.
 
 ## Remaining required acceptance
 
+Reviewers can use the [plain-language task checklist](EXTERNAL_REVIEW_CHECKLIST.md)
+and [report template](EXTERNAL_REVIEW_REPORT_TEMPLATE.md) to choose work and
+submit evidence without writing machine-readable release receipts.
+
 | Gate | What closes it | Current owner/input |
 | --- | --- | --- |
 | Independent AIOS review | Recorded outside review of prerequisite layers and operational mappings | An unaffiliated reviewer; none supplied |
