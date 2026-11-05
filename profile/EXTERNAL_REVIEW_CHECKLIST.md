@@ -52,7 +52,7 @@ recorded as affiliated feedback. Maintainers verify these relationships.
 
 ### R1 — Can two people describe the same agent execution the same way?
 
-- [ ] Read the [AIOS reviewer worksheet](https://github.com/DeepAgentLabs/ai-operations-spec/blob/main/reviews/EXTERNAL_REVIEW_TASKS.md).
+- [ ] Read the [AIOS reviewer worksheet](https://github.com/DeepAgentLabs/ai-operations-spec/blob/4978416d92287142c549bd279dd5af0d818a4a10/reviews/EXTERNAL_REVIEW_TASKS.md).
 - [ ] Classify the shared customer-support, retry/recovery and safety/incident
   scenarios using your own framework or independent judgment. Do this before
   reading other reviewers' answers.
