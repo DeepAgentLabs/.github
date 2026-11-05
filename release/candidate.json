@@ -12,37 +12,37 @@
       "repository": "DeepAgentLabs/agenticlens",
       "distribution": "agenticlens",
       "version": "0.14.0",
-      "commit": "c326dd3915a3c2604c07d62d05a5451c03471642"
+      "commit": "a444ff8abad5fdca9e7b636a3afa141698c1bc37"
     },
     "agentic-chaos": {
       "repository": "DeepAgentLabs/agentic-chaos",
       "distribution": "agentic-chaos",
       "version": "0.11.0",
-      "commit": "91b1db3ca91d4621e0ff20a41956ba9facf276c7"
+      "commit": "0c45ce10a7d6c2f46e0b517c46a0c1cf180dff0a"
     },
     "agentic-evals": {
       "repository": "DeepAgentLabs/agentic-evals",
       "distribution": "agentic-evals",
       "version": "0.12.0",
-      "commit": "17db44a53d6e370e9d6ddca414fb0727b25e8efe"
+      "commit": "88781d7e51ab1fff3028104f0591d77fb6ad30ca"
     },
     "agentic-sidecar": {
       "repository": "DeepAgentLabs/agentic-sidecar",
       "distribution": "agentic-sidecar",
       "version": "0.11.0",
-      "commit": "9897cffd319e8974a8cf48d5ef1333860ca5f194"
+      "commit": "64f671b86755aef9af1d2f828950f060302a137b"
     },
     "mcp-server": {
       "repository": "DeepAgentLabs/mcp-server",
       "distribution": "deep-agentic-core-mcp",
       "version": "0.8.0",
-      "commit": "f3d34996c8c18295148fa39e8aaec5f96d2bc304"
+      "commit": "fda0c3e705e2176daa0bc50d52d68cb74f526965"
     },
     "agenticops-control-tower": {
       "repository": "DeepAgentLabs/agenticops-control-tower",
       "distribution": "agenticops-control-tower",
       "version": "0.11.0",
-      "commit": "1fc45710aeeef64d64f0f53f88fb21cd67eec508"
+      "commit": "1e8a3dd0ae3f379e75ca5cf4263f7cffb2d36b7f"
     }
   },
   "contract_markers": {
@@ -76,7 +76,7 @@
   "evidence": {
     "wheel-interoperability": {
       "path": "release/evidence/wheel-acceptance.json",
-      "sha256": "ee9fae595f8a837a41f2048bea92bcfd3f21aea4ff38817e4fd936f93e2bfe81"
+      "sha256": "8d23b66958702f2d9ab18e302136d04cd9281f0cd64ebae002abc65798095ab0"
     }
   },
   "runtime_pins": {

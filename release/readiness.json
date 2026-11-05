@@ -1,6 +1,6 @@
 {
   "schema_version": "ecosystem.readiness/1",
-  "candidate_digest": "e8d1717ba0194392ce631f5b4ec3b223d34167d50e400fab8903ad620ce501f4",
+  "candidate_digest": "4b8ac46af7eec0d3d870028c62be88a9677ad7cece36d34216af0b96bae7e867",
   "ready": false,
   "gates": [
     {
