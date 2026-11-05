@@ -132,6 +132,24 @@ class ReleaseReadinessTests(unittest.TestCase):
         )
         self.assertEqual(row["status"], "invalid")
 
+    def test_affiliated_organization_spelling_variants_are_rejected(self):
+        for organization in [
+            "DeepAgentLabs, Inc.",
+            "Deep-AgentLabs",
+            "Deep Agent Labs LLC",
+        ]:
+            with self.subTest(organization=organization):
+                record = self.add("aios-independent-review")
+                actor = record["actor"]
+                actor["organization"] = organization
+                self.add("aios-independent-review", actor=actor)
+                row = next(
+                    row
+                    for row in readiness.assess(self.matrix, self.root)["gates"]
+                    if row["id"] == "aios-independent-review"
+                )
+                self.assertEqual(row["status"], "invalid")
+
     def test_unrun_providers_do_not_pass(self):
         self.add(
             "live-provider-smoke",

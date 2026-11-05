@@ -171,10 +171,9 @@ def assess(manifest, root):
                         raise ValueError(
                             "Independent acceptance requires explicit unaffiliated-review declarations"
                         )
-                    if (
-                        actor["organization"].strip().casefold().replace(" ", "")
-                        == "deepagentlabs"
-                    ):
+                    if re.sub(
+                        r"[^a-z0-9]", "", actor["organization"].casefold()
+                    ).startswith("deepagentlabs"):
                         raise ValueError(
                             "DeepAgentLabs cannot supply independent acceptance"
                         )
