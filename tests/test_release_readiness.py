@@ -95,6 +95,18 @@ class ReleaseReadinessTests(unittest.TestCase):
         self.assertFalse(report["ready"])
         self.assertEqual(len(report["gates"]), len(readiness.GATES))
 
+    def test_milestone_version_does_not_establish_stable_readiness(self):
+        for row in self.matrix["candidates"].values():
+            row["version"] = "1.0.0"
+        self.matrix["contract_markers"] = {"aios": ["0.8-draft"]}
+        self.add("wheel-interoperability")
+        report = readiness.assess(self.matrix, self.root)
+        self.assertFalse(report["ready"])
+        self.assertEqual(report["gates"][0]["status"], "recorded")
+        self.add("contract-freeze")
+        report = readiness.assess(self.matrix, self.root)
+        self.assertEqual(report["gates"][-1]["status"], "invalid")
+
     def test_complete_matching_evidence_is_recorded(self):
         for gate in readiness.GATES:
             self.add(gate)

@@ -1,13 +1,12 @@
 # DeepAgentLabs Roadmap
 
-## Minor releases until the coordinated v1.0 launch
+## Coordinated 1.0.0 milestone
 
-Final local roadmap phases continue as minor releases: AIOS v0.8, Chaos
-v0.11, Evals v0.12, Sidecar v0.10, Lens v0.13, MCP v0.7 and Tower v0.10.
-Reserve v1.0 for one coordinated ecosystem release after every project's
-readiness, compatibility and independent-review gates pass. The status entries
-below track delivered minor releases; shared schema stability remains separate.
-See the [release policy and readiness gate](RELEASE_POLICY.md).
+The seven ecosystem projects mark the coordinated 1.0.0 milestone on 2026-11-05.
+Feature delivery and roadmap work continue. Draft/candidate schemas keep their
+maturity; independent review, external implementations, security/deployment
+acceptance, live-provider validation and the stable contract freeze remain open.
+See the [release policy and remaining acceptance work](RELEASE_POLICY.md).
 
 
 > DeepAgentLabs should be built **specification-first** toward an **open operational standard for AI systems**.
