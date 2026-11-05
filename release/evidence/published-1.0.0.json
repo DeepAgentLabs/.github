@@ -1,0 +1,299 @@
+{
+  "schema_version": "ecosystem.publication/1",
+  "version": "1.0.0",
+  "projects": {
+    "ai-operations-spec": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "f83d5392c2ef9402f821a5fe3009b14086b19a41",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:01:10Z",
+        "url": "https://github.com/DeepAgentLabs/ai-operations-spec/releases/tag/v1.0.0"
+      },
+      "distribution": null
+    },
+    "agenticlens": {
+      "version": "1.0.0",
+      "tag": "v1.0.0-ecosystem",
+      "commit": "e74703394ee0965c2a4290227d7366114d386f9a",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:03:47Z",
+        "url": "https://github.com/DeepAgentLabs/agenticlens/releases/tag/v1.0.0-ecosystem"
+      },
+      "distribution": "agenticlens",
+      "release_workflow": {
+        "url": "https://github.com/DeepAgentLabs/agenticlens/actions/runs/42108921584",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "pypi_artifacts": [
+        {
+          "filename": "agenticlens-1.0.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/90/6e/e7fbfd6a1e37f488c6b564eb31b1c99c092e85987529829af1afe66602e7/agenticlens-1.0.0-py3-none-any.whl",
+          "sha256": "77e41859549af8dadcf68ddf206b17d2e78683cec496c25df05a50177b13ddc5",
+          "upload_time": "2026-11-05T21:03:29.698897Z",
+          "metadata_verified": true
+        },
+        {
+          "filename": "agenticlens-1.0.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/64/04/162440e60882bb16a23a14961405eb18da391952866ca08007ecda09dbb2/agenticlens-1.0.0.tar.gz",
+          "sha256": "73a007d2fc7ac8d1b0149d45896937fc55f11a2c99ecd7e4c0c36d8ab6c1688e",
+          "upload_time": "2026-11-05T21:03:31.485482Z",
+          "metadata_verified": true
+        }
+      ]
+    },
+    "agentic-chaos": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "4404e5dff600acc29ad6b34baa1ff28c96c6191e",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:01:46Z",
+        "url": "https://github.com/DeepAgentLabs/agentic-chaos/releases/tag/v1.0.0"
+      },
+      "distribution": "agentic-chaos",
+      "release_workflow": {
+        "url": "https://github.com/DeepAgentLabs/agentic-chaos/actions/runs/42108635762",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "pypi_artifacts": [
+        {
+          "filename": "agentic_chaos-1.0.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/0c/9e/fdf8f1ae3872f4d007417c3e4b3e7f63e02f632e94e3fa2fda04c79ad9ec/agentic_chaos-1.0.0-py3-none-any.whl",
+          "sha256": "4b71b67edc94e6fb0d506d6992c73ccb805b8a2ed4e68428eb5080151d88ccb3",
+          "upload_time": "2026-11-05T21:01:30.971544Z",
+          "metadata_verified": true
+        },
+        {
+          "filename": "agentic_chaos-1.0.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/a9/a8/7b9dc1bd8ef7358d347377c9d6b7aa0670a79949bcbbf35586bcf9ec1086/agentic_chaos-1.0.0.tar.gz",
+          "sha256": "ab23ddff45c3dcf9132cfa9846a1b560d0ba485e39d5a0f93fc77dd56b8c8f23",
+          "upload_time": "2026-11-05T21:01:32.853878Z",
+          "metadata_verified": true
+        }
+      ]
+    },
+    "agentic-evals": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "33c9e86be8bfadbe49aa724d91885c6fc3c48977",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:08:54Z",
+        "url": "https://github.com/DeepAgentLabs/agentic-evals/releases/tag/v1.0.0"
+      },
+      "distribution": "agentic-evals",
+      "release_workflow": {
+        "url": "https://github.com/DeepAgentLabs/agentic-evals/actions/runs/42109806625",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "pypi_artifacts": [
+        {
+          "filename": "agentic_evals-1.0.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/d7/f3/16b349a45c6ecb143039b25887847f3465accb7a82cb2403fef8c69dd54f/agentic_evals-1.0.0-py3-none-any.whl",
+          "sha256": "fefec98898399bee6c927cc178e509f99af3d875611c535ab69a70253ad8e6b9",
+          "upload_time": "2026-11-05T21:08:37.972842Z",
+          "metadata_verified": true
+        },
+        {
+          "filename": "agentic_evals-1.0.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/4c/32/46b677e2b3ab45034d2e7d42aaf854e27163808ad6d5f984b7efddcd23e0/agentic_evals-1.0.0.tar.gz",
+          "sha256": "4fa7917ead56aa87546eb8d8bce1b9936d9f2f780d8db02bd22f9ce7053de117",
+          "upload_time": "2026-11-05T21:08:39.650461Z",
+          "metadata_verified": true
+        }
+      ]
+    },
+    "agentic-sidecar": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "255471662e158c83e7d0f66d336a85e1d0760700",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:09:49Z",
+        "url": "https://github.com/DeepAgentLabs/agentic-sidecar/releases/tag/v1.0.0"
+      },
+      "distribution": "agentic-sidecar",
+      "release_workflow": {
+        "url": "https://github.com/DeepAgentLabs/agentic-sidecar/actions/runs/42109846092",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "pypi_artifacts": [
+        {
+          "filename": "agentic_sidecar-1.0.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/61/b6/99274fded70250e3b994f9a1af664ce2b5e29f8e53deebae6619916cf6f9/agentic_sidecar-1.0.0-py3-none-any.whl",
+          "sha256": "aaa1cdda9e2c9c379ac0bebb1b6c34638e49993eddb8e4e2b3a1ad1160df1513",
+          "upload_time": "2026-11-05T21:09:36.308496Z",
+          "metadata_verified": true
+        },
+        {
+          "filename": "agentic_sidecar-1.0.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/4b/04/f975538eb06ab76006d629b27b983a0a752c9f0e146ca513d45dde220aec/agentic_sidecar-1.0.0.tar.gz",
+          "sha256": "2416d56489910ac690367fe08fac64ee740cb7ab864a808446406869d2f1c838",
+          "upload_time": "2026-11-05T21:09:37.871344Z",
+          "metadata_verified": true
+        }
+      ]
+    },
+    "mcp-server": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "8e7bfabad6b91ee0c7a36a4d3901da6b7b8c698c",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:22:48Z",
+        "url": "https://github.com/DeepAgentLabs/mcp-server/releases/tag/v1.0.0"
+      },
+      "distribution": "deep-agentic-core-mcp",
+      "release_workflow": {
+        "url": "https://github.com/DeepAgentLabs/mcp-server/actions/runs/42111779267",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "pypi_artifacts": [
+        {
+          "filename": "deep_agentic_core_mcp-1.0.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/3d/05/76e5f35ad4cdc8beebd81a5bb861299965a4119c573e109671a2d0d3ed48/deep_agentic_core_mcp-1.0.0-py3-none-any.whl",
+          "sha256": "c6bd693cf84d34d11134037344d2568ec3c53f59b6a421edd42de20829f5c0a7",
+          "upload_time": "2026-11-05T21:22:33.680041Z",
+          "metadata_verified": true
+        },
+        {
+          "filename": "deep_agentic_core_mcp-1.0.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/60/f7/497fae673d3841cc946b702c5f146e4d85db4d609116d975f7495335c76c/deep_agentic_core_mcp-1.0.0.tar.gz",
+          "sha256": "63c0eaaf6db54951a24ff74490a782bce016eff4c1df2c283c022c5b3441295a",
+          "upload_time": "2026-11-05T21:22:35.733699Z",
+          "metadata_verified": true
+        }
+      ]
+    },
+    "agenticops-control-tower": {
+      "version": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "1d2c5ec8b2b880caa4652440dfdabef993d9febb",
+      "github_release": {
+        "isDraft": false,
+        "isPrerelease": false,
+        "publishedAt": "2026-11-05T21:13:49Z",
+        "url": "https://github.com/DeepAgentLabs/agenticops-control-tower/releases/tag/v1.0.0"
+      },
+      "distribution": "agenticops-control-tower",
+      "release_workflow": {
+        "url": "https://github.com/DeepAgentLabs/agenticops-control-tower/actions/runs/42110508894",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "pypi_artifacts": [
+        {
+          "filename": "agenticops_control_tower-1.0.0-py3-none-any.whl",
+          "url": "https://files.pythonhosted.org/packages/29/f7/6cd98ae2546c70c6fdc595518408453a363577c5506c599ea0a58f1b383b/agenticops_control_tower-1.0.0-py3-none-any.whl",
+          "sha256": "e466118a9a8c79e53bd2ed1abe51605dee62eafcfb87698c291a2b918239840c",
+          "upload_time": "2026-11-05T21:13:35.526421Z",
+          "metadata_verified": true
+        },
+        {
+          "filename": "agenticops_control_tower-1.0.0.tar.gz",
+          "url": "https://files.pythonhosted.org/packages/0a/e6/0e83e8aab277e7fd7e680bb3b4ca30a22fbbfed00e4d88088e90e218d3b6/agenticops_control_tower-1.0.0.tar.gz",
+          "sha256": "a0432716ce8d4f26b9f899a2e032433e0359c5a8e416cb82f3023ff356dcd053",
+          "upload_time": "2026-11-05T21:13:36.985673Z",
+          "metadata_verified": true
+        }
+      ]
+    }
+  },
+  "checks": {
+    "all_seven_tags_match_source_matrix": true,
+    "github_releases_verified": true,
+    "six_pypi_wheels_and_sdists_sha256_and_metadata_verified": true,
+    "fresh_published_matrix_dependency_check": true,
+    "fresh_published_matrix_contracts_and_source_origins": true,
+    "five_cli_help_commands": true,
+    "standalone_published_mcp_stdio_protocol": true
+  },
+  "mcp_registry": {
+    "name": "io.github.DeepAgentLabs/deep-agentic-core-mcp",
+    "version": "1.0.0",
+    "publication_workflow": "https://github.com/DeepAgentLabs/mcp-server/actions/runs/42111779267",
+    "job_conclusion": "success"
+  },
+  "recorded_at": "2026-11-05T21:24:24.425091+00:00",
+  "source_matrix_digest": "0884ce32844f709bcb40684be4a25d12273f155b7c708e6dc44e5f78bc3881c3",
+  "runtime_pins": {
+    "mcp": "2.0.0"
+  },
+  "fresh_install_extras": [
+    "agenticops-control-tower[api]"
+  ],
+  "fresh_install_distributions": {
+    "agentic-chaos": "1.0.0",
+    "six": "1.17.0",
+    "pydantic": "2.14.3",
+    "cryptography": "50.0.2",
+    "idna": "3.20",
+    "tzdata": "2026.6",
+    "shellingham": "1.5.4",
+    "click": "8.5.0",
+    "jsonschema-specifications": "2025.9.1",
+    "pydantic_core": "2.50.4",
+    "isoduration": "20.11.0",
+    "opentelemetry-api": "1.45.2",
+    "agenticops-control-tower": "1.0.0",
+    "referencing": "0.37.0",
+    "uri-template": "1.3.0",
+    "webcolors": "25.10.0",
+    "rfc3987": "1.3.8",
+    "certifi": "2026.10.23",
+    "sse-starlette": "3.6.0",
+    "rpds-py": "2026.9.1",
+    "python-multipart": "0.0.33",
+    "httpcore2": "2.16.0",
+    "typing-inspection": "0.4.5",
+    "markdown-it-py": "4.2.0",
+    "typing_extensions": "4.16.0",
+    "python-dateutil": "4.0.0",
+    "httpx": "0.28.1",
+    "PyJWT": "2.15.1",
+    "starlette": "1.10.0",
+    "attrs": "26.1.0",
+    "cffi": "2.1.1",
+    "arrow": "1.4.0",
+    "httpcore": "1.0.9",
+    "annotated-types": "0.8.0",
+    "agentic-evals": "1.0.0",
+    "h11": "0.16.0",
+    "mcp-types": "2.0.0",
+    "fastapi": "0.162.0",
+    "uvicorn": "0.54.0",
+    "packaging": "26.3",
+    "agenticlens": "1.0.0",
+    "deep-agentic-core-mcp": "1.0.0",
+    "agentic-sidecar": "1.0.0",
+    "typer": "0.27.3",
+    "mcp": "2.0.0",
+    "rfc3339-validator": "0.1.4",
+    "jsonschema": "4.26.0",
+    "truststore": "0.10.5",
+    "pycparser": "3.12",
+    "PyYAML": "6.0.3",
+    "rich": "13.9.4",
+    "jsonpointer": "3.9",
+    "annotated-doc": "0.0.5",
+    "mdurl": "0.1.2",
+    "fqdn": "1.6.0",
+    "Pygments": "2.21.0",
+    "httpx2": "2.16.0",
+    "anyio": "4.16.0"
+  }
+}

@@ -4,12 +4,12 @@ The maintainer authorized package/repository 1.0.0 as a milestone with the
 remaining acceptance work disclosed, under [the revised policy](RELEASE_POLICY.md).
 The engineering evidence below does not close independent or stable-schema gates.
 The current matrix can contain 1.x packages while draft schema markers remain.
-The earlier pre-1.0 baseline and sequencing below describe the preparation history;
-follow the revised policy for milestone publication. Strict --require-ready still
-requires every gate before making a full stability claim.
+The matrix and publication procedure below follow the milestone policy. Strict
+--require-ready still requires every gate before making a full stability claim.
 
 
-The implementation baseline is a pre-1.0 candidate, not a stable release.
+The implementation baseline is the coordinated 1.0.0 milestone; shared draft
+contracts have not been promoted to stable.
 Supported scope follows each repository's current guides: local/single-node
 services, explicit authenticated HTTP boundaries, host-bound supervision and
 access controls, source-attributed native evidence and bounded staging recovery.
@@ -22,13 +22,13 @@ freezing require maintainer acceptance after the independent reviews.
 
 | Component | Candidate | Engineering acceptance |
 | --- | --- | --- |
-| AIOS | 0.8.1 | MIT licensing; unchanged 0.4/0.6/0.8 draft schemas and 66-case portable suite with 5 held-byte resolution cases |
-| Lens | 0.14.0 | All draft families validated offline from notice-preserving pinned assets; native judge verification exports |
-| MCP | 0.8.0 | All draft families and provenance resolution; packaged standalone schemas and native access audit exports |
-| Sidecar | 0.11.0 | Privacy-preserving native audit exports; required-provider smoke mode rejects missing results |
-| Tower | 0.11.0 | Native incident investigations with explicit citations, redacted text and independent closure/recovery states |
-| Evals | 0.12.0 | Existing report/gate/scoring contracts, including unavailable judgments |
-| Chaos | 0.11.0 | Existing native resilience/containment evidence and ChaosHub |
+| AIOS | 1.0.0 | MIT licensing; unchanged 0.4/0.6/0.8 draft schemas and 66-case portable suite with 5 held-byte resolution cases |
+| Lens | 1.0.0 | All draft families validated offline from notice-preserving pinned assets; native judge verification exports |
+| MCP | 1.0.0 | All draft families and provenance resolution; packaged standalone schemas and native access audit exports |
+| Sidecar | 1.0.0 | Privacy-preserving native audit exports; required-provider smoke mode rejects missing results |
+| Tower | 1.0.0 | Native incident investigations with explicit citations, redacted text and independent closure/recovery states |
+| Evals | 1.0.0 | Existing report/gate/scoring contracts, including unavailable judgments |
+| Chaos | 1.0.0 | Existing native resilience/containment evidence and ChaosHub |
 
 The exact source pins and contract markers are in [candidate.json](../release/candidate.json).
 New companion exporters preserve source identity, native outcomes and unknown
@@ -80,7 +80,7 @@ publishes. Diagnostic readiness exits zero and can report ready=false.
 `--require-ready` exits 2 until every fixed required gate has matching evidence.
 Internal tests and bot reviews cannot close independent gates.
 
-## Remaining required acceptance
+## Remaining stability acceptance
 
 Reviewers start with the [single reviewer entry page](EXTERNAL_REVIEW_CHECKLIST.md),
 choose one area, and submit the linked report. The [detailed task requirements](EXTERNAL_REVIEW_DETAILS.md)
@@ -130,20 +130,22 @@ review provenance and reviewer relationship before accepting/merging receipts.
 No cryptographic reviewer authentication or third-party certification is claimed.
 
 The stable freeze cannot pass while approved markers still end in -draft or
--candidate. Do not create 1.0 tags as a substitute for closing that obligation.
+-candidate. A 1.0.0 milestone tag does not close that obligation.
 
-## Publication sequence
+## Milestone publication sequence
 
-1. Land/test the licensing and implementation increments through minor/patch
-   releases, preserving public compatibility and optional dependencies.
-2. Pin their reviewed source commits in the coordinated matrix and record the
-   internal installed-wheel result. No unchanged sibling needs a patch release
-   for documentation-only alignment.
-3. Obtain and review the missing external, deployment and provider evidence.
-4. Resolve review findings, approve final supported scope and implement the
-   stable schema/API freeze with migration/rollback and consumer compatibility.
-5. Rebuild/retest the exact resulting candidates; run the mandatory readiness
-   gate before any coordinated 1.0 publication.
+1. Prepare matching 1.0.0 metadata, changelogs, compatible dependency bounds,
+   lockfiles and an explicit statement of remaining validation in each project.
+2. Run the repository checks and isolated installed-wheel acceptance. Record the
+   exact source matrix and actual internal evidence without outside-review claims.
+3. Merge release changes and tag in dependency order through existing pipelines.
+   Lens preserves its historical v1.0.0 tag and uses v1.0.0-ecosystem for the
+   coordinated package 1.0.0 release. AIOS is a document/repository release.
+4. Verify published wheel/source artifacts, GitHub releases and MCP Registry
+   publication; test a fresh installation of the coordinated matrix.
+5. Continue independent review, deployment/provider acceptance and the stable
+   contract freeze as roadmap work. The strict readiness report remains false
+   while those inputs are absent.
 
-Publishing the current minor releases does not deploy AWS or certify a cluster.
-The coordinated launch remains gated; it is not an atomic registry transaction.
+Publishing this milestone does not deploy AWS or certify a cluster. It is not
+an atomic registry transaction. See [the release summary](RELEASE_1_0_0.md).

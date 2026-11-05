@@ -1,48 +1,48 @@
 {
   "schema_version": "ecosystem.candidate/1",
-  "scope": "documented-local-candidate",
+  "scope": "coordinated-1.0.0-milestone",
   "candidates": {
     "ai-operations-spec": {
       "repository": "DeepAgentLabs/ai-operations-spec",
       "distribution": null,
-      "version": "0.8.1",
-      "commit": "b8fe4e6ebb9b9d5e51970d29874f87c3f656b14a"
+      "version": "1.0.0",
+      "commit": "f83d5392c2ef9402f821a5fe3009b14086b19a41"
     },
     "agenticlens": {
       "repository": "DeepAgentLabs/agenticlens",
       "distribution": "agenticlens",
-      "version": "0.14.0",
-      "commit": "a444ff8abad5fdca9e7b636a3afa141698c1bc37"
+      "version": "1.0.0",
+      "commit": "e74703394ee0965c2a4290227d7366114d386f9a"
     },
     "agentic-chaos": {
       "repository": "DeepAgentLabs/agentic-chaos",
       "distribution": "agentic-chaos",
-      "version": "0.11.0",
-      "commit": "0c45ce10a7d6c2f46e0b517c46a0c1cf180dff0a"
+      "version": "1.0.0",
+      "commit": "4404e5dff600acc29ad6b34baa1ff28c96c6191e"
     },
     "agentic-evals": {
       "repository": "DeepAgentLabs/agentic-evals",
       "distribution": "agentic-evals",
-      "version": "0.12.0",
-      "commit": "88781d7e51ab1fff3028104f0591d77fb6ad30ca"
+      "version": "1.0.0",
+      "commit": "33c9e86be8bfadbe49aa724d91885c6fc3c48977"
     },
     "agentic-sidecar": {
       "repository": "DeepAgentLabs/agentic-sidecar",
       "distribution": "agentic-sidecar",
-      "version": "0.11.0",
-      "commit": "64f671b86755aef9af1d2f828950f060302a137b"
+      "version": "1.0.0",
+      "commit": "255471662e158c83e7d0f66d336a85e1d0760700"
     },
     "mcp-server": {
       "repository": "DeepAgentLabs/mcp-server",
       "distribution": "deep-agentic-core-mcp",
-      "version": "0.8.0",
-      "commit": "fda0c3e705e2176daa0bc50d52d68cb74f526965"
+      "version": "1.0.0",
+      "commit": "8e7bfabad6b91ee0c7a36a4d3901da6b7b8c698c"
     },
     "agenticops-control-tower": {
       "repository": "DeepAgentLabs/agenticops-control-tower",
       "distribution": "agenticops-control-tower",
-      "version": "0.11.0",
-      "commit": "1e8a3dd0ae3f379e75ca5cf4263f7cffb2d36b7f"
+      "version": "1.0.0",
+      "commit": "1d2c5ec8b2b880caa4652440dfdabef993d9febb"
     }
   },
   "contract_markers": {
@@ -76,7 +76,7 @@
   "evidence": {
     "wheel-interoperability": {
       "path": "release/evidence/wheel-acceptance.json",
-      "sha256": "8d23b66958702f2d9ab18e302136d04cd9281f0cd64ebae002abc65798095ab0"
+      "sha256": "75fca7d7a26cad1e29ebdadcf603270442f62c0c28e827cf9dae28f77586b297"
     }
   },
   "runtime_pins": {
