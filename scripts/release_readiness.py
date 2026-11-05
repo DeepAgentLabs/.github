@@ -64,9 +64,9 @@ def validate_manifest(manifest):
             raise ValueError(f"Unexpected repository/distribution: {repo}")
         if not re.fullmatch(r"[a-f0-9]{40}", row.get("commit", "")):
             raise ValueError(f"An immutable full commit is required: {repo}")
-        if not re.fullmatch(r"0\.[0-9]+\.[0-9]+", row.get("version", "")):
+        if not re.fullmatch(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)", row.get("version", "")):
             raise ValueError(
-                "Pre-1.0 candidate versions are required until acceptance closes"
+                "Explicit release versions are required; versions do not establish acceptance"
             )
     if not isinstance(manifest.get("evidence", {}), dict) or set(
         manifest.get("evidence", {})

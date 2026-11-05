@@ -1,4 +1,13 @@
-# Coordinated v1.0 readiness plan
+# Coordinated 1.0.0 milestone and remaining readiness
+
+The maintainer authorized package/repository 1.0.0 as a milestone with the
+remaining acceptance work disclosed, under [the revised policy](RELEASE_POLICY.md).
+The engineering evidence below does not close independent or stable-schema gates.
+The current matrix can contain 1.x packages while draft schema markers remain.
+The earlier pre-1.0 baseline and sequencing below describe the preparation history;
+follow the revised policy for milestone publication. Strict --require-ready still
+requires every gate before making a full stability claim.
+
 
 The implementation baseline is a pre-1.0 candidate, not a stable release.
 Supported scope follows each repository's current guides: local/single-node
