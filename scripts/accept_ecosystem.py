@@ -12,6 +12,7 @@ import json
 import os
 import subprocess
 import tempfile
+import tarfile
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -37,6 +38,31 @@ def clean_commit(path, expected):
         )
 
 
+def materialize_commit(path, expected, destination):
+    """Build from committed bytes only; ignored workspace files cannot enter."""
+    destination.mkdir()
+    archive = destination.with_suffix(".tar")
+    run(["git", "archive", "--format=tar", f"--output={archive}", expected], cwd=path)
+    with tarfile.open(archive) as source:
+        source.extractall(destination, filter="data")
+    archive.unlink()
+    return {
+        item.relative_to(destination): hashlib.sha256(item.read_bytes()).hexdigest()
+        for item in destination.rglob("*")
+        if item.is_file()
+    }
+
+
+def verify_source_snapshot(destination, snapshot):
+    for relative, expected in snapshot.items():
+        path = destination / relative
+        if (
+            not path.is_file()
+            or hashlib.sha256(path.read_bytes()).hexdigest() != expected
+        ):
+            raise ValueError(f"Build mutated committed source: {relative}")
+
+
 def main():
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
@@ -45,23 +71,47 @@ def main():
     )
     parser.add_argument("--workspace", type=Path, default=root.parent)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--record-evidence",
+        action="store_true",
+        help="Record the held receipt digest in this manifest after success",
+    )
     args = parser.parse_args()
     args.workspace = args.workspace.resolve()
     manifest = json.loads(args.manifest.read_text())
     candidate_digest = validate_manifest(manifest)
+    manifest_before = args.manifest.read_bytes()
+    receipt_relative = None
+    if args.record_evidence:
+        receipt_relative = args.output.resolve().relative_to(
+            args.manifest.resolve().parents[1]
+        )
+        if not args.output.resolve().is_relative_to(
+            args.manifest.resolve().parents[1] / "release/evidence"
+        ):
+            raise ValueError("Recorded evidence must be held under release/evidence")
     for repo, candidate in manifest["candidates"].items():
         clean_commit(args.workspace / repo, candidate["commit"])
     wheels = {}
     with tempfile.TemporaryDirectory(prefix="ecosystem-acceptance-") as temporary:
         temp = Path(temporary)
         wheel_dir = temp / "wheels"
+        sources = temp / "sources"
+        sources.mkdir()
+        snapshots = {}
+        for repo, candidate in manifest["candidates"].items():
+            snapshots[repo] = materialize_commit(
+                args.workspace / repo, candidate["commit"], sources / repo
+            )
         for repo, distribution in REPOSITORIES.items():
             if distribution is None:
                 continue
             run(
                 ["uv", "build", "--wheel", "--out-dir", str(wheel_dir)],
-                cwd=args.workspace / repo,
+                cwd=sources / repo,
             )
+            verify_source_snapshot(sources / repo, snapshots[repo])
+            clean_commit(args.workspace / repo, manifest["candidates"][repo]["commit"])
             version = manifest["candidates"][repo]["version"]
             matches = list(
                 wheel_dir.glob(f"{distribution.replace('-', '_')}-{version}-*.whl")
@@ -112,7 +162,7 @@ def main():
                     [
                         str(python),
                         "-I",
-                        str(args.workspace / "mcp-server/scripts/smoke_protocol.py"),
+                        str(sources / "mcp-server/scripts/smoke_protocol.py"),
                     ],
                     cwd=empty,
                     env=env,
@@ -132,7 +182,7 @@ def main():
             ]
         )
         suite = (
-            args.workspace
+            sources
             / "ai-operations-spec/specification/v0.6/conformance-suite/suite.json"
         )
         run(
@@ -188,8 +238,19 @@ def main():
                 for repo, path in wheels.items()
             },
         }
+        for repo, candidate in manifest["candidates"].items():
+            verify_source_snapshot(sources / repo, snapshots[repo])
+            clean_commit(args.workspace / repo, candidate["commit"])
+        if args.manifest.read_bytes() != manifest_before:
+            raise ValueError("Candidate manifest changed during acceptance")
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(evidence, indent=2) + "\n")
+        if args.record_evidence:
+            manifest.setdefault("evidence", {})["wheel-interoperability"] = {
+                "path": receipt_relative.as_posix(),
+                "sha256": hashlib.sha256(args.output.read_bytes()).hexdigest(),
+            }
+            args.manifest.write_text(json.dumps(manifest, indent=2) + "\n")
     print(
         f"Recorded internal acceptance in {args.output}; independent/live/freeze gates remain separate."
     )
