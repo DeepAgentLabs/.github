@@ -548,3 +548,15 @@ Source-inspected sibling mappings justify shared drafts, but no sibling gains
 an exporter or validator automatically. Sibling alignment is documentation-only:
 no runtime dependency increases or package patch releases. Independent review,
 external validator/producer evidence and coordinated v1.0 stability remain open.
+
+## Coordinated v1.0 engineering candidate
+
+AIOS 0.8.1 adds MIT licensing and adoption evidence; Lens 0.14.0 and MCP 0.8.0
+validate all draft companion families offline; Sidecar 0.11.0 and Tower 0.11.0
+add native operational projections. Chaos 0.11.0 and Evals 0.12.0 remain the
+resilience/scoring baselines. These are pre-1.0 implementation candidates.
+
+The [readiness plan](V1_READINESS.md) and [pinned candidate matrix](../release/candidate.json)
+separate isolated-wheel/internal validation from independent review, deployment
+acceptance, live providers and the final stable freeze. Missing evidence blocks
+release eligibility; it is not replaced by a successful test or bot review.
