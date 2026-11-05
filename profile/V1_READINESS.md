@@ -73,9 +73,9 @@ Internal tests and bot reviews cannot close independent gates.
 
 ## Remaining required acceptance
 
-Reviewers can use the [plain-language task checklist](EXTERNAL_REVIEW_CHECKLIST.md)
-and [report template](EXTERNAL_REVIEW_REPORT_TEMPLATE.md) to choose work and
-submit evidence without writing machine-readable release receipts.
+Reviewers start with the [single reviewer entry page](EXTERNAL_REVIEW_CHECKLIST.md),
+choose one area, and submit the linked report. The [detailed task requirements](EXTERNAL_REVIEW_DETAILS.md)
+remain available for specialists and acceptance tracking.
 
 | Gate | What closes it | Current owner/input |
 | --- | --- | --- |

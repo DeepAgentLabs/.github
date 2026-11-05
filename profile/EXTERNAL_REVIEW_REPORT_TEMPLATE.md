@@ -8,7 +8,7 @@ reviewed. Partial results, failures and disagreements are welcome.
 - Reviewer / contact:
 - Organization or independent practitioner:
 - Date:
-- Task IDs from the [checklist](EXTERNAL_REVIEW_CHECKLIST.md):
+- Chosen area (A–E) from the [start page](EXTERNAL_REVIEW_CHECKLIST.md), or detailed task IDs:
 - Projects and package versions:
 - Full source commits / candidate-manifest revision:
 - Environment (OS, Python, framework, storage, relevant settings):

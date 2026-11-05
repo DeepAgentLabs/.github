@@ -67,8 +67,8 @@ See the [Sidecar acceptance criteria](https://github.com/DeepAgentLabs/agentic-s
 
 Found a bug or have an idea? Open an issue or discussion on the relevant repository above. Most projects also publish to PyPI — search for the package name shown next to each project.
 
-Want to review the ecosystem? Start with the [external reviewer task list](EXTERNAL_REVIEW_CHECKLIST.md).
-Choose a track, follow the checks, and send back the [short report template](EXTERNAL_REVIEW_REPORT_TEMPLATE.md).
+Want to review the ecosystem? [Start here](EXTERNAL_REVIEW_CHECKLIST.md):
+choose one area, follow its steps, and send the single linked report.
 
 ## AgenticLens 0.11.0: optimization intelligence
 
