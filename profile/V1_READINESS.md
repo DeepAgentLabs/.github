@@ -30,8 +30,8 @@ Schema/semantic validation is separate from truth, integrity and completeness.
 
 ## Executable acceptance
 
-From the organization repository checkout, with the sibling repositories at the
-manifest's exact clean commits:
+Use Python 3.12+ and `uv` (CI installs Python 3.12). From the organization
+repository checkout, with sibling repositories at the manifest's exact clean commits:
 
 ```bash
 python3 -m unittest discover -s tests -v
