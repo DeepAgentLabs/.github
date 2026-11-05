@@ -17,6 +17,7 @@ spec.loader.exec_module(readiness)
 def manifest():
     return {
         "schema_version": "ecosystem.candidate/1",
+        "runtime_pins": {"mcp": "2.0.0"},
         "candidates": {
             repo: {
                 "repository": f"DeepAgentLabs/{repo}",

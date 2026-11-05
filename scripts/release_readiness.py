@@ -72,6 +72,13 @@ def validate_manifest(manifest):
         manifest.get("evidence", {})
     ) - set(GATES):
         raise ValueError("Unknown acceptance gate")
+    runtime = manifest.get("runtime_pins")
+    if (
+        not isinstance(runtime, dict)
+        or set(runtime) != {"mcp"}
+        or not re.fullmatch(r"2\.[0-9]+\.[0-9]+", runtime.get("mcp", ""))
+    ):
+        raise ValueError("An explicit supported MCP SDK runtime pin is required")
     markers = manifest.get("contract_markers")
     if (
         not isinstance(markers, dict)
@@ -86,7 +93,9 @@ def validate_manifest(manifest):
         raise ValueError(
             "Explicit nonempty candidate contract marker lists are required"
         )
-    return digest({"candidates": candidates, "contract_markers": markers})
+    return digest(
+        {"candidates": candidates, "contract_markers": markers, "runtime_pins": runtime}
+    )
 
 
 def read_evidence(root, entry):

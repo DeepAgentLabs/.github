@@ -73,6 +73,8 @@ def main():
         assert (
             Path(module.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())
         ), (repo, module.__file__)
+    if args.package is None or args.package == "mcp-server":
+        assert importlib.metadata.version("mcp") == manifest["runtime_pins"]["mcp"]
     if args.package:
         # Import the real public boundary, not only a package __init__.
         boundaries = {

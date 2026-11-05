@@ -78,7 +78,21 @@ def main():
             venv = temp / f"base-{repo}"
             run(["uv", "venv", str(venv)])
             python = venv / "bin/python"
-            run(["uv", "pip", "install", "--python", str(python), str(wheel)])
+            run(
+                [
+                    "uv",
+                    "pip",
+                    "install",
+                    "--python",
+                    str(python),
+                    str(wheel),
+                    *(
+                        [f"mcp=={manifest['runtime_pins']['mcp']}"]
+                        if repo == "mcp-server"
+                        else []
+                    ),
+                ]
+            )
             run(
                 [
                     str(python),
@@ -114,6 +128,7 @@ def main():
                 "--python",
                 str(python),
                 *map(str, wheels.values()),
+                f"mcp=={manifest['runtime_pins']['mcp']}",
             ]
         )
         suite = (
@@ -132,6 +147,19 @@ def main():
             ],
             cwd=empty,
             env=env,
+        )
+        dependency_versions = json.loads(
+            subprocess.check_output(
+                [
+                    str(python),
+                    "-I",
+                    "-c",
+                    "import importlib.metadata,json; print(json.dumps({d.metadata['Name']:d.version for d in importlib.metadata.distributions()}))",
+                ],
+                text=True,
+                cwd=empty,
+                env=env,
+            )
         )
         evidence = {
             "gate_id": "wheel-interoperability",
@@ -154,6 +182,7 @@ def main():
                 ]
             },
             "standalone_packages": isolated,
+            "runtime_dependencies": dependency_versions,
             "wheel_sha256": {
                 repo: hashlib.sha256(path.read_bytes()).hexdigest()
                 for repo, path in wheels.items()

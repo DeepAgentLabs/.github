@@ -6,7 +6,7 @@
       "repository": "DeepAgentLabs/ai-operations-spec",
       "distribution": null,
       "version": "0.8.1",
-      "commit": "78f1fb682125afc30a3c12003e9beb3c577f793f"
+      "commit": "b8fe4e6ebb9b9d5e51970d29874f87c3f656b14a"
     },
     "agenticlens": {
       "repository": "DeepAgentLabs/agenticlens",
@@ -73,5 +73,13 @@
       "lens.enterprise.gate/1-candidate"
     ]
   },
-  "evidence": {}
+  "evidence": {
+    "wheel-interoperability": {
+      "path": "release/evidence/wheel-acceptance.json",
+      "sha256": "ee9fae595f8a837a41f2048bea92bcfd3f21aea4ff38817e4fd936f93e2bfe81"
+    }
+  },
+  "runtime_pins": {
+    "mcp": "2.0.0"
+  }
 }
