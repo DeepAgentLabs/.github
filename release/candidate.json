@@ -1,0 +1,77 @@
+{
+  "schema_version": "ecosystem.candidate/1",
+  "scope": "documented-local-candidate",
+  "candidates": {
+    "ai-operations-spec": {
+      "repository": "DeepAgentLabs/ai-operations-spec",
+      "distribution": null,
+      "version": "0.8.1",
+      "commit": "78f1fb682125afc30a3c12003e9beb3c577f793f"
+    },
+    "agenticlens": {
+      "repository": "DeepAgentLabs/agenticlens",
+      "distribution": "agenticlens",
+      "version": "0.14.0",
+      "commit": "c326dd3915a3c2604c07d62d05a5451c03471642"
+    },
+    "agentic-chaos": {
+      "repository": "DeepAgentLabs/agentic-chaos",
+      "distribution": "agentic-chaos",
+      "version": "0.11.0",
+      "commit": "91b1db3ca91d4621e0ff20a41956ba9facf276c7"
+    },
+    "agentic-evals": {
+      "repository": "DeepAgentLabs/agentic-evals",
+      "distribution": "agentic-evals",
+      "version": "0.12.0",
+      "commit": "17db44a53d6e370e9d6ddca414fb0727b25e8efe"
+    },
+    "agentic-sidecar": {
+      "repository": "DeepAgentLabs/agentic-sidecar",
+      "distribution": "agentic-sidecar",
+      "version": "0.11.0",
+      "commit": "9897cffd319e8974a8cf48d5ef1333860ca5f194"
+    },
+    "mcp-server": {
+      "repository": "DeepAgentLabs/mcp-server",
+      "distribution": "deep-agentic-core-mcp",
+      "version": "0.8.0",
+      "commit": "f3d34996c8c18295148fa39e8aaec5f96d2bc304"
+    },
+    "agenticops-control-tower": {
+      "repository": "DeepAgentLabs/agenticops-control-tower",
+      "distribution": "agenticops-control-tower",
+      "version": "0.11.0",
+      "commit": "1fc45710aeeef64d64f0f53f88fb21cd67eec508"
+    }
+  },
+  "contract_markers": {
+    "aios": [
+      "0.4-draft",
+      "0.6-draft",
+      "0.8-draft"
+    ],
+    "evals.report": [
+      "1.0"
+    ],
+    "evals.gate": [
+      "1.0"
+    ],
+    "sidecar": [
+      "sidecar.intent/1",
+      "sidecar.decision/1",
+      "sidecar.audit/1",
+      "sidecar.scope/1",
+      "sidecar.transfer/1"
+    ],
+    "tower": [
+      "tower.capabilities.v1"
+    ],
+    "lens.enterprise": [
+      "lens.enterprise.audit/1-candidate",
+      "lens.enterprise.compliance/1-candidate",
+      "lens.enterprise.gate/1-candidate"
+    ]
+  },
+  "evidence": {}
+}
