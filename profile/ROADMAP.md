@@ -2,7 +2,7 @@
 
 ## Minor releases until the coordinated v1.0 launch
 
-Final local roadmap phases continue as minor releases: AIOS v0.7, Chaos
+Final local roadmap phases continue as minor releases: AIOS v0.8, Chaos
 v0.11, Evals v0.12, Sidecar v0.10, Lens v0.13, MCP v0.7 and Tower v0.10.
 Reserve v1.0 for one coordinated ecosystem release after every project's
 readiness, compatibility and independent-review gates pass. The status entries
@@ -1186,3 +1186,19 @@ Sibling documentation aligns without unnecessary package releases. Package
 publication does not deploy AWS. Coordinated v1.0 remains gated on independent
 project acceptance, AIOS review and operator security/deployment evidence.
 See [the support policy, example, upgrade and rollback guide](https://github.com/DeepAgentLabs/mcp-server/blob/fcdf635d522acc8103173d2f7ef56539222d04b5/docs/release-readiness.md).
+
+
+## AIOS 0.8.0 operational artifacts
+
+AIOS delivers the remaining Phase 6.x development as exploratory verification
+signals, audit events and investigation reports with incident context/operator
+summaries. The new families use 0.8-draft; Run/Workflow remain 0.4-draft and
+provenance remains 0.6-draft. Schemas, rule catalogs, canonical examples and an
+expanded offline conformance suite are included.
+
+See [the operational artifact guide](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.8.0/specification/v0.8/README.md)
+and [ecosystem compatibility matrix](https://github.com/DeepAgentLabs/ai-operations-spec/blob/v0.8.0/docs/v0.8.0-ecosystem.md).
+Source-inspected sibling mappings justify shared drafts, but no sibling gains
+an exporter or validator automatically. Sibling alignment is documentation-only:
+no runtime dependency increases or package patch releases. Independent review,
+external validator/producer evidence and coordinated v1.0 stability remain open.
