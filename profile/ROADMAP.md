@@ -13,6 +13,16 @@ See the [release policy and remaining acceptance work](RELEASE_POLICY.md).
 
 The AI Operations Specification comes before SDK ergonomics, package features, dashboards, or integrations. The specification is the foundation; the packages are reference implementations of that foundation.
 
+## Copilot access to all seven product references — MCP 1.1.0
+
+The MCP package bundles each product's robust AI reference, capability index,
+source/checksum manifest and license notice. `core.docs_catalog`, `core.docs_search`
+and `core.docs_read` support discovery and complete, bounded reference retrieval
+with commit-pinned citations. Native MCP resources and `core.build_with_ecosystem`
+guide connected copilots when generating integrations. This works offline without
+installing producer packages; documentation versions remain distinct from installed
+runtime versions. Hosted availability follows operator deployment of MCP 1.1.0.
+
 ## 🧭 Direction
 
 DeepAgentLabs should follow the pattern used by the strongest ecosystems:
