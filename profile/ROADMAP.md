@@ -23,6 +23,21 @@ guide connected copilots when generating integrations. This works offline withou
 installing producer packages; documentation versions remain distinct from installed
 runtime versions. Hosted availability follows operator deployment of MCP 1.1.0.
 
+## Account linking and workflow skills — MCP 1.2.0
+
+MCP 1.2.0 adds opt-in authorization code with S256 PKCE and rotating refresh
+tokens linked to existing API-key accounts. Shared PostgreSQL/Redis records
+support atomic rotation, replay detection, revocation and live permission checks.
+The plugin 0.1.0 source combines four shared skills with portable and Claude
+manifests, retrieving existing product references instead of duplicating manuals.
+
+Release publication is separate from hosted deployment, client registration,
+account installation and ChatGPT/Claude directory submission. Live host acceptance,
+automatic DCR/CIMD registration, Claude Code loopback authentication and a general
+local-runtime command channel remain outstanding. See the
+[OAuth guide](https://github.com/DeepAgentLabs/mcp-server/blob/v1.2.0/docs/chatgpt-oauth.md)
+and [workflow skills](https://github.com/DeepAgentLabs/mcp-server/blob/v1.2.0/docs/plugin-skills.md).
+
 ## 🧭 Direction
 
 DeepAgentLabs should follow the pattern used by the strongest ecosystems:
