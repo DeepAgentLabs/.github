@@ -43,6 +43,15 @@ Every component is independently usable. None of them require each other, and an
 | [**MCP Server**](https://github.com/DeepAgentLabs/mcp-server) (`deep-agentic-core-mcp`) | A single MCP interface for workflow inspection, evaluation and chaos/resilience tooling, plus bundled robust AI references for all seven products with catalog, search, bounded reads and source citations (MCP 1.1.0). |
 | [**AgenticOps Control Tower**](https://github.com/DeepAgentLabs/agenticops-control-tower) | An operations control plane for inventory, evidence posture, cited MCP investigation and approved verified staging recovery (0.6.0), plus approved fleet desired settings and bounded stop/MCP-revocation coordination (0.7.0), periodic local detection, durable alerts and joined incident console views (0.8.0), and versioned runbooks with exact-digest approval, bounded steps, compensation and verified recovery (0.9.0). |
 
+**MCP 1.2.0: OAuth and shared workflow skills.** The MCP server adds opt-in
+OAuth authorization code with S256 PKCE, rotating refresh tokens and existing
+API-key account linking. Four shared ChatGPT/Codex and Claude skills use the
+seven-product AI references for integration, diagnosis, release checks and Tower
+investigation. Registered clients, hosted deployment and live host acceptance
+remain operator work; Python publication does not publish directory listings or
+connect local runtimes. See the [release](https://github.com/DeepAgentLabs/mcp-server/releases/tag/v1.2.0)
+and [plugin source](https://github.com/DeepAgentLabs/mcp-server/tree/v1.2.0/plugins/deepagentlabs).
+
 See the [roadmap](ROADMAP.md) for how these pieces fit together and what's being built next.
 
 **Sidecar v0.8: Shared & Exclusive context/intent and guardrails.** Users may choose
